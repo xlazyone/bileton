@@ -23,7 +23,7 @@ frontend/
 ├── tests/                # Vitest + Testing Library
 ├── index.html
 ├── vite.config.js        # dev-сервер на localhost:5173, настройки тестов
-├── eslint.config.js
+├── .oxlintrc.json       # настройки линтера oxlint
 ├── package.json
 └── .env.example
 ```
@@ -121,12 +121,20 @@ email по формату, пароль 8–128 символов, пароли �
 ## Тесты и линтер
 
 ```bash
-npm test        # Vitest: валидация, мок-сервер, сценарии UC-01…UC-04 через интерфейс
-npm run lint    # ESLint
+npm test        # Vitest: валидация, мок-сервер, сценарии UC-01…UC-04, контракт с API
+npm run lint    # oxlint
 npm run build   # production-сборка в dist/
 ```
 
-Ручная проверка — [`docs/qa-checklist.md`](docs/qa-checklist.md).
+| Файл | Что проверяет |
+|---|---|
+| `tests/validation.test.js` | правила клиентской валидации (совпадают с `UserCreate` на backend) |
+| `tests/api.test.js` | мок-сервер повторяет контракт API, разбор ошибок FastAPI |
+| `tests/contract.test.js` | запросы к настоящему API: URL, тела, заголовок `Authorization`, реакция на 201/401/409/422/500 и обрыв сети |
+| `tests/authPages.test.jsx` | сценарии UC-01…UC-04 через интерфейс |
+
+Ручная проверка — [`docs/qa-checklist.md`](docs/qa-checklist.md),
+проверки безопасности — [`../docs/requirements/security-checklist.md`](../docs/requirements/security-checklist.md).
 
 ## Статус спринта 1
 
