@@ -117,7 +117,12 @@ export async function login({ email, password }) {
   if (!user || user.password !== password || !user.is_active) {
     throw new ApiError(401, 'Неверный email или пароль') // единое сообщение (UC-02 A2)
   }
-  return { access_token: `${TOKEN_PREFIX}${encodeURIComponent(user.id)}`, token_type: 'bearer' }
+  // Та же форма ответа, что у backend (TokenResponse): access_token, token_type, role
+  return {
+    access_token: `${TOKEN_PREFIX}${encodeURIComponent(user.id)}`,
+    token_type: 'bearer',
+    role: user.role,
+  }
 }
 
 /** GET /api/auth/me */
