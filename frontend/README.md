@@ -38,21 +38,35 @@ frontend/
 | `/profile` | Личный кабинет | viewer, controller |
 | `/controller` | Панель контроллера (заглушка) | controller |
 
-## Быстрый старт (macOS)
+## Быстрый старт
 
-Нужен Node.js 20.19+ или 22.12+ (`node -v`).
+Нужен Node.js LTS — 22.x (`node -v`), установщик: <https://nodejs.org>.
 
-```bash
+### Windows (PowerShell)
+
+```powershell
 cd frontend
 
 # 1. Зависимости
 npm install
 
 # 2. Настройки
-cp .env.example .env.local
+Copy-Item .env.example .env.local
 # по умолчанию VITE_USE_MOCKS=true — работаем без backend
 
 # 3. Запуск
+npm run dev
+```
+
+Если PowerShell пишет «выполнение сценариев отключено» при запуске `npm`, один раз выполните
+`Set-ExecutionPolicy -Scope CurrentUser RemoteSigned` или используйте `npm.cmd` вместо `npm`.
+
+### macOS / Linux
+
+```bash
+cd frontend
+npm install
+cp .env.example .env.local
 npm run dev
 ```
 
@@ -74,8 +88,8 @@ npm run dev
 После мержа JWT-ветки Lead Dev в `dev`:
 
 1. Запустить backend (`backend/README.md`, Swagger — <http://127.0.0.1:8000/docs>).
-2. В `frontend/.env.local` поставить `VITE_USE_MOCKS=false`.
-3. Перезапустить `npm run dev` (Vite читает `.env.local` только при старте).
+2. В `frontend/.env.local` поставить `VITE_USE_MOCKS=false` (файл открывается в любом редакторе, в том числе в PyCharm).
+3. Перезапустить `npm run dev` (Vite читает `.env.local` только при старте; остановка — <kbd>Ctrl</kbd>+<kbd>C</kbd>).
 4. Сверить в Swagger схему ответа `POST /api/auth/login`. Фронтенд ожидает `{"access_token": "..."}`
    или `{"token": "..."}` — если поле называется иначе, поправить `extractToken` в `src/api/auth.js`.
 
