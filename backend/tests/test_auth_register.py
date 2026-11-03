@@ -55,11 +55,6 @@ def test_duplicate_email_returns_409(register, db: Session) -> None:
     assert users_count(db) == 1
 
 
-@pytest.mark.xfail(
-    strict=True,
-    reason="БАГ: email сравнивается с учётом регистра — User@test.ru и user@test.ru "
-    "становятся двумя аккаунтами",
-)
 def test_duplicate_email_is_case_insensitive(register) -> None:
     assert register("Case@test.ru").status_code == 201
     assert register("case@test.ru").status_code == 409
@@ -135,11 +130,6 @@ def test_missing_required_field_returns_422(client, missing: str) -> None:
     assert client.post("/api/auth/register", json=body).status_code == 422
 
 
-@pytest.mark.xfail(
-    strict=True,
-    reason="БАГ SEC-IN-05: пароль из одних пробелов проходит валидацию "
-    "(min_length считает пробелы)",
-)
 def test_whitespace_only_password_returns_422(register) -> None:
     assert register("spaces@test.ru", password=" " * 8).status_code == 422
 

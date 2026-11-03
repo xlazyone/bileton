@@ -1,6 +1,5 @@
 """Сквозные проверки безопасности: утечки в ответах, CORS (SEC-AUTH-03, SEC-TR-03)."""
 
-import pytest
 
 from tests.conftest import PASSWORD, bearer
 
@@ -31,11 +30,6 @@ def test_error_responses_do_not_leak_password_hash(register, login) -> None:
         assert "$argon2" not in response.text
 
 
-@pytest.mark.xfail(
-    strict=True,
-    reason="БАГ SEC-AUTH-03: ответ 422 от FastAPI/Pydantic возвращает введённый пароль "
-    "в поле detail[].input",
-)
 def test_validation_errors_do_not_echo_password(register) -> None:
     secret = "Secret7"  # 7 символов — гарантированная ошибка валидации
     response = register("echo@test.ru", password=secret)
