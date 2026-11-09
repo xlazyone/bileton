@@ -5,15 +5,20 @@ WBS 4.3 | Role: [Lead Dev / Backend]
 import uuid
 from datetime import datetime, timezone
 from sqlalchemy.orm import Session
+
 from app.models.movie import Movie
 from app.models.session import Session as MovieSession
 
+
 def get_all_movies(db: Session) -> list[Movie]:
-    return db.query(Movie).all()
+    # US-01: Показываем только активные фильмы
+    return db.query(Movie).filter(Movie.is_active.is_(True)).all()
+
 
 def get_sessions_by_movie(db: Session, movie_id: uuid.UUID) -> list[MovieSession]:
     now = datetime.now(timezone.utc)
-    # US-02/US-03: сортировка по времени, прошедшие не показываем
+
+    # US-02/US-03: сортировка и скрытие прошедших
     return (
         db.query(MovieSession)
         .filter(MovieSession.movie_id == movie_id)

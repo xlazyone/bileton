@@ -10,6 +10,7 @@ from app.db.base import Base
 from app.models.movie import Movie
 from app.models.hall import Hall
 
+
 class Session(Base):
     __tablename__ = "sessions"
 
@@ -20,4 +21,5 @@ class Session(Base):
     price: Mapped[int] = mapped_column(Integer, nullable=False)
 
     movie = relationship("Movie")
-    hall = relationship("Hall", lazy="joined") # Жадная загрузка, чтобы не было N+1 запроса
+    # lazy="joined" нужен, чтобы зал подтягивался одним запросом (решает N+1)
+    hall = relationship("Hall", lazy="joined")
