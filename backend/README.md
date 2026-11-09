@@ -10,7 +10,7 @@ backend/
 │   ├── api/          # роутеры (health, auth)
 │   ├── core/         # настройки, безопасность (JWT — TODO Lead Dev)
 │   ├── db/           # Base и сессия SQLAlchemy
-│   ├── models/       # ORM-модели (users)
+│   ├── models/       # ORM-модели (users, movies, sessions)
 │   ├── schemas/      # Pydantic-схемы
 │   ├── services/     # бизнес-логика (auth — TODO Lead Dev)
 │   └── main.py       # точка входа
@@ -62,3 +62,8 @@ ruff check .
 - [x] CI и шаблоны PR/issue — [PM/Backend] (2.1.1, 2.2.1)
 - [ ] JWT, роли, эндпоинты `/auth/*` — [Lead Dev] (3.2.2)
 - [ ] дополнить инструкцию по локальному запуску — [Lead Dev] (2.1.2)
+
+## Статус спринта 2
+
+- [x] таблицы `movies` и `sessions`, миграция `0002`, тесты — [PM/Backend] (4.2)
+- [ ] эндпоинты `GET /movies` и `GET /sessions` — [Lead Dev] (4.3)
