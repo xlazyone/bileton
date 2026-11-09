@@ -2,7 +2,11 @@
 WBS 3.2.2, 4.2.2 | Role: [Lead Dev / Backend]
 Точка входа в приложение. Подключение роутеров и обработка ошибок валидации.
 """
-from fastapi import FastAPI, status
+from fastapi import FastAPI, Request, status
+from fastapi.encoders import jsonable_encoder
+from fastapi.exceptions import RequestValidationError
+from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import JSONResponse
 from fastapi.exceptions import RequestValidationError
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
@@ -27,13 +31,18 @@ app.add_middleware(
 
 # Issue: Защита от утечки введенных данных (паролей) в ответах об ошибках
 @app.exception_handler(RequestValidationError)
-async def validation_exception_handler(request, exc):
-    errors = exc.errors()
-    for error in errors:
+async def validation_exception_handler(
+    request: Request, exc: RequestValidationError
+) -> JSONResponse:
+    errors = []
+    for error in exc.errors():
         error.pop("input", None)  # Удаляем введенные данные из ответа
+        # ctx может содержать объект ValueError — он не сериализуется в JSON
+        error.pop("ctx", None)
+        errors.append(error)
     return JSONResponse(
         status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
-        content={"detail": errors},
+        content={"detail": jsonable_encoder(errors)},
     )
 
 

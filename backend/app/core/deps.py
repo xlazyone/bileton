@@ -6,11 +6,11 @@ import uuid
 from typing import Annotated
 
 from fastapi import Depends, HTTPException, status
-from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials
+from fastapi.security import HTTPAuthorizationCredentials, HTTPBearer
 from sqlalchemy.orm import Session
 
-from app.db.session import get_db
 from app.core.security import decode_access_token
+from app.db.session import get_db
 from app.models.user import User, UserRole
 
 bearer_scheme = HTTPBearer(auto_error=False)
