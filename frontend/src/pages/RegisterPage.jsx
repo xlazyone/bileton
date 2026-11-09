@@ -1,7 +1,7 @@
 // UC-01 «Регистрация нового пользователя» (WBS 3.3.1 верстка, 3.3.2 интеграция с API)
 
 import { useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { registerUser } from '../api/auth'
 import Alert from '../components/Alert'
 import AuthLayout from '../components/AuthLayout'
@@ -13,6 +13,11 @@ const INITIAL_VALUES = { fullName: '', email: '', password: '', passwordConfirm:
 
 export default function RegisterPage() {
   const navigate = useNavigate()
+  const location = useLocation()
+  // Пришли со страницы входа по пути к выбору мест — сохраняем, куда вернуться (US-05)
+  const returnState = location.state?.from
+    ? { from: location.state.from, reason: location.state.reason ?? null }
+    : {}
   const { values, errors, isValid, handleChange, handleBlur, touchAll, setServerErrors } = useForm(
     INITIAL_VALUES,
     validateRegisterForm,
@@ -30,7 +35,7 @@ export default function RegisterPage() {
     try {
       await registerUser(values)
       // Регистрация не возвращает токен -> отправляем на вход (UC-01 шаг 7–8)
-      navigate('/login', { state: { registeredEmail: values.email.trim() } })
+      navigate('/login', { state: { ...returnState, registeredEmail: values.email.trim() } })
     } catch (error) {
       if (error.status === 409) {
         // A4: email занят -> предлагаем войти
@@ -52,7 +57,11 @@ export default function RegisterPage() {
       {formError && (
         <Alert>
           {formError.text}{' '}
-          {formError.suggestLogin && <Link to="/login">Перейти ко входу</Link>}
+          {formError.suggestLogin && (
+            <Link to="/login" state={returnState}>
+              Перейти ко входу
+            </Link>
+          )}
         </Alert>
       )}
 
@@ -105,7 +114,10 @@ export default function RegisterPage() {
       </form>
 
       <p className="auth__switch">
-        Уже есть аккаунт? <Link to="/login">Войти</Link>
+        Уже есть аккаунт?{' '}
+        <Link to="/login" state={returnState}>
+          Войти
+        </Link>
       </p>
     </AuthLayout>
   )
