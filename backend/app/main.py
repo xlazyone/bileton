@@ -1,13 +1,13 @@
 """
-WBS 3.2.2 | Role: [Lead Dev / Backend]
-Точка входа в приложение. Обработка ошибок валидации.
+WBS 3.2.2, 4.2.2 | Role: [Lead Dev / Backend]
+Точка входа в приложение. Подключение роутеров и обработка ошибок валидации.
 """
 from fastapi import FastAPI, status
-from fastapi.middleware.cors import CORSMiddleware
 from fastapi.exceptions import RequestValidationError
+from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 
-from app.api import auth, health
+from app.api import auth, health, movie
 from app.core.config import settings
 
 app = FastAPI(
@@ -24,6 +24,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+
 # Issue: Защита от утечки введенных данных (паролей) в ответах об ошибках
 @app.exception_handler(RequestValidationError)
 async def validation_exception_handler(request, exc):
@@ -35,8 +36,12 @@ async def validation_exception_handler(request, exc):
         content={"detail": errors},
     )
 
+
+# Подключение роутеров
 app.include_router(health.router, prefix=settings.api_v1_prefix)
 app.include_router(auth.router, prefix=settings.api_v1_prefix)
+app.include_router(movie.router, prefix=settings.api_v1_prefix)  # Новый роутер афиши
+
 
 @app.get("/", tags=["health"])
 def root() -> dict[str, str]:
