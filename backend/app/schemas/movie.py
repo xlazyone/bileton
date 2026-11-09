@@ -1,6 +1,6 @@
 """
-WBS 4.2.2 | Role: [Lead Dev / Backend]
-Схемы для афиши и сеансов.
+WBS 4.3 | Role: [Lead Dev / Backend]
+Схемы для афиши и сеансов (согласно контракту фронтенда).
 """
 import uuid
 from datetime import datetime
@@ -11,16 +11,19 @@ class MovieRead(BaseModel):
     title: str
     poster_url: str | None
     genres: list[str]
-    duration_min: int
+    duration_minutes: int
     age_rating: str
+    model_config = ConfigDict(from_attributes=True)
 
+class HallRead(BaseModel):
+    id: int
+    name: str
     model_config = ConfigDict(from_attributes=True)
 
 class SessionRead(BaseModel):
     id: uuid.UUID
     movie_id: uuid.UUID
-    hall_id: int
-    start_time: datetime
+    starts_at: datetime
+    hall: HallRead
     price: int
-
     model_config = ConfigDict(from_attributes=True)

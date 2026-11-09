@@ -15,5 +15,5 @@ class Movie(Base):
     title: Mapped[str] = mapped_column(String(255), nullable=False)
     poster_url: Mapped[str] = mapped_column(Text, nullable=True)
     genres: Mapped[list[str]] = mapped_column(ARRAY(String), default=list)
-    duration_min: Mapped[int] = mapped_column(Integer, nullable=False)
-    age_rating: Mapped[str] = mapped_column(String(10), nullable=False) # например, "16+"
+    duration_minutes: Mapped[int] = mapped_column(Integer, nullable=False)
+    age_rating: Mapped[str] = mapped_column(String(10), nullable=False)
