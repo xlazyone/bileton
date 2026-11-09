@@ -7,9 +7,6 @@ from fastapi.encoders import jsonable_encoder
 from fastapi.exceptions import RequestValidationError
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
-from fastapi.exceptions import RequestValidationError
-from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import JSONResponse
 
 from app.api import auth, health, movie
 from app.core.config import settings
@@ -36,9 +33,8 @@ async def validation_exception_handler(
 ) -> JSONResponse:
     errors = []
     for error in exc.errors():
-        error.pop("input", None)  # Удаляем введенные данные из ответа
-        # ctx может содержать объект ValueError — он не сериализуется в JSON
-        error.pop("ctx", None)
+        error.pop("input", None)  # Удаляем введенные данные
+        error.pop("ctx", None)    # Удаляем объекты ValueError
         errors.append(error)
     return JSONResponse(
         status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
@@ -49,7 +45,7 @@ async def validation_exception_handler(
 # Подключение роутеров
 app.include_router(health.router, prefix=settings.api_v1_prefix)
 app.include_router(auth.router, prefix=settings.api_v1_prefix)
-app.include_router(movie.router, prefix=settings.api_v1_prefix)  # Новый роутер афиши
+app.include_router(movie.router, prefix=settings.api_v1_prefix)
 
 
 @app.get("/", tags=["health"])
