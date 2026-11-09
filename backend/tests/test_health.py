@@ -11,9 +11,7 @@ def test_health_returns_ok() -> None:
     assert response.json() == {"status": "ok", "service": "bileton-api"}
 
 
-def test_auth_stub_returns_501() -> None:
-    response = client.post(
-        "/api/auth/login",
-        json={"email": "user@example.com", "password": "secret123"},
-    )
-    assert response.status_code == 501
+def test_root_points_to_docs() -> None:
+    response = client.get("/")
+    assert response.status_code == 200
+    assert response.json() == {"service": "bileton-api", "docs": "/docs"}
