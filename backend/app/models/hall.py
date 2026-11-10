@@ -4,7 +4,9 @@ WBS 4.2.1 | Role: [PM / Backend]
 """
 from sqlalchemy import String
 from sqlalchemy.orm import Mapped, mapped_column
+
 from app.db.base import Base
+
 
 class Hall(Base):
     __tablename__ = "halls"

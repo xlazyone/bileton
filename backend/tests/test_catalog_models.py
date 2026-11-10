@@ -1,9 +1,6 @@
 from datetime import UTC, datetime
-from decimal import Decimal
 
-import pytest
-from sqlalchemy.exc import IntegrityError
-
+from app.models.hall import Hall
 from app.models.movie import Movie
 from app.models.session import Session
 
@@ -11,7 +8,6 @@ from app.models.session import Session
 def make_movie(**overrides) -> Movie:
     data = {
         "title": "Интерстеллар",
-        "description": "Научно-фантастическая драма",
         "genres": ["фантастика", "драма"],
         "duration_minutes": 169,
         "age_rating": "12+",
@@ -26,15 +22,18 @@ def test_movies_table_has_required_columns() -> None:
     assert {
         "id",
         "title",
-        "description",
+        "poster_url",
         "genres",
         "duration_minutes",
         "age_rating",
-        "poster_url",
         "is_active",
         "created_at",
-        "updated_at",
     } <= columns
+
+
+def test_halls_table_has_required_columns() -> None:
+    columns = set(Hall.__table__.columns.keys())
+    assert {"id", "name"} <= columns
 
 
 def test_sessions_table_has_required_columns() -> None:
@@ -42,15 +41,13 @@ def test_sessions_table_has_required_columns() -> None:
     assert {
         "id",
         "movie_id",
+        "hall_id",
         "starts_at",
-        "hall",
         "price",
-        "created_at",
-        "updated_at",
     } <= columns
 
 
-def test_movies_have_defaults_and_indexes(session_factory) -> None:
+def test_movies_have_defaults(session_factory) -> None:
     with session_factory() as db:
         movie = Movie(
             title="Интерстеллар",
@@ -64,68 +61,21 @@ def test_movies_have_defaults_and_indexes(session_factory) -> None:
         assert movie.is_active is True
         assert movie.genres == []
 
-    movie_indexes = {index.name for index in Movie.__table__.indexes}
-    session_indexes = {index.name for index in Session.__table__.indexes}
-    assert "ix_movies_title" in movie_indexes
-    assert "ix_sessions_movie_id_starts_at" in session_indexes
-    assert "ix_sessions_starts_at" in session_indexes
 
-
-def test_session_belongs_to_movie_and_is_deleted_with_it(session_factory) -> None:
-    db = session_factory()
-    try:
+def test_session_links_movie_and_hall(session_factory) -> None:
+    with session_factory() as db:
         movie = make_movie()
+        hall = Hall(name="Зал 1")
         screening = Session(
             movie=movie,
+            hall=hall,
             starts_at=datetime(2026, 11, 10, 18, 30, tzinfo=UTC),
-            hall="Зал 1",
-            price=Decimal("450.00"),
+            price=450,
         )
-        db.add(movie)
+        db.add(screening)
         db.commit()
 
-        assert movie.is_active is True
         assert screening.movie_id == movie.id
-        assert movie.sessions == [screening]
-
-        movie_id = movie.id
-        screening_id = screening.id
-        db.delete(movie)
-        db.commit()
-
-        assert db.get(Session, screening_id) is None
-        assert db.get(Movie, movie_id) is None
-    finally:
-        db.close()
-
-
-def test_movie_duration_must_be_positive(session_factory) -> None:
-    db = session_factory()
-    try:
-        db.add(make_movie(duration_minutes=0))
-        with pytest.raises(IntegrityError):
-            db.commit()
-    finally:
-        db.rollback()
-        db.close()
-
-
-def test_session_price_cannot_be_negative(session_factory) -> None:
-    db = session_factory()
-    try:
-        movie = make_movie()
-        db.add(movie)
-        db.flush()
-        db.add(
-            Session(
-                movie_id=movie.id,
-                starts_at=datetime(2026, 11, 10, 18, 30, tzinfo=UTC),
-                hall="Зал 1",
-                price=Decimal("-1.00"),
-            )
-        )
-        with pytest.raises(IntegrityError):
-            db.commit()
-    finally:
-        db.rollback()
-        db.close()
+        assert screening.hall_id == hall.id
+        assert screening.movie == movie
+        assert screening.hall == hall

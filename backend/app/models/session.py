@@ -4,11 +4,11 @@ WBS 4.2.1 | Role: [PM / Backend]
 """
 import uuid
 from datetime import datetime
-from sqlalchemy import Integer, ForeignKey, DateTime
+
+from sqlalchemy import DateTime, ForeignKey, Integer
 from sqlalchemy.orm import Mapped, mapped_column, relationship
+
 from app.db.base import Base
-from app.models.movie import Movie
-from app.models.hall import Hall
 
 
 class Session(Base):
