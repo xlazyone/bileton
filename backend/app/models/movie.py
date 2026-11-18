@@ -5,7 +5,7 @@ WBS 4.2.1 | Role: [PM / Backend]
 import uuid
 from datetime import datetime
 
-from sqlalchemy import String, Integer, Text, Boolean, DateTime, JSON, func
+from sqlalchemy import JSON, Boolean, DateTime, Integer, String, Text, func
 from sqlalchemy.orm import Mapped, mapped_column
 
 from app.db.base import Base

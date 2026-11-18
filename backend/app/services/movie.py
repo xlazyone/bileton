@@ -3,7 +3,8 @@ WBS 4.3 | Role: [Lead Dev / Backend]
 Бизнес-логика получения афиши и сеансов.
 """
 import uuid
-from datetime import datetime, timezone
+from datetime import UTC, datetime
+
 from sqlalchemy.orm import Session
 
 from app.models.movie import Movie
@@ -16,7 +17,7 @@ def get_all_movies(db: Session) -> list[Movie]:
 
 
 def get_sessions_by_movie(db: Session, movie_id: uuid.UUID) -> list[MovieSession]:
-    now = datetime.now(timezone.utc)
+    now = datetime.now(UTC)
 
     # US-02/US-03: сортировка и скрытие прошедших
     return (

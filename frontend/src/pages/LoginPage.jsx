@@ -7,7 +7,7 @@ import AuthLayout from '../components/AuthLayout'
 import FormField from '../components/FormField'
 import { useAuth } from '../hooks/useAuth'
 import { useForm } from '../hooks/useForm'
-import { homePathForRole } from '../utils/roles'
+import { redirectAfterLogin } from '../utils/roles'
 import { validateLoginForm } from '../utils/validation'
 
 export default function LoginPage() {
@@ -15,6 +15,9 @@ export default function LoginPage() {
   const navigate = useNavigate()
   const location = useLocation()
   const registeredEmail = location.state?.registeredEmail ?? ''
+  const reason = location.state?.reason ?? null
+  // from и reason передаём дальше на регистрацию, чтобы не потерять сеанс (US-05)
+  const returnState = location.state?.from ? { from: location.state.from, reason } : undefined
 
   const { values, errors, isValid, handleChange, handleBlur, touchAll } = useForm(
     { email: registeredEmail, password: '' },
@@ -35,8 +38,9 @@ export default function LoginPage() {
     setSubmitting(true)
     try {
       const user = await login(values.email, values.password)
-      // UC-02 шаг 6: viewer -> личный кабинет, controller -> панель контроллера
-      navigate(homePathForRole(user.role), { replace: true })
+      // UC-02 шаг 6 / US-05: обратно на защищённую страницу или в раздел по роли
+      const { to, state } = redirectAfterLogin(location, user.role)
+      navigate(to, { replace: true, state })
     } catch (error) {
       if (error.status === 401) {
         setFormError('Неверный email или пароль') // A2: без уточнения, что именно неверно
@@ -52,6 +56,7 @@ export default function LoginPage() {
       {registeredEmail && !formError && (
         <Alert variant="success">Регистрация прошла успешно. Войдите с вашим паролем.</Alert>
       )}
+      {reason && !registeredEmail && !formError && <Alert variant="info">{reason}</Alert>}
       {formError && <Alert>{formError}</Alert>}
 
       <form className="form" onSubmit={handleSubmit} noValidate>
@@ -88,7 +93,10 @@ export default function LoginPage() {
       </form>
 
       <p className="auth__switch">
-        Нет аккаунта? <Link to="/register">Зарегистрироваться</Link>
+        Нет аккаунта?{' '}
+        <Link to="/register" state={returnState}>
+          Зарегистрироваться
+        </Link>
       </p>
     </AuthLayout>
   )

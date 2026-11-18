@@ -4,6 +4,7 @@ WBS 4.3 | Role: [Lead Dev / Backend]
 """
 import uuid
 from typing import Annotated
+
 from fastapi import APIRouter, Depends, Query
 from sqlalchemy.orm import Session
 

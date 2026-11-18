@@ -4,6 +4,7 @@ WBS 4.3 | Role: [Lead Dev / Backend]
 """
 import uuid
 from datetime import datetime
+
 from pydantic import BaseModel, ConfigDict
 
 
