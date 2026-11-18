@@ -1,5 +1,5 @@
 """
-WBS 3.2.2, 4.2.2 | Role: [Lead Dev / Backend]
+WBS 3.2.2, 4.2.2, 5.3 | Role: [Lead Dev / Backend]
 Точка входа в приложение. Подключение роутеров и обработка ошибок валидации.
 """
 from fastapi import FastAPI, Request, status
@@ -8,7 +8,7 @@ from fastapi.exceptions import RequestValidationError
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 
-from app.api import auth, health, movie
+from app.api import auth, health, movie, booking
 from app.core.config import settings
 
 app = FastAPI(
@@ -46,6 +46,7 @@ async def validation_exception_handler(
 app.include_router(health.router, prefix=settings.api_v1_prefix)
 app.include_router(auth.router, prefix=settings.api_v1_prefix)
 app.include_router(movie.router, prefix=settings.api_v1_prefix)
+app.include_router(booking.router, prefix=settings.api_v1_prefix)  # <--- ДОБАВЛЕНО
 
 
 @app.get("/", tags=["health"])
