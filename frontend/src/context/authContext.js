@@ -3,7 +3,7 @@ import { createContext } from 'react'
 /**
  * @typedef {{ id: string, email: string, full_name: string | null, role: 'viewer' | 'controller',
  *             is_active: boolean, created_at: string }} User
- * @typedef {{ user: User | null, status: 'loading' | 'authenticated' | 'guest',
+ * @typedef {{ user: User | null, status: 'loading' | 'authenticated' | 'guest' | 'loggedOut',
  *             login: (email: string, password: string) => Promise<User>, logout: () => void }} AuthValue
  */
 

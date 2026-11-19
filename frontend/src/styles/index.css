@@ -319,6 +319,11 @@ a:hover {
   background: var(--color-error-soft);
 }
 
+.alert--info {
+  color: #6b4a00;
+  background: #fff3d6;
+}
+
 .alert--success {
   color: var(--color-success);
   background: var(--color-success-soft);
@@ -389,6 +394,396 @@ a:hover {
   }
 
   .header__user {
+    max-width: 8rem;
+  }
+}
+
+/* ===================================================================
+   Спринт 2 — афиша и расписание (WBS 4.4, US-06 адаптив)
+   =================================================================== */
+
+.header__left {
+  display: flex;
+  align-items: center;
+  gap: clamp(12px, 3vw, 32px);
+  min-width: 0;
+}
+
+.nav {
+  display: flex;
+  gap: 4px;
+}
+
+.nav__link {
+  padding: 6px 12px;
+  color: var(--color-muted);
+  font-weight: 600;
+  border-radius: 999px;
+}
+
+.nav__link:hover {
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+.nav__link.active {
+  color: var(--color-text);
+  background: var(--color-surface);
+  box-shadow: 0 1px 4px rgb(29 26 31 / 0.08);
+}
+
+a.header__user {
+  color: var(--color-text);
+}
+
+.page {
+  width: 100%;
+  max-width: 1120px;
+}
+
+.page__header {
+  margin-bottom: 24px;
+}
+
+.page__title {
+  margin: 0;
+  font-size: clamp(1.6rem, 4vw, 2.25rem);
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+}
+
+.page__subtitle {
+  margin: 6px 0 0;
+  color: var(--color-muted);
+}
+
+/* ----- Состояния: загрузка / ошибка / пусто ----- */
+.state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: clamp(32px, 8vw, 64px) 24px;
+  text-align: center;
+  background: var(--color-surface);
+  border-radius: var(--radius-l);
+  box-shadow: var(--shadow);
+}
+
+.state__title {
+  margin: 0;
+  font-size: 1.15rem;
+  font-weight: 700;
+}
+
+.state__text {
+  max-width: 420px;
+  margin: 0;
+  color: var(--color-muted);
+}
+
+.state .button {
+  margin-top: 12px;
+}
+
+.state--error .state__title {
+  color: var(--color-error);
+}
+
+.state__spinner {
+  width: 28px;
+  height: 28px;
+  border: 3px solid var(--color-border);
+  border-top-color: var(--color-accent);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .state__spinner {
+    animation-duration: 3s;
+  }
+}
+
+/* ----- Сетка афиши ----- */
+.movie-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: clamp(14px, 2.5vw, 28px);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.movie-card {
+  height: 100%;
+}
+
+.movie-card__link {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  color: inherit;
+  font-weight: inherit;
+  border-radius: var(--radius-m);
+}
+
+.movie-card__link:hover {
+  text-decoration: none;
+}
+
+.movie-card__poster {
+  position: relative;
+  aspect-ratio: 2 / 3;
+  overflow: hidden;
+  border-radius: var(--radius-m);
+  box-shadow: 0 8px 24px rgb(29 26 31 / 0.12);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.movie-card__link:hover .movie-card__poster,
+.movie-card__link:focus-visible .movie-card__poster {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 32px rgb(29 26 31 / 0.18);
+}
+
+.movie-card__body {
+  padding: 12px 2px 0;
+}
+
+.movie-card__title {
+  margin: 0;
+  font-size: 1.05rem;
+  line-height: 1.3;
+  overflow-wrap: anywhere;
+}
+
+.movie-card__genres,
+.movie-card__duration {
+  margin: 4px 0 0;
+  font-size: 0.875rem;
+  color: var(--color-muted);
+}
+
+.movie-card__genres::first-letter {
+  text-transform: uppercase;
+}
+
+/* ----- Постер ----- */
+.poster {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.poster--placeholder {
+  display: flex;
+  align-items: flex-end;
+  padding: 16px;
+  color: #fff;
+}
+
+.poster__title {
+  font-size: 1.15rem;
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  text-shadow: 0 2px 12px rgb(0 0 0 / 0.35);
+  overflow-wrap: anywhere;
+}
+
+.age-badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 2px 8px;
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: #fff;
+  background: rgb(23 19 27 / 0.75);
+  border: 1px solid rgb(255 255 255 / 0.35);
+  border-radius: 6px;
+}
+
+.age-badge--inline {
+  position: static;
+  display: inline-block;
+  margin-top: 10px;
+  color: var(--color-text);
+  background: transparent;
+  border-color: var(--color-border);
+}
+
+/* ----- Страница расписания ----- */
+.back-link {
+  display: inline-block;
+  margin-bottom: 20px;
+  color: var(--color-muted);
+}
+
+.back-link:hover {
+  color: var(--color-text);
+}
+
+.movie-header {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  gap: clamp(16px, 3vw, 32px);
+  align-items: end;
+  margin-bottom: 32px;
+}
+
+.movie-header__poster {
+  aspect-ratio: 2 / 3;
+  height: auto;
+  border-radius: var(--radius-m);
+  box-shadow: 0 8px 24px rgb(29 26 31 / 0.12);
+}
+
+.movie-header__poster .poster__title {
+  font-size: 0.95rem;
+}
+
+.movie-header__facts {
+  margin: 8px 0 0;
+  color: var(--color-muted);
+}
+
+.movie-header__facts::first-letter {
+  text-transform: uppercase;
+}
+
+.movie-header__description {
+  margin: 12px 0 0;
+  max-width: 60ch;
+}
+
+.section-title {
+  margin: 0 0 16px;
+  font-size: 1.25rem;
+}
+
+.schedule {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.schedule__date {
+  margin: 0 0 10px;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.session-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.session {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+  width: 100%;
+  padding: 12px 14px;
+  font: inherit;
+  text-align: left;
+  color: var(--color-text);
+  background: var(--color-surface);
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-m);
+  cursor: pointer;
+  transition: border-color 0.15s, box-shadow 0.15s, transform 0.15s;
+}
+
+.session:hover:not(:disabled) {
+  border-color: var(--color-accent);
+  box-shadow: 0 6px 16px rgb(180 35 60 / 0.12);
+  transform: translateY(-1px);
+}
+
+.session:disabled {
+  cursor: not-allowed;
+  opacity: 0.45;
+  background: transparent;
+}
+
+.session__time {
+  font-size: 1.35rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  font-variant-numeric: tabular-nums;
+}
+
+.session__hall {
+  font-size: 0.875rem;
+  color: var(--color-muted);
+}
+
+.session__price {
+  font-weight: 700;
+  color: var(--color-accent);
+}
+
+.session__past {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--color-muted);
+}
+
+/* ----- Планшет и телефон ----- */
+@media (max-width: 760px) {
+  .movie-grid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  }
+
+  .movie-header {
+    grid-template-columns: 110px 1fr;
+    align-items: start;
+  }
+}
+
+@media (max-width: 420px) {
+  .header {
+    gap: 8px;
+  }
+
+  .header .badge {
     display: none;
+  }
+
+  .movie-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px 12px;
+  }
+
+  .poster__title {
+    font-size: 0.95rem;
+  }
+
+  .session-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .session {
+    padding: 10px 12px;
+  }
+
+  .session__time {
+    font-size: 1.2rem;
   }
 }
