@@ -1,6 +1,6 @@
-import { Navigate, useLocation } from 'react-router-dom'
+import { Navigate } from 'react-router-dom'
 import { useAuth } from '../hooks/useAuth'
-import { redirectAfterLogin } from '../utils/roles'
+import { homePathForRole } from '../utils/roles'
 
 function Loader() {
   return (
@@ -13,18 +13,12 @@ function Loader() {
 /**
  * Страница только для авторизованных (UC-04).
  * Нет токена -> редирект на вход (A1); роль не подходит -> «Доступ запрещён» (A2).
- * На вход передаём, откуда пришли (from) и зачем (reason) — после входа вернём обратно (US-05).
  */
-export function ProtectedRoute({ roles, reason, children }) {
+export function ProtectedRoute({ roles, children }) {
   const { user, status } = useAuth()
-  const location = useLocation()
 
   if (status === 'loading') return <Loader />
-  if (!user) {
-    // После явного «Выйти» возвращать на ту же страницу не нужно
-    if (status === 'loggedOut') return <Navigate to="/login" replace />
-    return <Navigate to="/login" replace state={{ from: location, reason }} />
-  }
+  if (!user) return <Navigate to="/login" replace />
   if (roles && !roles.includes(user.role)) {
     return (
       <section className="panel">
@@ -39,12 +33,8 @@ export function ProtectedRoute({ roles, reason, children }) {
 /** Страницы входа и регистрации: авторизованного пользователя отправляем в его раздел. */
 export function GuestOnlyRoute({ children }) {
   const { user, status } = useAuth()
-  const location = useLocation()
 
   if (status === 'loading') return <Loader />
-  if (user) {
-    const { to, state } = redirectAfterLogin(location, user.role)
-    return <Navigate to={to} state={state} replace />
-  }
+  if (user) return <Navigate to={homePathForRole(user.role)} replace />
   return children
 }

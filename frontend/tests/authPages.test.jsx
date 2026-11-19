@@ -102,12 +102,12 @@ describe('UC-02 Вход', () => {
     expect(localStorage.getItem(TOKEN_KEY)).toBeNull()
   })
 
-  it('viewer: токен сохранён, редирект на афишу', async () => {
+  it('viewer: токен сохранён, редирект в личный кабинет', async () => {
     const user = userEvent.setup()
     renderApp('/login')
     await login(user, 'viewer@bileton.ru', 'password123')
 
-    expect(await screen.findByRole('heading', { name: 'Афиша' })).toBeInTheDocument()
+    expect(await screen.findByRole('heading', { name: 'Личный кабинет' })).toBeInTheDocument()
     expect(localStorage.getItem(TOKEN_KEY)).toBeTruthy()
   })
 
@@ -125,7 +125,7 @@ describe('UC-03 Выход', () => {
     const user = userEvent.setup()
     renderApp('/login')
     await login(user, 'viewer@bileton.ru', 'password123')
-    await screen.findByRole('heading', { name: 'Афиша' })
+    await screen.findByRole('heading', { name: 'Личный кабинет' })
 
     await user.click(screen.getByRole('button', { name: 'Выйти' }))
 
@@ -156,7 +156,7 @@ describe('UC-04 Защищённые страницы', () => {
 
   it('сохранённый токен восстанавливает сессию после перезагрузки', async () => {
     localStorage.setItem(TOKEN_KEY, VIEWER_TOKEN)
-    renderApp('/profile')
+    renderApp('/')
     expect(await screen.findByRole('heading', { name: 'Личный кабинет' })).toBeInTheDocument()
   })
 })
