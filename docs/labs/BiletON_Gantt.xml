@@ -2,17 +2,32 @@
 <Project xmlns="http://schemas.microsoft.com/project">
   <SaveVersion>14</SaveVersion>
   <Name>BiletON_Gantt.xml</Name>
-  <Title>БилетON — расписание проекта</Title>
+  <Title>БилетON — онлайн-бронирование билетов в кино</Title>
+  <Subject>ЛР: WBS и диаграмма Ганта</Subject>
+  <ScheduleFromStart>1</ScheduleFromStart>
   <StartDate>2026-10-19T08:00:00</StartDate>
   <FinishDate>2026-12-11T17:00:00</FinishDate>
+  <FYStartDate>1</FYStartDate>
+  <CriticalSlackLimit>0</CriticalSlackLimit>
+  <CurrencyDigits>2</CurrencyDigits>
+  <CurrencySymbol>₽</CurrencySymbol>
+  <CurrencyCode>RUB</CurrencyCode>
   <CalendarUID>1</CalendarUID>
   <DefaultStartTime>08:00:00</DefaultStartTime>
   <DefaultFinishTime>17:00:00</DefaultFinishTime>
   <MinutesPerDay>480</MinutesPerDay>
   <MinutesPerWeek>2400</MinutesPerWeek>
   <DaysPerMonth>20</DaysPerMonth>
+  <DefaultTaskType>0</DefaultTaskType>
+  <DefaultFixedCostAccrual>3</DefaultFixedCostAccrual>
+  <DurationFormat>5</DurationFormat>
+  <WorkFormat>2</WorkFormat>
+  <HonorConstraints>1</HonorConstraints>
   <NewTasksEffortDriven>0</NewTasksEffortDriven>
+  <NewTasksEstimated>0</NewTasksEstimated>
   <WeekStartDay>1</WeekStartDay>
+  <NewTaskStartDate>0</NewTaskStartDate>
+  <DefaultTaskEVMethod>0</DefaultTaskEVMethod>
   <Calendars>
     <Calendar>
       <UID>1</UID>
@@ -153,10 +168,8 @@
       <Start>2026-10-19T08:00:00</Start>
       <Finish>2026-12-11T17:00:00</Finish>
       <Duration>PT312H0M0S</Duration>
-      <DurationFormat>5</DurationFormat>
+      <DurationFormat>7</DurationFormat>
       <Manual>0</Manual>
-      <EffortDriven>0</EffortDriven>
-      <Estimated>0</Estimated>
       <Milestone>0</Milestone>
       <Summary>1</Summary>
       <ConstraintType>0</ConstraintType>
@@ -168,14 +181,14 @@
       <Name>Управление проектом и документация (командный менеджмент)</Name>
       <Type>1</Type>
       <IsNull>0</IsNull>
-      <WBS>1</WBS>
+      <WBS>1.0</WBS>
       <OutlineNumber>1</OutlineNumber>
       <OutlineLevel>1</OutlineLevel>
       <Priority>500</Priority>
       <Start>2026-10-19T08:00:00</Start>
       <Finish>2026-12-11T17:00:00</Finish>
       <Duration>PT312H0M0S</Duration>
-      <DurationFormat>5</DurationFormat>
+      <DurationFormat>7</DurationFormat>
       <Manual>0</Manual>
       <EffortDriven>0</EffortDriven>
       <Estimated>0</Estimated>
@@ -187,208 +200,6 @@
     <Task>
       <UID>2</UID>
       <ID>2</ID>
-      <Name>Организация инфраструктуры разработки (DevOps)</Name>
-      <Type>1</Type>
-      <IsNull>0</IsNull>
-      <WBS>2</WBS>
-      <OutlineNumber>2</OutlineNumber>
-      <OutlineLevel>1</OutlineLevel>
-      <Priority>500</Priority>
-      <Start>2026-10-20T08:00:00</Start>
-      <Finish>2026-12-11T12:00:00</Finish>
-      <Duration>PT300H0M0S</Duration>
-      <DurationFormat>5</DurationFormat>
-      <Manual>0</Manual>
-      <EffortDriven>0</EffortDriven>
-      <Estimated>0</Estimated>
-      <Milestone>0</Milestone>
-      <Summary>1</Summary>
-      <ConstraintType>0</ConstraintType>
-      <CalendarUID>-1</CalendarUID>
-    </Task>
-    <Task>
-      <UID>3</UID>
-      <ID>3</ID>
-      <Name>Модуль «Авторизация и профиль» (Спринт 1)</Name>
-      <Type>1</Type>
-      <IsNull>0</IsNull>
-      <WBS>3</WBS>
-      <OutlineNumber>3</OutlineNumber>
-      <OutlineLevel>1</OutlineLevel>
-      <Priority>500</Priority>
-      <Start>2026-10-20T13:00:00</Start>
-      <Finish>2026-10-28T17:00:00</Finish>
-      <Duration>PT52H0M0S</Duration>
-      <DurationFormat>5</DurationFormat>
-      <Manual>0</Manual>
-      <EffortDriven>0</EffortDriven>
-      <Estimated>0</Estimated>
-      <Milestone>0</Milestone>
-      <Summary>1</Summary>
-      <ConstraintType>0</ConstraintType>
-      <CalendarUID>-1</CalendarUID>
-    </Task>
-    <Task>
-      <UID>4</UID>
-      <ID>4</ID>
-      <Name>Модуль «Афиша и сеансы» (Спринт 2)</Name>
-      <Type>1</Type>
-      <IsNull>0</IsNull>
-      <WBS>4</WBS>
-      <OutlineNumber>4</OutlineNumber>
-      <OutlineLevel>1</OutlineLevel>
-      <Priority>500</Priority>
-      <Start>2026-11-02T08:00:00</Start>
-      <Finish>2026-11-06T15:00:00</Finish>
-      <Duration>PT30H0M0S</Duration>
-      <DurationFormat>5</DurationFormat>
-      <Manual>0</Manual>
-      <EffortDriven>0</EffortDriven>
-      <Estimated>0</Estimated>
-      <Milestone>0</Milestone>
-      <Summary>1</Summary>
-      <ConstraintType>0</ConstraintType>
-      <CalendarUID>-1</CalendarUID>
-    </Task>
-    <Task>
-      <UID>5</UID>
-      <ID>5</ID>
-      <Name>Модуль «Схема зала и бронирование» (Спринт 3)</Name>
-      <Type>1</Type>
-      <IsNull>0</IsNull>
-      <WBS>5</WBS>
-      <OutlineNumber>5</OutlineNumber>
-      <OutlineLevel>1</OutlineLevel>
-      <Priority>500</Priority>
-      <Start>2026-11-16T08:00:00</Start>
-      <Finish>2026-11-23T12:00:00</Finish>
-      <Duration>PT44H0M0S</Duration>
-      <DurationFormat>5</DurationFormat>
-      <Manual>0</Manual>
-      <EffortDriven>0</EffortDriven>
-      <Estimated>0</Estimated>
-      <Milestone>0</Milestone>
-      <Summary>1</Summary>
-      <ConstraintType>0</ConstraintType>
-      <CalendarUID>-1</CalendarUID>
-    </Task>
-    <Task>
-      <UID>6</UID>
-      <ID>6</ID>
-      <Name>Спринт 4. Оплата, QR, панель контроллера и финальное тестирование</Name>
-      <Type>1</Type>
-      <IsNull>0</IsNull>
-      <WBS>6</WBS>
-      <OutlineNumber>6</OutlineNumber>
-      <OutlineLevel>1</OutlineLevel>
-      <Priority>500</Priority>
-      <Start>2026-11-30T08:00:00</Start>
-      <Finish>2026-12-09T17:00:00</Finish>
-      <Duration>PT64H0M0S</Duration>
-      <DurationFormat>5</DurationFormat>
-      <Manual>0</Manual>
-      <EffortDriven>0</EffortDriven>
-      <Estimated>0</Estimated>
-      <Milestone>0</Milestone>
-      <Summary>1</Summary>
-      <ConstraintType>0</ConstraintType>
-      <CalendarUID>-1</CalendarUID>
-    </Task>
-    <Task>
-      <UID>90</UID>
-      <ID>7</ID>
-      <Name>Еженедельные практики (повторяющиеся задачи)</Name>
-      <Type>1</Type>
-      <IsNull>0</IsNull>
-      <WBS>1.0</WBS>
-      <OutlineNumber>1.0</OutlineNumber>
-      <OutlineLevel>2</OutlineLevel>
-      <Priority>500</Priority>
-      <Start>2026-10-19T08:00:00</Start>
-      <Finish>2026-12-07T12:00:00</Finish>
-      <Duration>PT276H0M0S</Duration>
-      <DurationFormat>5</DurationFormat>
-      <Manual>0</Manual>
-      <EffortDriven>0</EffortDriven>
-      <Estimated>0</Estimated>
-      <Milestone>0</Milestone>
-      <Summary>1</Summary>
-      <ConstraintType>0</ConstraintType>
-      <CalendarUID>-1</CalendarUID>
-      <Notes>Повторяющиеся задачи: каждый понедельник.</Notes>
-    </Task>
-    <Task>
-      <UID>91</UID>
-      <ID>8</ID>
-      <Name>Модерация Scrum-событий (планирование спринтов, дейли, ретро)</Name>
-      <Type>1</Type>
-      <IsNull>0</IsNull>
-      <WBS>1.0.1</WBS>
-      <OutlineNumber>1.0.1</OutlineNumber>
-      <OutlineLevel>3</OutlineLevel>
-      <Priority>500</Priority>
-      <Start>2026-10-19T08:00:00Z</Start>
-      <Finish>2026-10-19T09:00:00Z</Finish>
-      <Duration>PT1H0M0S</Duration>
-      <DurationFormat>5</DurationFormat>
-      <Manual>0</Manual>
-      <EffortDriven>0</EffortDriven>
-      <Estimated>0</Estimated>
-      <Milestone>0</Milestone>
-      <Summary>1</Summary>
-      <ConstraintType>0</ConstraintType>
-      <CalendarUID>-1</CalendarUID>
-      <Notes>Повторяющаяся задача: каждый понедельник.</Notes>
-    <RecurringData><RecurrencePattern>Weekly</RecurrencePattern><Occurrences>8</Occurrences><DayWeekMask>2</DayWeekMask><UseEndDate>0</UseEndDate><ActivationTime>2026-10-19T08:00:00Z</ActivationTime></RecurringData><Assignment><UID>1</UID><TaskUID>91</TaskUID><ResourceUID>1</ResourceUID><Units>1.0</Units><Work>PT1H0M0S</Work><RegularWork>PT1H0M0S</RegularWork></Assignment><Assignment><UID>2</UID><TaskUID>91</TaskUID><ResourceUID>2</ResourceUID><Units>1.0</Units><Work>PT1H0M0S</Work><RegularWork>PT1H0M0S</RegularWork></Assignment><Assignment><UID>3</UID><TaskUID>91</TaskUID><ResourceUID>3</ResourceUID><Units>1.0</Units><Work>PT1H0M0S</Work><RegularWork>PT1H0M0S</RegularWork></Assignment><Assignment><UID>4</UID><TaskUID>91</TaskUID><ResourceUID>4</ResourceUID><Units>1.0</Units><Work>PT1H0M0S</Work><RegularWork>PT1H0M0S</RegularWork></Assignment><Assignment><UID>5</UID><TaskUID>91</TaskUID><ResourceUID>5</ResourceUID><Units>1.0</Units><Work>PT1H0M0S</Work><RegularWork>PT1H0M0S</RegularWork></Assignment></Task>
-    <Task>
-      <UID>92</UID>
-      <ID>17</ID>
-      <Name>Участие в ежедневных летучках и обновление статусов в Trello/Jira</Name>
-      <Type>1</Type>
-      <IsNull>0</IsNull>
-      <WBS>1.0.2</WBS>
-      <OutlineNumber>1.0.2</OutlineNumber>
-      <OutlineLevel>3</OutlineLevel>
-      <Priority>500</Priority>
-      <Start>2026-10-19T08:00:00Z</Start>
-      <Finish>2026-10-19T09:00:00Z</Finish>
-      <Duration>PT1H0M0S</Duration>
-      <DurationFormat>5</DurationFormat>
-      <Manual>0</Manual>
-      <EffortDriven>0</EffortDriven>
-      <Estimated>0</Estimated>
-      <Milestone>0</Milestone>
-      <Summary>1</Summary>
-      <ConstraintType>0</ConstraintType>
-      <CalendarUID>-1</CalendarUID>
-      <Notes>Повторяющаяся задача: каждый понедельник.</Notes>
-    <RecurringData><RecurrencePattern>Weekly</RecurrencePattern><Occurrences>8</Occurrences><DayWeekMask>2</DayWeekMask><UseEndDate>0</UseEndDate><ActivationTime>2026-10-19T08:00:00Z</ActivationTime></RecurringData><Assignment><UID>1</UID><TaskUID>92</TaskUID><ResourceUID>1</ResourceUID><Units>1.0</Units><Work>PT1H0M0S</Work><RegularWork>PT1H0M0S</RegularWork></Assignment><Assignment><UID>2</UID><TaskUID>92</TaskUID><ResourceUID>2</ResourceUID><Units>1.0</Units><Work>PT1H0M0S</Work><RegularWork>PT1H0M0S</RegularWork></Assignment><Assignment><UID>3</UID><TaskUID>92</TaskUID><ResourceUID>3</ResourceUID><Units>1.0</Units><Work>PT1H0M0S</Work><RegularWork>PT1H0M0S</RegularWork></Assignment><Assignment><UID>4</UID><TaskUID>92</TaskUID><ResourceUID>4</ResourceUID><Units>1.0</Units><Work>PT1H0M0S</Work><RegularWork>PT1H0M0S</RegularWork></Assignment><Assignment><UID>5</UID><TaskUID>92</TaskUID><ResourceUID>5</ResourceUID><Units>1.0</Units><Work>PT1H0M0S</Work><RegularWork>PT1H0M0S</RegularWork></Assignment></Task>
-    <Task>
-      <UID>93</UID>
-      <ID>26</ID>
-      <Name>Ведение реестра рисков и расчёт метрик EVM</Name>
-      <Type>1</Type>
-      <IsNull>0</IsNull>
-      <WBS>1.0.3</WBS>
-      <OutlineNumber>1.0.3</OutlineNumber>
-      <OutlineLevel>3</OutlineLevel>
-      <Priority>500</Priority>
-      <Start>2026-10-19T08:00:00Z</Start>
-      <Finish>2026-10-19T09:00:00Z</Finish>
-      <Duration>PT1H0M0S</Duration>
-      <DurationFormat>5</DurationFormat>
-      <Manual>0</Manual>
-      <EffortDriven>0</EffortDriven>
-      <Estimated>0</Estimated>
-      <Milestone>0</Milestone>
-      <Summary>1</Summary>
-      <ConstraintType>0</ConstraintType>
-      <CalendarUID>-1</CalendarUID>
-      <Notes>Повторяющаяся задача: каждый понедельник.</Notes>
-    <RecurringData><RecurrencePattern>Weekly</RecurrencePattern><Occurrences>8</Occurrences><DayWeekMask>2</DayWeekMask><UseEndDate>0</UseEndDate><ActivationTime>2026-10-19T08:00:00Z</ActivationTime></RecurringData><Assignment><UID>1</UID><TaskUID>93</TaskUID><ResourceUID>1</ResourceUID><Units>1.0</Units><Work>PT1H0M0S</Work><RegularWork>PT1H0M0S</RegularWork></Assignment><Assignment><UID>2</UID><TaskUID>93</TaskUID><ResourceUID>2</ResourceUID><Units>1.0</Units><Work>PT1H0M0S</Work><RegularWork>PT1H0M0S</RegularWork></Assignment><Assignment><UID>3</UID><TaskUID>93</TaskUID><ResourceUID>3</ResourceUID><Units>1.0</Units><Work>PT1H0M0S</Work><RegularWork>PT1H0M0S</RegularWork></Assignment><Assignment><UID>4</UID><TaskUID>93</TaskUID><ResourceUID>4</ResourceUID><Units>1.0</Units><Work>PT1H0M0S</Work><RegularWork>PT1H0M0S</RegularWork></Assignment><Assignment><UID>5</UID><TaskUID>93</TaskUID><ResourceUID>5</ResourceUID><Units>1.0</Units><Work>PT1H0M0S</Work><RegularWork>PT1H0M0S</RegularWork></Assignment></Task>
-    <Task>
-      <UID>200</UID>
-      <ID>35</ID>
       <Name>Разработка Устава проекта, согласование со стейкхолдерами</Name>
       <Type>0</Type>
       <IsNull>0</IsNull>
@@ -396,8 +207,8 @@
       <OutlineNumber>1.1</OutlineNumber>
       <OutlineLevel>2</OutlineLevel>
       <Priority>500</Priority>
-      <Start>2026-10-20T13:00:00</Start>
-      <Finish>2026-10-21T12:00:00</Finish>
+      <Start>2026-10-19T08:00:00</Start>
+      <Finish>2026-10-19T17:00:00</Finish>
       <Duration>PT8H0M0S</Duration>
       <DurationFormat>5</DurationFormat>
       <Manual>0</Manual>
@@ -407,11 +218,11 @@
       <Summary>0</Summary>
       <ConstraintType>0</ConstraintType>
       <CalendarUID>-1</CalendarUID>
-      <Notes>Роль: [PM / Backend]. Плановая длительность: 8 ч.</Notes>
+      <Notes>Роль: [PM]. Плановая длительность по WBS: 8 ч.</Notes>
     </Task>
     <Task>
-      <UID>201</UID>
-      <ID>36</ID>
+      <UID>3</UID>
+      <ID>3</ID>
       <Name>Декомпозиция WBS, построение диаграммы Ганта</Name>
       <Type>0</Type>
       <IsNull>0</IsNull>
@@ -430,11 +241,87 @@
       <Summary>0</Summary>
       <ConstraintType>0</ConstraintType>
       <CalendarUID>-1</CalendarUID>
-      <Notes>Роль: [PM / Backend, Lead Dev, Frontend, QA, Аналитик]. Плановая длительность: 4 ч.</Notes>
+      <Notes>Роль: [Вся команда]. Плановая длительность по WBS: 4 ч.</Notes>
+      <PredecessorLink>
+        <PredecessorUID>2</PredecessorUID>
+        <Type>1</Type>
+        <CrossProject>0</CrossProject>
+        <LinkLag>0</LinkLag>
+        <LagFormat>7</LagFormat>
+      </PredecessorLink>
     </Task>
     <Task>
-      <UID>202</UID>
-      <ID>37</ID>
+      <UID>4</UID>
+      <ID>4</ID>
+      <Name>Модерация Scrum-событий (планирование спринтов, дейли, ретро)</Name>
+      <Type>1</Type>
+      <IsNull>0</IsNull>
+      <WBS>1.3</WBS>
+      <OutlineNumber>1.3</OutlineNumber>
+      <OutlineLevel>2</OutlineLevel>
+      <Priority>500</Priority>
+      <Start>2026-10-19T08:00:00</Start>
+      <Finish>2026-12-11T17:00:00</Finish>
+      <Duration>PT312H0M0S</Duration>
+      <DurationFormat>5</DurationFormat>
+      <Manual>0</Manual>
+      <EffortDriven>0</EffortDriven>
+      <Estimated>0</Estimated>
+      <Milestone>0</Milestone>
+      <Summary>0</Summary>
+      <ConstraintType>0</ConstraintType>
+      <CalendarUID>-1</CalendarUID>
+      <Notes>Роль: [PM]. Плановая длительность по WBS: 16 ч. Выполняется равномерно в течение всего проекта.</Notes>
+    </Task>
+    <Task>
+      <UID>5</UID>
+      <ID>5</ID>
+      <Name>Участие в ежедневных летучках и обновление статусов в Trello/Jira</Name>
+      <Type>1</Type>
+      <IsNull>0</IsNull>
+      <WBS>1.4</WBS>
+      <OutlineNumber>1.4</OutlineNumber>
+      <OutlineLevel>2</OutlineLevel>
+      <Priority>500</Priority>
+      <Start>2026-10-19T08:00:00</Start>
+      <Finish>2026-12-11T17:00:00</Finish>
+      <Duration>PT312H0M0S</Duration>
+      <DurationFormat>5</DurationFormat>
+      <Manual>0</Manual>
+      <EffortDriven>0</EffortDriven>
+      <Estimated>0</Estimated>
+      <Milestone>0</Milestone>
+      <Summary>0</Summary>
+      <ConstraintType>0</ConstraintType>
+      <CalendarUID>-1</CalendarUID>
+      <Notes>Роль: [Вся команда]. Плановая длительность по WBS: 16 ч. Выполняется равномерно в течение всего проекта.</Notes>
+    </Task>
+    <Task>
+      <UID>6</UID>
+      <ID>6</ID>
+      <Name>Ведение реестра рисков и расчёт метрик EVM</Name>
+      <Type>1</Type>
+      <IsNull>0</IsNull>
+      <WBS>1.5</WBS>
+      <OutlineNumber>1.5</OutlineNumber>
+      <OutlineLevel>2</OutlineLevel>
+      <Priority>500</Priority>
+      <Start>2026-10-19T08:00:00</Start>
+      <Finish>2026-12-11T17:00:00</Finish>
+      <Duration>PT312H0M0S</Duration>
+      <DurationFormat>5</DurationFormat>
+      <Manual>0</Manual>
+      <EffortDriven>0</EffortDriven>
+      <Estimated>0</Estimated>
+      <Milestone>0</Milestone>
+      <Summary>0</Summary>
+      <ConstraintType>0</ConstraintType>
+      <CalendarUID>-1</CalendarUID>
+      <Notes>Роль: [PM]. Плановая длительность по WBS: 8 ч. Выполняется равномерно в течение всего проекта.</Notes>
+    </Task>
+    <Task>
+      <UID>7</UID>
+      <ID>7</ID>
       <Name>Финальная ретроспектива (Start-Stop-Continue)</Name>
       <Type>0</Type>
       <IsNull>0</IsNull>
@@ -442,8 +329,8 @@
       <OutlineNumber>1.6</OutlineNumber>
       <OutlineLevel>2</OutlineLevel>
       <Priority>500</Priority>
-      <Start>2026-12-10T08:00:00</Start>
-      <Finish>2026-12-10T10:00:00</Finish>
+      <Start>2026-12-09T11:00:00</Start>
+      <Finish>2026-12-09T14:00:00</Finish>
       <Duration>PT2H0M0S</Duration>
       <DurationFormat>5</DurationFormat>
       <Manual>0</Manual>
@@ -451,20 +338,14 @@
       <Estimated>0</Estimated>
       <Milestone>0</Milestone>
       <Summary>0</Summary>
-      <ConstraintType>0</ConstraintType>
+      <ConstraintType>4</ConstraintType>
       <CalendarUID>-1</CalendarUID>
-      <Notes>Роль: [PM / Backend, Lead Dev, Frontend, QA, Аналитик]. Плановая длительность: 2 ч.</Notes>
-      <PredecessorLink>
-        <PredecessorUID>253</PredecessorUID>
-        <Type>1</Type>
-        <CrossProject>0</CrossProject>
-        <LinkLag>0</LinkLag>
-        <LagFormat>7</LagFormat>
-      </PredecessorLink>
+      <ConstraintDate>2026-12-09T11:00:00</ConstraintDate>
+      <Notes>Роль: [Вся команда]. Плановая длительность по WBS: 2 ч.</Notes>
     </Task>
     <Task>
-      <UID>203</UID>
-      <ID>38</ID>
+      <UID>8</UID>
+      <ID>8</ID>
       <Name>Внедрение и сопровождение User Manual</Name>
       <Type>0</Type>
       <IsNull>0</IsNull>
@@ -472,8 +353,8 @@
       <OutlineNumber>1.7</OutlineNumber>
       <OutlineLevel>2</OutlineLevel>
       <Priority>500</Priority>
-      <Start>2026-12-02T13:00:00</Start>
-      <Finish>2026-12-02T17:00:00</Finish>
+      <Start>2026-12-04T16:00:00</Start>
+      <Finish>2026-12-07T11:00:00</Finish>
       <Duration>PT4H0M0S</Duration>
       <DurationFormat>5</DurationFormat>
       <Manual>0</Manual>
@@ -481,13 +362,14 @@
       <Estimated>0</Estimated>
       <Milestone>0</Milestone>
       <Summary>0</Summary>
-      <ConstraintType>0</ConstraintType>
+      <ConstraintType>4</ConstraintType>
       <CalendarUID>-1</CalendarUID>
-      <Notes>Роль: [PM / Backend]. Плановая длительность: 4 ч.</Notes>
+      <ConstraintDate>2026-12-04T16:00:00</ConstraintDate>
+      <Notes>Роль: [PM]. Плановая длительность по WBS: 4 ч.</Notes>
     </Task>
     <Task>
-      <UID>204</UID>
-      <ID>39</ID>
+      <UID>9</UID>
+      <ID>9</ID>
       <Name>Сборка портфолио и подготовка презентации к защите</Name>
       <Type>0</Type>
       <IsNull>0</IsNull>
@@ -495,8 +377,8 @@
       <OutlineNumber>1.8</OutlineNumber>
       <OutlineLevel>2</OutlineLevel>
       <Priority>500</Priority>
-      <Start>2026-12-03T08:00:00</Start>
-      <Finish>2026-12-03T17:00:00</Finish>
+      <Start>2026-12-07T16:00:00</Start>
+      <Finish>2026-12-08T16:00:00</Finish>
       <Duration>PT8H0M0S</Duration>
       <DurationFormat>5</DurationFormat>
       <Manual>0</Manual>
@@ -504,20 +386,14 @@
       <Estimated>0</Estimated>
       <Milestone>0</Milestone>
       <Summary>0</Summary>
-      <ConstraintType>0</ConstraintType>
+      <ConstraintType>4</ConstraintType>
       <CalendarUID>-1</CalendarUID>
-      <Notes>Роль: [PM / Backend]. Плановая длительность: 8 ч.</Notes>
-      <PredecessorLink>
-        <PredecessorUID>203</PredecessorUID>
-        <Type>1</Type>
-        <CrossProject>0</CrossProject>
-        <LinkLag>0</LinkLag>
-        <LagFormat>7</LagFormat>
-      </PredecessorLink>
+      <ConstraintDate>2026-12-07T16:00:00</ConstraintDate>
+      <Notes>Роль: [PM]. Плановая длительность по WBS: 8 ч.</Notes>
     </Task>
     <Task>
-      <UID>205</UID>
-      <ID>40</ID>
+      <UID>10</UID>
+      <ID>10</ID>
       <Name>Подготовка к защите, сдача проекта</Name>
       <Type>0</Type>
       <IsNull>0</IsNull>
@@ -525,8 +401,8 @@
       <OutlineNumber>1.9</OutlineNumber>
       <OutlineLevel>2</OutlineLevel>
       <Priority>500</Priority>
-      <Start>2026-12-10T10:00:00</Start>
-      <Finish>2026-12-10T15:00:00</Finish>
+      <Start>2026-12-09T14:00:00</Start>
+      <Finish>2026-12-10T09:00:00</Finish>
       <Duration>PT4H0M0S</Duration>
       <DurationFormat>5</DurationFormat>
       <Manual>0</Manual>
@@ -536,16 +412,23 @@
       <Summary>0</Summary>
       <ConstraintType>0</ConstraintType>
       <CalendarUID>-1</CalendarUID>
-      <Notes>Роль: [PM / Backend, Lead Dev, Frontend, QA, Аналитик]. Плановая длительность: 4 ч.</Notes>
+      <Notes>Роль: [Вся команда]. Плановая длительность по WBS: 4 ч.</Notes>
       <PredecessorLink>
-        <PredecessorUID>202</PredecessorUID>
+        <PredecessorUID>7</PredecessorUID>
         <Type>1</Type>
         <CrossProject>0</CrossProject>
         <LinkLag>0</LinkLag>
         <LagFormat>7</LagFormat>
       </PredecessorLink>
       <PredecessorLink>
-        <PredecessorUID>204</PredecessorUID>
+        <PredecessorUID>8</PredecessorUID>
+        <Type>1</Type>
+        <CrossProject>0</CrossProject>
+        <LinkLag>0</LinkLag>
+        <LagFormat>7</LagFormat>
+      </PredecessorLink>
+      <PredecessorLink>
+        <PredecessorUID>9</PredecessorUID>
         <Type>1</Type>
         <CrossProject>0</CrossProject>
         <LinkLag>0</LinkLag>
@@ -553,8 +436,8 @@
       </PredecessorLink>
     </Task>
     <Task>
-      <UID>206</UID>
-      <ID>41</ID>
+      <UID>11</UID>
+      <ID>11</ID>
       <Name>Защита проекта</Name>
       <Type>0</Type>
       <IsNull>0</IsNull>
@@ -562,8 +445,8 @@
       <OutlineNumber>1.10</OutlineNumber>
       <OutlineLevel>2</OutlineLevel>
       <Priority>500</Priority>
-      <Start>2026-12-11T13:00:00</Start>
-      <Finish>2026-12-11T13:00:00</Finish>
+      <Start>2026-12-10T09:00:00</Start>
+      <Finish>2026-12-10T09:00:00</Finish>
       <Duration>PT0H0M0S</Duration>
       <DurationFormat>5</DurationFormat>
       <Manual>0</Manual>
@@ -573,15 +456,9 @@
       <Summary>0</Summary>
       <ConstraintType>0</ConstraintType>
       <CalendarUID>-1</CalendarUID>
+      <Deadline>2026-12-13T17:00:00</Deadline>
       <PredecessorLink>
-        <PredecessorUID>205</PredecessorUID>
-        <Type>1</Type>
-        <CrossProject>0</CrossProject>
-        <LinkLag>0</LinkLag>
-        <LagFormat>7</LagFormat>
-      </PredecessorLink>
-      <PredecessorLink>
-        <PredecessorUID>213</PredecessorUID>
+        <PredecessorUID>10</PredecessorUID>
         <Type>1</Type>
         <CrossProject>0</CrossProject>
         <LinkLag>0</LinkLag>
@@ -589,8 +466,8 @@
       </PredecessorLink>
     </Task>
     <Task>
-      <UID>207</UID>
-      <ID>42</ID>
+      <UID>63</UID>
+      <ID>12</ID>
       <Name>Проект завершён (дедлайн 13.12)</Name>
       <Type>0</Type>
       <IsNull>0</IsNull>
@@ -610,7 +487,28 @@
       <ConstraintType>0</ConstraintType>
       <CalendarUID>-1</CalendarUID>
       <PredecessorLink>
-        <PredecessorUID>206</PredecessorUID>
+        <PredecessorUID>11</PredecessorUID>
+        <Type>1</Type>
+        <CrossProject>0</CrossProject>
+        <LinkLag>0</LinkLag>
+        <LagFormat>7</LagFormat>
+      </PredecessorLink>
+      <PredecessorLink>
+        <PredecessorUID>4</PredecessorUID>
+        <Type>1</Type>
+        <CrossProject>0</CrossProject>
+        <LinkLag>0</LinkLag>
+        <LagFormat>7</LagFormat>
+      </PredecessorLink>
+      <PredecessorLink>
+        <PredecessorUID>5</PredecessorUID>
+        <Type>1</Type>
+        <CrossProject>0</CrossProject>
+        <LinkLag>0</LinkLag>
+        <LagFormat>7</LagFormat>
+      </PredecessorLink>
+      <PredecessorLink>
+        <PredecessorUID>6</PredecessorUID>
         <Type>1</Type>
         <CrossProject>0</CrossProject>
         <LinkLag>0</LinkLag>
@@ -618,8 +516,30 @@
       </PredecessorLink>
     </Task>
     <Task>
-      <UID>208</UID>
-      <ID>43</ID>
+      <UID>12</UID>
+      <ID>13</ID>
+      <Name>Организация инфраструктуры разработки (DevOps)</Name>
+      <Type>1</Type>
+      <IsNull>0</IsNull>
+      <WBS>2.0</WBS>
+      <OutlineNumber>2</OutlineNumber>
+      <OutlineLevel>1</OutlineLevel>
+      <Priority>500</Priority>
+      <Start>2026-10-20T08:00:00</Start>
+      <Finish>2026-12-09T11:00:00</Finish>
+      <Duration>PT283H0M0S</Duration>
+      <DurationFormat>7</DurationFormat>
+      <Manual>0</Manual>
+      <EffortDriven>0</EffortDriven>
+      <Estimated>0</Estimated>
+      <Milestone>0</Milestone>
+      <Summary>1</Summary>
+      <ConstraintType>0</ConstraintType>
+      <CalendarUID>-1</CalendarUID>
+    </Task>
+    <Task>
+      <UID>13</UID>
+      <ID>14</ID>
       <Name>Инициализация Git-репозитория, настройка Git-flow (main, dev, feature)</Name>
       <Type>0</Type>
       <IsNull>0</IsNull>
@@ -627,8 +547,8 @@
       <OutlineNumber>2.1</OutlineNumber>
       <OutlineLevel>2</OutlineLevel>
       <Priority>500</Priority>
-      <Start>2026-10-21T13:00:00</Start>
-      <Finish>2026-10-21T17:00:00</Finish>
+      <Start>2026-10-20T08:00:00</Start>
+      <Finish>2026-10-20T12:00:00</Finish>
       <Duration>PT4H0M0S</Duration>
       <DurationFormat>5</DurationFormat>
       <Manual>0</Manual>
@@ -636,13 +556,14 @@
       <Estimated>0</Estimated>
       <Milestone>0</Milestone>
       <Summary>0</Summary>
-      <ConstraintType>0</ConstraintType>
+      <ConstraintType>4</ConstraintType>
       <CalendarUID>-1</CalendarUID>
-      <Notes>Роль: [PM / Backend]. Плановая длительность: 4 ч.</Notes>
+      <ConstraintDate>2026-10-20T08:00:00</ConstraintDate>
+      <Notes>Роль: [PM / Backend]. Плановая длительность по WBS: 4 ч.</Notes>
     </Task>
     <Task>
-      <UID>209</UID>
-      <ID>44</ID>
+      <UID>14</UID>
+      <ID>15</ID>
       <Name>Разработка инструкции по локальному запуску проекта (README)</Name>
       <Type>0</Type>
       <IsNull>0</IsNull>
@@ -661,11 +582,18 @@
       <Summary>0</Summary>
       <ConstraintType>0</ConstraintType>
       <CalendarUID>-1</CalendarUID>
-      <Notes>Роль: [Lead Dev]. Плановая длительность: 4 ч.</Notes>
+      <Notes>Роль: [Lead Dev]. Плановая длительность по WBS: 4 ч.</Notes>
+      <PredecessorLink>
+        <PredecessorUID>13</PredecessorUID>
+        <Type>1</Type>
+        <CrossProject>0</CrossProject>
+        <LinkLag>0</LinkLag>
+        <LagFormat>7</LagFormat>
+      </PredecessorLink>
     </Task>
     <Task>
-      <UID>210</UID>
-      <ID>45</ID>
+      <UID>15</UID>
+      <ID>16</ID>
       <Name>Настройка пайплайна CI (GitHub Actions: линтеры/тесты)</Name>
       <Type>0</Type>
       <IsNull>0</IsNull>
@@ -673,8 +601,8 @@
       <OutlineNumber>2.3</OutlineNumber>
       <OutlineLevel>2</OutlineLevel>
       <Priority>500</Priority>
-      <Start>2026-10-22T08:00:00</Start>
-      <Finish>2026-10-22T15:00:00</Finish>
+      <Start>2026-10-21T08:00:00</Start>
+      <Finish>2026-10-21T15:00:00</Finish>
       <Duration>PT6H0M0S</Duration>
       <DurationFormat>5</DurationFormat>
       <Manual>0</Manual>
@@ -684,16 +612,16 @@
       <Summary>0</Summary>
       <ConstraintType>0</ConstraintType>
       <CalendarUID>-1</CalendarUID>
-      <Notes>Роль: [PM / Backend]. Плановая длительность: 6 ч.</Notes>
+      <Notes>Роль: [PM / Backend]. Плановая длительность по WBS: 6 ч.</Notes>
       <PredecessorLink>
-        <PredecessorUID>208</PredecessorUID>
+        <PredecessorUID>13</PredecessorUID>
         <Type>1</Type>
         <CrossProject>0</CrossProject>
         <LinkLag>0</LinkLag>
         <LagFormat>7</LagFormat>
       </PredecessorLink>
       <PredecessorLink>
-        <PredecessorUID>209</PredecessorUID>
+        <PredecessorUID>14</PredecessorUID>
         <Type>1</Type>
         <CrossProject>0</CrossProject>
         <LinkLag>0</LinkLag>
@@ -701,8 +629,8 @@
       </PredecessorLink>
     </Task>
     <Task>
-      <UID>211</UID>
-      <ID>46</ID>
+      <UID>16</UID>
+      <ID>17</ID>
       <Name>Развёртывание локальной СУБД PostgreSQL для тестов</Name>
       <Type>0</Type>
       <IsNull>0</IsNull>
@@ -721,11 +649,18 @@
       <Summary>0</Summary>
       <ConstraintType>0</ConstraintType>
       <CalendarUID>-1</CalendarUID>
-      <Notes>Роль: [QA]. Плановая длительность: 4 ч.</Notes>
+      <Notes>Роль: [QA]. Плановая длительность по WBS: 4 ч.</Notes>
+      <PredecessorLink>
+        <PredecessorUID>13</PredecessorUID>
+        <Type>1</Type>
+        <CrossProject>0</CrossProject>
+        <LinkLag>0</LinkLag>
+        <LagFormat>7</LagFormat>
+      </PredecessorLink>
     </Task>
     <Task>
-      <UID>212</UID>
-      <ID>47</ID>
+      <UID>17</UID>
+      <ID>18</ID>
       <Name>Настройка скриптов деплоя на тестовый сервер (VPS)</Name>
       <Type>0</Type>
       <IsNull>0</IsNull>
@@ -733,8 +668,8 @@
       <OutlineNumber>2.5</OutlineNumber>
       <OutlineLevel>2</OutlineLevel>
       <Priority>500</Priority>
-      <Start>2026-10-27T08:00:00</Start>
-      <Finish>2026-10-27T15:00:00</Finish>
+      <Start>2026-10-21T15:00:00</Start>
+      <Finish>2026-10-22T12:00:00</Finish>
       <Duration>PT6H0M0S</Duration>
       <DurationFormat>5</DurationFormat>
       <Manual>0</Manual>
@@ -744,9 +679,9 @@
       <Summary>0</Summary>
       <ConstraintType>0</ConstraintType>
       <CalendarUID>-1</CalendarUID>
-      <Notes>Роль: [Lead Dev]. Плановая длительность: 6 ч.</Notes>
+      <Notes>Роль: [Lead Dev]. Плановая длительность по WBS: 6 ч.</Notes>
       <PredecessorLink>
-        <PredecessorUID>210</PredecessorUID>
+        <PredecessorUID>15</PredecessorUID>
         <Type>1</Type>
         <CrossProject>0</CrossProject>
         <LinkLag>0</LinkLag>
@@ -754,8 +689,8 @@
       </PredecessorLink>
     </Task>
     <Task>
-      <UID>213</UID>
-      <ID>48</ID>
+      <UID>18</UID>
+      <ID>19</ID>
       <Name>Деплой финальной версии на сервер</Name>
       <Type>0</Type>
       <IsNull>0</IsNull>
@@ -763,8 +698,8 @@
       <OutlineNumber>2.6</OutlineNumber>
       <OutlineLevel>2</OutlineLevel>
       <Priority>500</Priority>
-      <Start>2026-12-11T08:00:00</Start>
-      <Finish>2026-12-11T12:00:00</Finish>
+      <Start>2026-12-08T16:00:00</Start>
+      <Finish>2026-12-09T11:00:00</Finish>
       <Duration>PT4H0M0S</Duration>
       <DurationFormat>5</DurationFormat>
       <Manual>0</Manual>
@@ -774,11 +709,40 @@
       <Summary>0</Summary>
       <ConstraintType>0</ConstraintType>
       <CalendarUID>-1</CalendarUID>
-      <Notes>Роль: [Lead Dev]. Плановая длительность: 4 ч.</Notes>
+      <Notes>Роль: [Lead Dev]. Плановая длительность по WBS: 4 ч.</Notes>
+      <PredecessorLink>
+        <PredecessorUID>62</PredecessorUID>
+        <Type>1</Type>
+        <CrossProject>0</CrossProject>
+        <LinkLag>0</LinkLag>
+        <LagFormat>7</LagFormat>
+      </PredecessorLink>
     </Task>
     <Task>
-      <UID>214</UID>
-      <ID>49</ID>
+      <UID>19</UID>
+      <ID>20</ID>
+      <Name>Модуль «Авторизация и профиль» (Спринт 1)</Name>
+      <Type>1</Type>
+      <IsNull>0</IsNull>
+      <WBS>3.0</WBS>
+      <OutlineNumber>3</OutlineNumber>
+      <OutlineLevel>1</OutlineLevel>
+      <Priority>500</Priority>
+      <Start>2026-10-20T13:00:00</Start>
+      <Finish>2026-10-26T10:00:00</Finish>
+      <Duration>PT30H0M0S</Duration>
+      <DurationFormat>7</DurationFormat>
+      <Manual>0</Manual>
+      <EffortDriven>0</EffortDriven>
+      <Estimated>0</Estimated>
+      <Milestone>0</Milestone>
+      <Summary>1</Summary>
+      <ConstraintType>0</ConstraintType>
+      <CalendarUID>-1</CalendarUID>
+    </Task>
+    <Task>
+      <UID>20</UID>
+      <ID>21</ID>
       <Name>Написание Use Cases и критериев DoD для входа/регистрации</Name>
       <Type>0</Type>
       <IsNull>0</IsNull>
@@ -795,13 +759,14 @@
       <Estimated>0</Estimated>
       <Milestone>0</Milestone>
       <Summary>0</Summary>
-      <ConstraintType>0</ConstraintType>
+      <ConstraintType>4</ConstraintType>
       <CalendarUID>-1</CalendarUID>
-      <Notes>Роль: [Аналитик]. Плановая длительность: 4 ч.</Notes>
+      <ConstraintDate>2026-10-20T13:00:00</ConstraintDate>
+      <Notes>Роль: [Аналитик / QA]. Плановая длительность по WBS: 4 ч.</Notes>
     </Task>
     <Task>
-      <UID>215</UID>
-      <ID>50</ID>
+      <UID>21</UID>
+      <ID>22</ID>
       <Name>Проектирование и создание таблицы users</Name>
       <Type>0</Type>
       <IsNull>0</IsNull>
@@ -809,8 +774,8 @@
       <OutlineNumber>3.2</OutlineNumber>
       <OutlineLevel>2</OutlineLevel>
       <Priority>500</Priority>
-      <Start>2026-10-22T15:00:00</Start>
-      <Finish>2026-10-23T10:00:00</Finish>
+      <Start>2026-10-21T08:00:00</Start>
+      <Finish>2026-10-21T12:00:00</Finish>
       <Duration>PT4H0M0S</Duration>
       <DurationFormat>5</DurationFormat>
       <Manual>0</Manual>
@@ -820,9 +785,9 @@
       <Summary>0</Summary>
       <ConstraintType>0</ConstraintType>
       <CalendarUID>-1</CalendarUID>
-      <Notes>Роль: [PM / Backend]. Плановая длительность: 4 ч.</Notes>
+      <Notes>Роль: [PM / Backend]. Плановая длительность по WBS: 4 ч.</Notes>
       <PredecessorLink>
-        <PredecessorUID>214</PredecessorUID>
+        <PredecessorUID>20</PredecessorUID>
         <Type>1</Type>
         <CrossProject>0</CrossProject>
         <LinkLag>0</LinkLag>
@@ -830,8 +795,8 @@
       </PredecessorLink>
     </Task>
     <Task>
-      <UID>216</UID>
-      <ID>51</ID>
+      <UID>22</UID>
+      <ID>23</ID>
       <Name>Реализация JWT-авторизации и разграничения ролей</Name>
       <Type>0</Type>
       <IsNull>0</IsNull>
@@ -839,8 +804,8 @@
       <OutlineNumber>3.3</OutlineNumber>
       <OutlineLevel>2</OutlineLevel>
       <Priority>500</Priority>
-      <Start>2026-10-23T10:00:00</Start>
-      <Finish>2026-10-26T15:00:00</Finish>
+      <Start>2026-10-21T13:00:00</Start>
+      <Finish>2026-10-22T17:00:00</Finish>
       <Duration>PT12H0M0S</Duration>
       <DurationFormat>5</DurationFormat>
       <Manual>0</Manual>
@@ -850,9 +815,9 @@
       <Summary>0</Summary>
       <ConstraintType>0</ConstraintType>
       <CalendarUID>-1</CalendarUID>
-      <Notes>Роль: [Lead Dev]. Плановая длительность: 12 ч.</Notes>
+      <Notes>Роль: [Lead Dev]. Плановая длительность по WBS: 12 ч.</Notes>
       <PredecessorLink>
-        <PredecessorUID>215</PredecessorUID>
+        <PredecessorUID>21</PredecessorUID>
         <Type>1</Type>
         <CrossProject>0</CrossProject>
         <LinkLag>0</LinkLag>
@@ -860,8 +825,8 @@
       </PredecessorLink>
     </Task>
     <Task>
-      <UID>217</UID>
-      <ID>52</ID>
+      <UID>23</UID>
+      <ID>24</ID>
       <Name>Вёрстка страниц входа и регистрации по макету</Name>
       <Type>0</Type>
       <IsNull>0</IsNull>
@@ -880,9 +845,9 @@
       <Summary>0</Summary>
       <ConstraintType>0</ConstraintType>
       <CalendarUID>-1</CalendarUID>
-      <Notes>Роль: [Frontend]. Плановая длительность: 8 ч.</Notes>
+      <Notes>Роль: [Frontend]. Плановая длительность по WBS: 8 ч.</Notes>
       <PredecessorLink>
-        <PredecessorUID>214</PredecessorUID>
+        <PredecessorUID>20</PredecessorUID>
         <Type>1</Type>
         <CrossProject>0</CrossProject>
         <LinkLag>0</LinkLag>
@@ -890,8 +855,8 @@
       </PredecessorLink>
     </Task>
     <Task>
-      <UID>218</UID>
-      <ID>53</ID>
+      <UID>24</UID>
+      <ID>25</ID>
       <Name>Интеграция форм с API авторизации (сохранение токена)</Name>
       <Type>0</Type>
       <IsNull>0</IsNull>
@@ -899,8 +864,8 @@
       <OutlineNumber>3.5</OutlineNumber>
       <OutlineLevel>2</OutlineLevel>
       <Priority>500</Priority>
-      <Start>2026-10-27T08:00:00</Start>
-      <Finish>2026-10-27T15:00:00</Finish>
+      <Start>2026-10-23T08:00:00</Start>
+      <Finish>2026-10-23T15:00:00</Finish>
       <Duration>PT6H0M0S</Duration>
       <DurationFormat>5</DurationFormat>
       <Manual>0</Manual>
@@ -910,16 +875,16 @@
       <Summary>0</Summary>
       <ConstraintType>0</ConstraintType>
       <CalendarUID>-1</CalendarUID>
-      <Notes>Роль: [Frontend]. Плановая длительность: 6 ч.</Notes>
+      <Notes>Роль: [Frontend]. Плановая длительность по WBS: 6 ч.</Notes>
       <PredecessorLink>
-        <PredecessorUID>216</PredecessorUID>
+        <PredecessorUID>22</PredecessorUID>
         <Type>1</Type>
         <CrossProject>0</CrossProject>
         <LinkLag>0</LinkLag>
         <LagFormat>7</LagFormat>
       </PredecessorLink>
       <PredecessorLink>
-        <PredecessorUID>217</PredecessorUID>
+        <PredecessorUID>23</PredecessorUID>
         <Type>1</Type>
         <CrossProject>0</CrossProject>
         <LinkLag>0</LinkLag>
@@ -927,8 +892,8 @@
       </PredecessorLink>
     </Task>
     <Task>
-      <UID>219</UID>
-      <ID>54</ID>
+      <UID>25</UID>
+      <ID>26</ID>
       <Name>Написание чек-листа тестирования безопасности</Name>
       <Type>0</Type>
       <IsNull>0</IsNull>
@@ -947,9 +912,9 @@
       <Summary>0</Summary>
       <ConstraintType>0</ConstraintType>
       <CalendarUID>-1</CalendarUID>
-      <Notes>Роль: [Аналитик, QA]. Плановая длительность: 2 ч.</Notes>
+      <Notes>Роль: [Аналитик / QA]. Плановая длительность по WBS: 2 ч.</Notes>
       <PredecessorLink>
-        <PredecessorUID>214</PredecessorUID>
+        <PredecessorUID>20</PredecessorUID>
         <Type>1</Type>
         <CrossProject>0</CrossProject>
         <LinkLag>0</LinkLag>
@@ -957,8 +922,8 @@
       </PredecessorLink>
     </Task>
     <Task>
-      <UID>220</UID>
-      <ID>55</ID>
+      <UID>26</UID>
+      <ID>27</ID>
       <Name>Прогон тестов, заведение багов в Jira</Name>
       <Type>0</Type>
       <IsNull>0</IsNull>
@@ -966,8 +931,8 @@
       <OutlineNumber>3.7</OutlineNumber>
       <OutlineLevel>2</OutlineLevel>
       <Priority>500</Priority>
-      <Start>2026-10-27T15:00:00</Start>
-      <Finish>2026-10-28T10:00:00</Finish>
+      <Start>2026-10-23T15:00:00</Start>
+      <Finish>2026-10-26T10:00:00</Finish>
       <Duration>PT4H0M0S</Duration>
       <DurationFormat>5</DurationFormat>
       <Manual>0</Manual>
@@ -977,16 +942,16 @@
       <Summary>0</Summary>
       <ConstraintType>0</ConstraintType>
       <CalendarUID>-1</CalendarUID>
-      <Notes>Роль: [Frontend, QA]. Плановая длительность: 4 ч.</Notes>
+      <Notes>Роль: [Frontend / QA]. Плановая длительность по WBS: 4 ч.</Notes>
       <PredecessorLink>
-        <PredecessorUID>218</PredecessorUID>
+        <PredecessorUID>24</PredecessorUID>
         <Type>1</Type>
         <CrossProject>0</CrossProject>
         <LinkLag>0</LinkLag>
         <LagFormat>7</LagFormat>
       </PredecessorLink>
       <PredecessorLink>
-        <PredecessorUID>219</PredecessorUID>
+        <PredecessorUID>25</PredecessorUID>
         <Type>1</Type>
         <CrossProject>0</CrossProject>
         <LinkLag>0</LinkLag>
@@ -994,8 +959,8 @@
       </PredecessorLink>
     </Task>
     <Task>
-      <UID>221</UID>
-      <ID>56</ID>
+      <UID>59</UID>
+      <ID>28</ID>
       <Name>Спринт 1 принят</Name>
       <Type>0</Type>
       <IsNull>0</IsNull>
@@ -1003,8 +968,8 @@
       <OutlineNumber>3.8</OutlineNumber>
       <OutlineLevel>2</OutlineLevel>
       <Priority>500</Priority>
-      <Start>2026-10-28T10:00:00</Start>
-      <Finish>2026-10-28T10:00:00</Finish>
+      <Start>2026-10-26T10:00:00</Start>
+      <Finish>2026-10-26T10:00:00</Finish>
       <Duration>PT0H0M0S</Duration>
       <DurationFormat>5</DurationFormat>
       <Manual>0</Manual>
@@ -1015,7 +980,7 @@
       <ConstraintType>0</ConstraintType>
       <CalendarUID>-1</CalendarUID>
       <PredecessorLink>
-        <PredecessorUID>220</PredecessorUID>
+        <PredecessorUID>26</PredecessorUID>
         <Type>1</Type>
         <CrossProject>0</CrossProject>
         <LinkLag>0</LinkLag>
@@ -1023,8 +988,30 @@
       </PredecessorLink>
     </Task>
     <Task>
-      <UID>222</UID>
-      <ID>57</ID>
+      <UID>27</UID>
+      <ID>29</ID>
+      <Name>Модуль «Афиша и сеансы» (Спринт 2)</Name>
+      <Type>1</Type>
+      <IsNull>0</IsNull>
+      <WBS>4.0</WBS>
+      <OutlineNumber>4</OutlineNumber>
+      <OutlineLevel>1</OutlineLevel>
+      <Priority>500</Priority>
+      <Start>2026-11-02T08:00:00</Start>
+      <Finish>2026-11-06T12:00:00</Finish>
+      <Duration>PT28H0M0S</Duration>
+      <DurationFormat>7</DurationFormat>
+      <Manual>0</Manual>
+      <EffortDriven>0</EffortDriven>
+      <Estimated>0</Estimated>
+      <Milestone>0</Milestone>
+      <Summary>1</Summary>
+      <ConstraintType>0</ConstraintType>
+      <CalendarUID>-1</CalendarUID>
+    </Task>
+    <Task>
+      <UID>28</UID>
+      <ID>30</ID>
       <Name>Формирование User Stories на просмотр афиши и расписания</Name>
       <Type>0</Type>
       <IsNull>0</IsNull>
@@ -1043,18 +1030,18 @@
       <Summary>0</Summary>
       <ConstraintType>0</ConstraintType>
       <CalendarUID>-1</CalendarUID>
-      <Notes>Роль: [Аналитик]. Плановая длительность: 2 ч.</Notes>
+      <Notes>Роль: [Аналитик]. Плановая длительность по WBS: 2 ч.</Notes>
       <PredecessorLink>
-        <PredecessorUID>221</PredecessorUID>
+        <PredecessorUID>59</PredecessorUID>
         <Type>1</Type>
         <CrossProject>0</CrossProject>
-        <LinkLag>13800</LinkLag>
-        <LagFormat>7</LagFormat>
+        <LinkLag>22800</LinkLag>
+        <LagFormat>5</LagFormat>
       </PredecessorLink>
     </Task>
     <Task>
-      <UID>223</UID>
-      <ID>58</ID>
+      <UID>29</UID>
+      <ID>31</ID>
       <Name>Создание таблиц movies, sessions</Name>
       <Type>0</Type>
       <IsNull>0</IsNull>
@@ -1062,8 +1049,8 @@
       <OutlineNumber>4.2</OutlineNumber>
       <OutlineLevel>2</OutlineLevel>
       <Priority>500</Priority>
-      <Start>2026-11-02T13:00:00</Start>
-      <Finish>2026-11-03T10:00:00</Finish>
+      <Start>2026-11-02T10:00:00</Start>
+      <Finish>2026-11-02T17:00:00</Finish>
       <Duration>PT6H0M0S</Duration>
       <DurationFormat>5</DurationFormat>
       <Manual>0</Manual>
@@ -1073,9 +1060,9 @@
       <Summary>0</Summary>
       <ConstraintType>0</ConstraintType>
       <CalendarUID>-1</CalendarUID>
-      <Notes>Роль: [PM / Backend]. Плановая длительность: 6 ч.</Notes>
+      <Notes>Роль: [PM / Backend]. Плановая длительность по WBS: 6 ч.</Notes>
       <PredecessorLink>
-        <PredecessorUID>222</PredecessorUID>
+        <PredecessorUID>28</PredecessorUID>
         <Type>1</Type>
         <CrossProject>0</CrossProject>
         <LinkLag>0</LinkLag>
@@ -1083,8 +1070,8 @@
       </PredecessorLink>
     </Task>
     <Task>
-      <UID>224</UID>
-      <ID>59</ID>
+      <UID>30</UID>
+      <ID>32</ID>
       <Name>Разработка эндпоинтов GET /movies и GET /sessions</Name>
       <Type>0</Type>
       <IsNull>0</IsNull>
@@ -1092,8 +1079,8 @@
       <OutlineNumber>4.3</OutlineNumber>
       <OutlineLevel>2</OutlineLevel>
       <Priority>500</Priority>
-      <Start>2026-11-03T10:00:00</Start>
-      <Finish>2026-11-05T10:00:00</Finish>
+      <Start>2026-11-03T08:00:00</Start>
+      <Finish>2026-11-03T17:00:00</Finish>
       <Duration>PT8H0M0S</Duration>
       <DurationFormat>5</DurationFormat>
       <Manual>0</Manual>
@@ -1103,9 +1090,9 @@
       <Summary>0</Summary>
       <ConstraintType>0</ConstraintType>
       <CalendarUID>-1</CalendarUID>
-      <Notes>Роль: [Lead Dev]. Плановая длительность: 8 ч.</Notes>
+      <Notes>Роль: [Lead Dev]. Плановая длительность по WBS: 8 ч.</Notes>
       <PredecessorLink>
-        <PredecessorUID>223</PredecessorUID>
+        <PredecessorUID>29</PredecessorUID>
         <Type>1</Type>
         <CrossProject>0</CrossProject>
         <LinkLag>0</LinkLag>
@@ -1113,8 +1100,8 @@
       </PredecessorLink>
     </Task>
     <Task>
-      <UID>225</UID>
-      <ID>60</ID>
+      <UID>31</UID>
+      <ID>33</ID>
       <Name>Вёрстка карточек фильмов и страницы выбора сеанса</Name>
       <Type>0</Type>
       <IsNull>0</IsNull>
@@ -1122,8 +1109,8 @@
       <OutlineNumber>4.4</OutlineNumber>
       <OutlineLevel>2</OutlineLevel>
       <Priority>500</Priority>
-      <Start>2026-11-02T13:00:00</Start>
-      <Finish>2026-11-03T15:00:00</Finish>
+      <Start>2026-11-02T10:00:00</Start>
+      <Finish>2026-11-03T12:00:00</Finish>
       <Duration>PT10H0M0S</Duration>
       <DurationFormat>5</DurationFormat>
       <Manual>0</Manual>
@@ -1133,9 +1120,9 @@
       <Summary>0</Summary>
       <ConstraintType>0</ConstraintType>
       <CalendarUID>-1</CalendarUID>
-      <Notes>Роль: [Frontend]. Плановая длительность: 10 ч.</Notes>
+      <Notes>Роль: [Frontend]. Плановая длительность по WBS: 10 ч.</Notes>
       <PredecessorLink>
-        <PredecessorUID>222</PredecessorUID>
+        <PredecessorUID>28</PredecessorUID>
         <Type>1</Type>
         <CrossProject>0</CrossProject>
         <LinkLag>0</LinkLag>
@@ -1143,8 +1130,8 @@
       </PredecessorLink>
     </Task>
     <Task>
-      <UID>226</UID>
-      <ID>61</ID>
+      <UID>32</UID>
+      <ID>34</ID>
       <Name>Подключение API афиши к интерфейсу</Name>
       <Type>0</Type>
       <IsNull>0</IsNull>
@@ -1152,8 +1139,8 @@
       <OutlineNumber>4.5</OutlineNumber>
       <OutlineLevel>2</OutlineLevel>
       <Priority>500</Priority>
-      <Start>2026-11-05T10:00:00</Start>
-      <Finish>2026-11-05T17:00:00</Finish>
+      <Start>2026-11-05T08:00:00</Start>
+      <Finish>2026-11-05T15:00:00</Finish>
       <Duration>PT6H0M0S</Duration>
       <DurationFormat>5</DurationFormat>
       <Manual>0</Manual>
@@ -1163,16 +1150,16 @@
       <Summary>0</Summary>
       <ConstraintType>0</ConstraintType>
       <CalendarUID>-1</CalendarUID>
-      <Notes>Роль: [Frontend]. Плановая длительность: 6 ч.</Notes>
+      <Notes>Роль: [Frontend]. Плановая длительность по WBS: 6 ч.</Notes>
       <PredecessorLink>
-        <PredecessorUID>224</PredecessorUID>
+        <PredecessorUID>30</PredecessorUID>
         <Type>1</Type>
         <CrossProject>0</CrossProject>
         <LinkLag>0</LinkLag>
         <LagFormat>7</LagFormat>
       </PredecessorLink>
       <PredecessorLink>
-        <PredecessorUID>225</PredecessorUID>
+        <PredecessorUID>31</PredecessorUID>
         <Type>1</Type>
         <CrossProject>0</CrossProject>
         <LinkLag>0</LinkLag>
@@ -1180,8 +1167,8 @@
       </PredecessorLink>
     </Task>
     <Task>
-      <UID>227</UID>
-      <ID>62</ID>
+      <UID>33</UID>
+      <ID>35</ID>
       <Name>Написание тест-кейсов на отображение пустого расписания</Name>
       <Type>0</Type>
       <IsNull>0</IsNull>
@@ -1189,8 +1176,8 @@
       <OutlineNumber>4.6</OutlineNumber>
       <OutlineLevel>2</OutlineLevel>
       <Priority>500</Priority>
-      <Start>2026-11-02T13:00:00</Start>
-      <Finish>2026-11-02T15:00:00</Finish>
+      <Start>2026-11-02T10:00:00</Start>
+      <Finish>2026-11-02T12:00:00</Finish>
       <Duration>PT2H0M0S</Duration>
       <DurationFormat>5</DurationFormat>
       <Manual>0</Manual>
@@ -1200,9 +1187,9 @@
       <Summary>0</Summary>
       <ConstraintType>0</ConstraintType>
       <CalendarUID>-1</CalendarUID>
-      <Notes>Роль: [Аналитик, QA]. Плановая длительность: 2 ч.</Notes>
+      <Notes>Роль: [Аналитик / QA]. Плановая длительность по WBS: 2 ч.</Notes>
       <PredecessorLink>
-        <PredecessorUID>222</PredecessorUID>
+        <PredecessorUID>28</PredecessorUID>
         <Type>1</Type>
         <CrossProject>0</CrossProject>
         <LinkLag>0</LinkLag>
@@ -1210,8 +1197,8 @@
       </PredecessorLink>
     </Task>
     <Task>
-      <UID>228</UID>
-      <ID>63</ID>
+      <UID>34</UID>
+      <ID>36</ID>
       <Name>Проверка вёрстки на разных разрешениях, фикс багов</Name>
       <Type>0</Type>
       <IsNull>0</IsNull>
@@ -1219,8 +1206,8 @@
       <OutlineNumber>4.7</OutlineNumber>
       <OutlineLevel>2</OutlineLevel>
       <Priority>500</Priority>
-      <Start>2026-11-06T08:00:00</Start>
-      <Finish>2026-11-06T15:00:00</Finish>
+      <Start>2026-11-05T15:00:00</Start>
+      <Finish>2026-11-06T12:00:00</Finish>
       <Duration>PT6H0M0S</Duration>
       <DurationFormat>5</DurationFormat>
       <Manual>0</Manual>
@@ -1230,16 +1217,16 @@
       <Summary>0</Summary>
       <ConstraintType>0</ConstraintType>
       <CalendarUID>-1</CalendarUID>
-      <Notes>Роль: [Frontend, QA]. Плановая длительность: 6 ч.</Notes>
+      <Notes>Роль: [Frontend / QA]. Плановая длительность по WBS: 6 ч.</Notes>
       <PredecessorLink>
-        <PredecessorUID>226</PredecessorUID>
+        <PredecessorUID>32</PredecessorUID>
         <Type>1</Type>
         <CrossProject>0</CrossProject>
         <LinkLag>0</LinkLag>
         <LagFormat>7</LagFormat>
       </PredecessorLink>
       <PredecessorLink>
-        <PredecessorUID>227</PredecessorUID>
+        <PredecessorUID>33</PredecessorUID>
         <Type>1</Type>
         <CrossProject>0</CrossProject>
         <LinkLag>0</LinkLag>
@@ -1247,8 +1234,8 @@
       </PredecessorLink>
     </Task>
     <Task>
-      <UID>229</UID>
-      <ID>64</ID>
+      <UID>60</UID>
+      <ID>37</ID>
       <Name>Спринт 2 принят</Name>
       <Type>0</Type>
       <IsNull>0</IsNull>
@@ -1256,8 +1243,8 @@
       <OutlineNumber>4.8</OutlineNumber>
       <OutlineLevel>2</OutlineLevel>
       <Priority>500</Priority>
-      <Start>2026-11-06T15:00:00</Start>
-      <Finish>2026-11-06T15:00:00</Finish>
+      <Start>2026-11-06T12:00:00</Start>
+      <Finish>2026-11-06T12:00:00</Finish>
       <Duration>PT0H0M0S</Duration>
       <DurationFormat>5</DurationFormat>
       <Manual>0</Manual>
@@ -1268,7 +1255,7 @@
       <ConstraintType>0</ConstraintType>
       <CalendarUID>-1</CalendarUID>
       <PredecessorLink>
-        <PredecessorUID>228</PredecessorUID>
+        <PredecessorUID>34</PredecessorUID>
         <Type>1</Type>
         <CrossProject>0</CrossProject>
         <LinkLag>0</LinkLag>
@@ -1276,8 +1263,30 @@
       </PredecessorLink>
     </Task>
     <Task>
-      <UID>230</UID>
-      <ID>65</ID>
+      <UID>35</UID>
+      <ID>38</ID>
+      <Name>Модуль «Схема зала и бронирование» (Спринт 3)</Name>
+      <Type>1</Type>
+      <IsNull>0</IsNull>
+      <WBS>5.0</WBS>
+      <OutlineNumber>5</OutlineNumber>
+      <OutlineLevel>1</OutlineLevel>
+      <Priority>500</Priority>
+      <Start>2026-11-16T08:00:00</Start>
+      <Finish>2026-11-20T17:00:00</Finish>
+      <Duration>PT40H0M0S</Duration>
+      <DurationFormat>7</DurationFormat>
+      <Manual>0</Manual>
+      <EffortDriven>0</EffortDriven>
+      <Estimated>0</Estimated>
+      <Milestone>0</Milestone>
+      <Summary>1</Summary>
+      <ConstraintType>0</ConstraintType>
+      <CalendarUID>-1</CalendarUID>
+    </Task>
+    <Task>
+      <UID>36</UID>
+      <ID>39</ID>
       <Name>Описание логики блокировки мест при одновременном бронировании</Name>
       <Type>0</Type>
       <IsNull>0</IsNull>
@@ -1285,8 +1294,8 @@
       <OutlineNumber>5.1</OutlineNumber>
       <OutlineLevel>2</OutlineLevel>
       <Priority>500</Priority>
-      <Start>2026-11-16T09:00:00</Start>
-      <Finish>2026-11-16T14:00:00</Finish>
+      <Start>2026-11-16T08:00:00</Start>
+      <Finish>2026-11-16T12:00:00</Finish>
       <Duration>PT4H0M0S</Duration>
       <DurationFormat>5</DurationFormat>
       <Manual>0</Manual>
@@ -1296,18 +1305,18 @@
       <Summary>0</Summary>
       <ConstraintType>0</ConstraintType>
       <CalendarUID>-1</CalendarUID>
-      <Notes>Роль: [Аналитик]. Плановая длительность: 4 ч.</Notes>
+      <Notes>Роль: [Аналитик]. Плановая длительность по WBS: 4 ч.</Notes>
       <PredecessorLink>
-        <PredecessorUID>229</PredecessorUID>
+        <PredecessorUID>60</PredecessorUID>
         <Type>1</Type>
         <CrossProject>0</CrossProject>
-        <LinkLag>25200</LinkLag>
-        <LagFormat>7</LagFormat>
+        <LinkLag>26400</LinkLag>
+        <LagFormat>5</LagFormat>
       </PredecessorLink>
     </Task>
     <Task>
-      <UID>231</UID>
-      <ID>66</ID>
+      <UID>37</UID>
+      <ID>40</ID>
       <Name>Разработка структуры таблиц halls, seats, bookings</Name>
       <Type>0</Type>
       <IsNull>0</IsNull>
@@ -1315,8 +1324,8 @@
       <OutlineNumber>5.2</OutlineNumber>
       <OutlineLevel>2</OutlineLevel>
       <Priority>500</Priority>
-      <Start>2026-11-16T14:00:00</Start>
-      <Finish>2026-11-17T11:00:00</Finish>
+      <Start>2026-11-16T13:00:00</Start>
+      <Finish>2026-11-17T10:00:00</Finish>
       <Duration>PT6H0M0S</Duration>
       <DurationFormat>5</DurationFormat>
       <Manual>0</Manual>
@@ -1326,9 +1335,9 @@
       <Summary>0</Summary>
       <ConstraintType>0</ConstraintType>
       <CalendarUID>-1</CalendarUID>
-      <Notes>Роль: [PM / Backend]. Плановая длительность: 6 ч.</Notes>
+      <Notes>Роль: [PM / Backend]. Плановая длительность по WBS: 6 ч.</Notes>
       <PredecessorLink>
-        <PredecessorUID>230</PredecessorUID>
+        <PredecessorUID>36</PredecessorUID>
         <Type>1</Type>
         <CrossProject>0</CrossProject>
         <LinkLag>0</LinkLag>
@@ -1336,8 +1345,8 @@
       </PredecessorLink>
     </Task>
     <Task>
-      <UID>232</UID>
-      <ID>67</ID>
+      <UID>38</UID>
+      <ID>41</ID>
       <Name>API POST /bookings с SELECT FOR UPDATE (защита от двойных продаж)</Name>
       <Type>0</Type>
       <IsNull>0</IsNull>
@@ -1345,8 +1354,8 @@
       <OutlineNumber>5.3</OutlineNumber>
       <OutlineLevel>2</OutlineLevel>
       <Priority>500</Priority>
-      <Start>2026-11-17T11:00:00</Start>
-      <Finish>2026-11-19T11:00:00</Finish>
+      <Start>2026-11-17T10:00:00</Start>
+      <Finish>2026-11-19T10:00:00</Finish>
       <Duration>PT16H0M0S</Duration>
       <DurationFormat>5</DurationFormat>
       <Manual>0</Manual>
@@ -1356,9 +1365,9 @@
       <Summary>0</Summary>
       <ConstraintType>0</ConstraintType>
       <CalendarUID>-1</CalendarUID>
-      <Notes>Роль: [Lead Dev]. Плановая длительность: 16 ч.</Notes>
+      <Notes>Роль: [Lead Dev]. Плановая длительность по WBS: 16 ч.</Notes>
       <PredecessorLink>
-        <PredecessorUID>231</PredecessorUID>
+        <PredecessorUID>37</PredecessorUID>
         <Type>1</Type>
         <CrossProject>0</CrossProject>
         <LinkLag>0</LinkLag>
@@ -1366,8 +1375,8 @@
       </PredecessorLink>
     </Task>
     <Task>
-      <UID>233</UID>
-      <ID>68</ID>
+      <UID>39</UID>
+      <ID>42</ID>
       <Name>Вёрстка интерактивной схемы зала (CSS Grid, статусы мест)</Name>
       <Type>0</Type>
       <IsNull>0</IsNull>
@@ -1375,8 +1384,8 @@
       <OutlineNumber>5.4</OutlineNumber>
       <OutlineLevel>2</OutlineLevel>
       <Priority>500</Priority>
-      <Start>2026-11-16T14:00:00</Start>
-      <Finish>2026-11-18T11:00:00</Finish>
+      <Start>2026-11-16T13:00:00</Start>
+      <Finish>2026-11-18T10:00:00</Finish>
       <Duration>PT14H0M0S</Duration>
       <DurationFormat>5</DurationFormat>
       <Manual>0</Manual>
@@ -1386,9 +1395,9 @@
       <Summary>0</Summary>
       <ConstraintType>0</ConstraintType>
       <CalendarUID>-1</CalendarUID>
-      <Notes>Роль: [Frontend]. Плановая длительность: 14 ч.</Notes>
+      <Notes>Роль: [Frontend]. Плановая длительность по WBS: 14 ч.</Notes>
       <PredecessorLink>
-        <PredecessorUID>230</PredecessorUID>
+        <PredecessorUID>36</PredecessorUID>
         <Type>1</Type>
         <CrossProject>0</CrossProject>
         <LinkLag>0</LinkLag>
@@ -1396,8 +1405,8 @@
       </PredecessorLink>
     </Task>
     <Task>
-      <UID>234</UID>
-      <ID>69</ID>
+      <UID>40</UID>
+      <ID>43</ID>
       <Name>Интеграция: запрос на бронь и обработка HTTP 409</Name>
       <Type>0</Type>
       <IsNull>0</IsNull>
@@ -1405,8 +1414,8 @@
       <OutlineNumber>5.5</OutlineNumber>
       <OutlineLevel>2</OutlineLevel>
       <Priority>500</Priority>
-      <Start>2026-11-19T11:00:00</Start>
-      <Finish>2026-11-20T11:00:00</Finish>
+      <Start>2026-11-19T10:00:00</Start>
+      <Finish>2026-11-20T10:00:00</Finish>
       <Duration>PT8H0M0S</Duration>
       <DurationFormat>5</DurationFormat>
       <Manual>0</Manual>
@@ -1416,16 +1425,16 @@
       <Summary>0</Summary>
       <ConstraintType>0</ConstraintType>
       <CalendarUID>-1</CalendarUID>
-      <Notes>Роль: [Frontend]. Плановая длительность: 8 ч.</Notes>
+      <Notes>Роль: [Frontend]. Плановая длительность по WBS: 8 ч.</Notes>
       <PredecessorLink>
-        <PredecessorUID>232</PredecessorUID>
+        <PredecessorUID>38</PredecessorUID>
         <Type>1</Type>
         <CrossProject>0</CrossProject>
         <LinkLag>0</LinkLag>
         <LagFormat>7</LagFormat>
       </PredecessorLink>
       <PredecessorLink>
-        <PredecessorUID>233</PredecessorUID>
+        <PredecessorUID>39</PredecessorUID>
         <Type>1</Type>
         <CrossProject>0</CrossProject>
         <LinkLag>0</LinkLag>
@@ -1433,8 +1442,8 @@
       </PredecessorLink>
     </Task>
     <Task>
-      <UID>235</UID>
-      <ID>70</ID>
+      <UID>41</UID>
+      <ID>44</ID>
       <Name>Скрипт имитации одновременного бронирования (нагрузочный тест)</Name>
       <Type>0</Type>
       <IsNull>0</IsNull>
@@ -1442,8 +1451,8 @@
       <OutlineNumber>5.6</OutlineNumber>
       <OutlineLevel>2</OutlineLevel>
       <Priority>500</Priority>
-      <Start>2026-11-19T11:00:00</Start>
-      <Finish>2026-11-20T11:00:00</Finish>
+      <Start>2026-11-19T10:00:00</Start>
+      <Finish>2026-11-20T10:00:00</Finish>
       <Duration>PT8H0M0S</Duration>
       <DurationFormat>5</DurationFormat>
       <Manual>0</Manual>
@@ -1453,9 +1462,9 @@
       <Summary>0</Summary>
       <ConstraintType>0</ConstraintType>
       <CalendarUID>-1</CalendarUID>
-      <Notes>Роль: [Аналитик, QA]. Плановая длительность: 8 ч.</Notes>
+      <Notes>Роль: [Аналитик / QA]. Плановая длительность по WBS: 8 ч.</Notes>
       <PredecessorLink>
-        <PredecessorUID>232</PredecessorUID>
+        <PredecessorUID>38</PredecessorUID>
         <Type>1</Type>
         <CrossProject>0</CrossProject>
         <LinkLag>0</LinkLag>
@@ -1463,8 +1472,8 @@
       </PredecessorLink>
     </Task>
     <Task>
-      <UID>236</UID>
-      <ID>71</ID>
+      <UID>42</UID>
+      <ID>45</ID>
       <Name>Прогон сценариев, проверка отката транзакции</Name>
       <Type>0</Type>
       <IsNull>0</IsNull>
@@ -1472,8 +1481,8 @@
       <OutlineNumber>5.7</OutlineNumber>
       <OutlineLevel>2</OutlineLevel>
       <Priority>500</Priority>
-      <Start>2026-11-20T11:00:00</Start>
-      <Finish>2026-11-23T09:00:00</Finish>
+      <Start>2026-11-20T10:00:00</Start>
+      <Finish>2026-11-20T17:00:00</Finish>
       <Duration>PT6H0M0S</Duration>
       <DurationFormat>5</DurationFormat>
       <Manual>0</Manual>
@@ -1483,16 +1492,16 @@
       <Summary>0</Summary>
       <ConstraintType>0</ConstraintType>
       <CalendarUID>-1</CalendarUID>
-      <Notes>Роль: [Frontend, QA]. Плановая длительность: 6 ч.</Notes>
+      <Notes>Роль: [Frontend / QA]. Плановая длительность по WBS: 6 ч.</Notes>
       <PredecessorLink>
-        <PredecessorUID>234</PredecessorUID>
+        <PredecessorUID>40</PredecessorUID>
         <Type>1</Type>
         <CrossProject>0</CrossProject>
         <LinkLag>0</LinkLag>
         <LagFormat>7</LagFormat>
       </PredecessorLink>
       <PredecessorLink>
-        <PredecessorUID>235</PredecessorUID>
+        <PredecessorUID>41</PredecessorUID>
         <Type>1</Type>
         <CrossProject>0</CrossProject>
         <LinkLag>0</LinkLag>
@@ -1500,8 +1509,8 @@
       </PredecessorLink>
     </Task>
     <Task>
-      <UID>237</UID>
-      <ID>72</ID>
+      <UID>61</UID>
+      <ID>46</ID>
       <Name>Спринт 3 принят</Name>
       <Type>0</Type>
       <IsNull>0</IsNull>
@@ -1509,8 +1518,8 @@
       <OutlineNumber>5.8</OutlineNumber>
       <OutlineLevel>2</OutlineLevel>
       <Priority>500</Priority>
-      <Start>2026-11-23T09:00:00</Start>
-      <Finish>2026-11-23T09:00:00</Finish>
+      <Start>2026-11-20T17:00:00</Start>
+      <Finish>2026-11-20T17:00:00</Finish>
       <Duration>PT0H0M0S</Duration>
       <DurationFormat>5</DurationFormat>
       <Manual>0</Manual>
@@ -1521,7 +1530,7 @@
       <ConstraintType>0</ConstraintType>
       <CalendarUID>-1</CalendarUID>
       <PredecessorLink>
-        <PredecessorUID>236</PredecessorUID>
+        <PredecessorUID>42</PredecessorUID>
         <Type>1</Type>
         <CrossProject>0</CrossProject>
         <LinkLag>0</LinkLag>
@@ -1529,8 +1538,30 @@
       </PredecessorLink>
     </Task>
     <Task>
-      <UID>238</UID>
-      <ID>73</ID>
+      <UID>43</UID>
+      <ID>47</ID>
+      <Name>Спринт 4. Оплата, QR, панель контроллера и финальное тестирование</Name>
+      <Type>1</Type>
+      <IsNull>0</IsNull>
+      <WBS>6.0</WBS>
+      <OutlineNumber>6</OutlineNumber>
+      <OutlineLevel>1</OutlineLevel>
+      <Priority>500</Priority>
+      <Start>2026-11-30T08:00:00</Start>
+      <Finish>2026-12-08T16:00:00</Finish>
+      <Duration>PT55H0M0S</Duration>
+      <DurationFormat>7</DurationFormat>
+      <Manual>0</Manual>
+      <EffortDriven>0</EffortDriven>
+      <Estimated>0</Estimated>
+      <Milestone>0</Milestone>
+      <Summary>1</Summary>
+      <ConstraintType>0</ConstraintType>
+      <CalendarUID>-1</CalendarUID>
+    </Task>
+    <Task>
+      <UID>44</UID>
+      <ID>48</ID>
       <Name>Сценарий успешной/неуспешной оплаты и формат данных для QR</Name>
       <Type>0</Type>
       <IsNull>0</IsNull>
@@ -1538,8 +1569,8 @@
       <OutlineNumber>6.1</OutlineNumber>
       <OutlineLevel>2</OutlineLevel>
       <Priority>500</Priority>
-      <Start>2026-11-30T09:00:00</Start>
-      <Finish>2026-11-30T12:00:00</Finish>
+      <Start>2026-11-30T08:00:00</Start>
+      <Finish>2026-11-30T11:00:00</Finish>
       <Duration>PT3H0M0S</Duration>
       <DurationFormat>5</DurationFormat>
       <Manual>0</Manual>
@@ -1549,18 +1580,18 @@
       <Summary>0</Summary>
       <ConstraintType>0</ConstraintType>
       <CalendarUID>-1</CalendarUID>
-      <Notes>Роль: [Аналитик]. Плановая длительность: 3 ч.</Notes>
+      <Notes>Роль: [Аналитик]. Плановая длительность по WBS: 3 ч.</Notes>
       <PredecessorLink>
-        <PredecessorUID>237</PredecessorUID>
+        <PredecessorUID>61</PredecessorUID>
         <Type>1</Type>
         <CrossProject>0</CrossProject>
-        <LinkLag>23400</LinkLag>
-        <LagFormat>7</LagFormat>
+        <LinkLag>24000</LinkLag>
+        <LagFormat>5</LagFormat>
       </PredecessorLink>
     </Task>
     <Task>
-      <UID>239</UID>
-      <ID>74</ID>
+      <UID>45</UID>
+      <ID>49</ID>
       <Name>Создание таблицы tickets, связь с bookings</Name>
       <Type>0</Type>
       <IsNull>0</IsNull>
@@ -1568,8 +1599,8 @@
       <OutlineNumber>6.2</OutlineNumber>
       <OutlineLevel>2</OutlineLevel>
       <Priority>500</Priority>
-      <Start>2026-11-30T13:00:00</Start>
-      <Finish>2026-11-30T17:00:00</Finish>
+      <Start>2026-11-30T11:00:00</Start>
+      <Finish>2026-11-30T16:00:00</Finish>
       <Duration>PT4H0M0S</Duration>
       <DurationFormat>5</DurationFormat>
       <Manual>0</Manual>
@@ -1579,9 +1610,9 @@
       <Summary>0</Summary>
       <ConstraintType>0</ConstraintType>
       <CalendarUID>-1</CalendarUID>
-      <Notes>Роль: [PM / Backend]. Плановая длительность: 4 ч.</Notes>
+      <Notes>Роль: [PM / Backend]. Плановая длительность по WBS: 4 ч.</Notes>
       <PredecessorLink>
-        <PredecessorUID>238</PredecessorUID>
+        <PredecessorUID>44</PredecessorUID>
         <Type>1</Type>
         <CrossProject>0</CrossProject>
         <LinkLag>0</LinkLag>
@@ -1589,8 +1620,8 @@
       </PredecessorLink>
     </Task>
     <Task>
-      <UID>240</UID>
-      <ID>75</ID>
+      <UID>46</UID>
+      <ID>50</ID>
       <Name>Имитация оплаты, генерация QR (qrcode), API получения QR</Name>
       <Type>0</Type>
       <IsNull>0</IsNull>
@@ -1598,8 +1629,8 @@
       <OutlineNumber>6.3</OutlineNumber>
       <OutlineLevel>2</OutlineLevel>
       <Priority>500</Priority>
-      <Start>2026-12-01T08:00:00</Start>
-      <Finish>2026-12-02T12:00:00</Finish>
+      <Start>2026-11-30T16:00:00</Start>
+      <Finish>2026-12-02T11:00:00</Finish>
       <Duration>PT12H0M0S</Duration>
       <DurationFormat>5</DurationFormat>
       <Manual>0</Manual>
@@ -1609,9 +1640,9 @@
       <Summary>0</Summary>
       <ConstraintType>0</ConstraintType>
       <CalendarUID>-1</CalendarUID>
-      <Notes>Роль: [Lead Dev]. Плановая длительность: 12 ч.</Notes>
+      <Notes>Роль: [Lead Dev]. Плановая длительность по WBS: 12 ч.</Notes>
       <PredecessorLink>
-        <PredecessorUID>239</PredecessorUID>
+        <PredecessorUID>45</PredecessorUID>
         <Type>1</Type>
         <CrossProject>0</CrossProject>
         <LinkLag>0</LinkLag>
@@ -1619,8 +1650,8 @@
       </PredecessorLink>
     </Task>
     <Task>
-      <UID>241</UID>
-      <ID>76</ID>
+      <UID>47</UID>
+      <ID>51</ID>
       <Name>Вёрстка страницы оплаты и личного кабинета с билетами</Name>
       <Type>0</Type>
       <IsNull>0</IsNull>
@@ -1628,8 +1659,8 @@
       <OutlineNumber>6.4</OutlineNumber>
       <OutlineLevel>2</OutlineLevel>
       <Priority>500</Priority>
-      <Start>2026-11-30T13:00:00</Start>
-      <Finish>2026-12-01T12:00:00</Finish>
+      <Start>2026-11-30T11:00:00</Start>
+      <Finish>2026-12-01T11:00:00</Finish>
       <Duration>PT8H0M0S</Duration>
       <DurationFormat>5</DurationFormat>
       <Manual>0</Manual>
@@ -1639,9 +1670,9 @@
       <Summary>0</Summary>
       <ConstraintType>0</ConstraintType>
       <CalendarUID>-1</CalendarUID>
-      <Notes>Роль: [Frontend]. Плановая длительность: 8 ч.</Notes>
+      <Notes>Роль: [Frontend]. Плановая длительность по WBS: 8 ч.</Notes>
       <PredecessorLink>
-        <PredecessorUID>238</PredecessorUID>
+        <PredecessorUID>44</PredecessorUID>
         <Type>1</Type>
         <CrossProject>0</CrossProject>
         <LinkLag>0</LinkLag>
@@ -1649,8 +1680,8 @@
       </PredecessorLink>
     </Task>
     <Task>
-      <UID>242</UID>
-      <ID>77</ID>
+      <UID>48</UID>
+      <ID>52</ID>
       <Name>Отрисовка QR-кода на экране телефона (base64 через API)</Name>
       <Type>0</Type>
       <IsNull>0</IsNull>
@@ -1658,8 +1689,8 @@
       <OutlineNumber>6.5</OutlineNumber>
       <OutlineLevel>2</OutlineLevel>
       <Priority>500</Priority>
-      <Start>2026-12-02T13:00:00</Start>
-      <Finish>2026-12-03T10:00:00</Finish>
+      <Start>2026-12-02T11:00:00</Start>
+      <Finish>2026-12-03T09:00:00</Finish>
       <Duration>PT6H0M0S</Duration>
       <DurationFormat>5</DurationFormat>
       <Manual>0</Manual>
@@ -1669,16 +1700,16 @@
       <Summary>0</Summary>
       <ConstraintType>0</ConstraintType>
       <CalendarUID>-1</CalendarUID>
-      <Notes>Роль: [Frontend]. Плановая длительность: 6 ч.</Notes>
+      <Notes>Роль: [Frontend]. Плановая длительность по WBS: 6 ч.</Notes>
       <PredecessorLink>
-        <PredecessorUID>240</PredecessorUID>
+        <PredecessorUID>46</PredecessorUID>
         <Type>1</Type>
         <CrossProject>0</CrossProject>
         <LinkLag>0</LinkLag>
         <LagFormat>7</LagFormat>
       </PredecessorLink>
       <PredecessorLink>
-        <PredecessorUID>241</PredecessorUID>
+        <PredecessorUID>47</PredecessorUID>
         <Type>1</Type>
         <CrossProject>0</CrossProject>
         <LinkLag>0</LinkLag>
@@ -1686,8 +1717,8 @@
       </PredecessorLink>
     </Task>
     <Task>
-      <UID>243</UID>
-      <ID>78</ID>
+      <UID>49</UID>
+      <ID>53</ID>
       <Name>Тестирование сценариев сбоя оплаты</Name>
       <Type>0</Type>
       <IsNull>0</IsNull>
@@ -1695,8 +1726,8 @@
       <OutlineNumber>6.6</OutlineNumber>
       <OutlineLevel>2</OutlineLevel>
       <Priority>500</Priority>
-      <Start>2026-12-02T13:00:00</Start>
-      <Finish>2026-12-02T17:00:00</Finish>
+      <Start>2026-12-02T11:00:00</Start>
+      <Finish>2026-12-02T16:00:00</Finish>
       <Duration>PT4H0M0S</Duration>
       <DurationFormat>5</DurationFormat>
       <Manual>0</Manual>
@@ -1706,9 +1737,9 @@
       <Summary>0</Summary>
       <ConstraintType>0</ConstraintType>
       <CalendarUID>-1</CalendarUID>
-      <Notes>Роль: [Аналитик, QA]. Плановая длительность: 4 ч.</Notes>
+      <Notes>Роль: [Аналитик / QA]. Плановая длительность по WBS: 4 ч.</Notes>
       <PredecessorLink>
-        <PredecessorUID>240</PredecessorUID>
+        <PredecessorUID>46</PredecessorUID>
         <Type>1</Type>
         <CrossProject>0</CrossProject>
         <LinkLag>0</LinkLag>
@@ -1716,8 +1747,8 @@
       </PredecessorLink>
     </Task>
     <Task>
-      <UID>244</UID>
-      <ID>79</ID>
+      <UID>50</UID>
+      <ID>54</ID>
       <Name>Проверка читаемости QR-кода обычным сканером</Name>
       <Type>0</Type>
       <IsNull>0</IsNull>
@@ -1725,8 +1756,8 @@
       <OutlineNumber>6.7</OutlineNumber>
       <OutlineLevel>2</OutlineLevel>
       <Priority>500</Priority>
-      <Start>2026-12-04T08:00:00</Start>
-      <Finish>2026-12-04T12:00:00</Finish>
+      <Start>2026-12-03T09:00:00</Start>
+      <Finish>2026-12-03T14:00:00</Finish>
       <Duration>PT4H0M0S</Duration>
       <DurationFormat>5</DurationFormat>
       <Manual>0</Manual>
@@ -1736,9 +1767,9 @@
       <Summary>0</Summary>
       <ConstraintType>0</ConstraintType>
       <CalendarUID>-1</CalendarUID>
-      <Notes>Роль: [Frontend, QA]. Плановая длительность: 4 ч.</Notes>
+      <Notes>Роль: [Frontend / QA]. Плановая длительность по WBS: 4 ч.</Notes>
       <PredecessorLink>
-        <PredecessorUID>242</PredecessorUID>
+        <PredecessorUID>48</PredecessorUID>
         <Type>1</Type>
         <CrossProject>0</CrossProject>
         <LinkLag>0</LinkLag>
@@ -1746,8 +1777,8 @@
       </PredecessorLink>
     </Task>
     <Task>
-      <UID>245</UID>
-      <ID>80</ID>
+      <UID>51</UID>
+      <ID>55</ID>
       <Name>Требования к интерфейсу контроллера (ввод кода/сканирование)</Name>
       <Type>0</Type>
       <IsNull>0</IsNull>
@@ -1755,8 +1786,8 @@
       <OutlineNumber>6.8</OutlineNumber>
       <OutlineLevel>2</OutlineLevel>
       <Priority>500</Priority>
-      <Start>2026-11-30T13:00:00</Start>
-      <Finish>2026-11-30T15:00:00</Finish>
+      <Start>2026-11-30T11:00:00</Start>
+      <Finish>2026-11-30T14:00:00</Finish>
       <Duration>PT2H0M0S</Duration>
       <DurationFormat>5</DurationFormat>
       <Manual>0</Manual>
@@ -1766,9 +1797,9 @@
       <Summary>0</Summary>
       <ConstraintType>0</ConstraintType>
       <CalendarUID>-1</CalendarUID>
-      <Notes>Роль: [Аналитик]. Плановая длительность: 2 ч.</Notes>
+      <Notes>Роль: [Аналитик]. Плановая длительность по WBS: 2 ч.</Notes>
       <PredecessorLink>
-        <PredecessorUID>238</PredecessorUID>
+        <PredecessorUID>44</PredecessorUID>
         <Type>1</Type>
         <CrossProject>0</CrossProject>
         <LinkLag>0</LinkLag>
@@ -1776,8 +1807,8 @@
       </PredecessorLink>
     </Task>
     <Task>
-      <UID>246</UID>
-      <ID>81</ID>
+      <UID>52</UID>
+      <ID>56</ID>
       <Name>API валидации билета (действителен/просрочен/подделка)</Name>
       <Type>0</Type>
       <IsNull>0</IsNull>
@@ -1785,8 +1816,8 @@
       <OutlineNumber>6.9</OutlineNumber>
       <OutlineLevel>2</OutlineLevel>
       <Priority>500</Priority>
-      <Start>2026-12-02T13:00:00</Start>
-      <Finish>2026-12-03T10:00:00</Finish>
+      <Start>2026-12-02T11:00:00</Start>
+      <Finish>2026-12-03T09:00:00</Finish>
       <Duration>PT6H0M0S</Duration>
       <DurationFormat>5</DurationFormat>
       <Manual>0</Manual>
@@ -1796,16 +1827,16 @@
       <Summary>0</Summary>
       <ConstraintType>0</ConstraintType>
       <CalendarUID>-1</CalendarUID>
-      <Notes>Роль: [Lead Dev]. Плановая длительность: 6 ч.</Notes>
+      <Notes>Роль: [Lead Dev]. Плановая длительность по WBS: 6 ч.</Notes>
       <PredecessorLink>
-        <PredecessorUID>240</PredecessorUID>
+        <PredecessorUID>46</PredecessorUID>
         <Type>1</Type>
         <CrossProject>0</CrossProject>
         <LinkLag>0</LinkLag>
         <LagFormat>7</LagFormat>
       </PredecessorLink>
       <PredecessorLink>
-        <PredecessorUID>245</PredecessorUID>
+        <PredecessorUID>51</PredecessorUID>
         <Type>1</Type>
         <CrossProject>0</CrossProject>
         <LinkLag>0</LinkLag>
@@ -1813,8 +1844,8 @@
       </PredecessorLink>
     </Task>
     <Task>
-      <UID>247</UID>
-      <ID>82</ID>
+      <UID>53</UID>
+      <ID>57</ID>
       <Name>Вёрстка страницы контроллера</Name>
       <Type>0</Type>
       <IsNull>0</IsNull>
@@ -1822,8 +1853,8 @@
       <OutlineNumber>6.10</OutlineNumber>
       <OutlineLevel>2</OutlineLevel>
       <Priority>500</Priority>
-      <Start>2026-12-03T10:00:00</Start>
-      <Finish>2026-12-03T17:00:00</Finish>
+      <Start>2026-12-03T09:00:00</Start>
+      <Finish>2026-12-03T16:00:00</Finish>
       <Duration>PT6H0M0S</Duration>
       <DurationFormat>5</DurationFormat>
       <Manual>0</Manual>
@@ -1833,16 +1864,16 @@
       <Summary>0</Summary>
       <ConstraintType>0</ConstraintType>
       <CalendarUID>-1</CalendarUID>
-      <Notes>Роль: [Frontend]. Плановая длительность: 6 ч.</Notes>
+      <Notes>Роль: [Frontend]. Плановая длительность по WBS: 6 ч.</Notes>
       <PredecessorLink>
-        <PredecessorUID>242</PredecessorUID>
+        <PredecessorUID>51</PredecessorUID>
         <Type>1</Type>
         <CrossProject>0</CrossProject>
         <LinkLag>0</LinkLag>
         <LagFormat>7</LagFormat>
       </PredecessorLink>
       <PredecessorLink>
-        <PredecessorUID>245</PredecessorUID>
+        <PredecessorUID>48</PredecessorUID>
         <Type>1</Type>
         <CrossProject>0</CrossProject>
         <LinkLag>0</LinkLag>
@@ -1850,8 +1881,8 @@
       </PredecessorLink>
     </Task>
     <Task>
-      <UID>248</UID>
-      <ID>83</ID>
+      <UID>54</UID>
+      <ID>58</ID>
       <Name>Интеграция страницы контроллера с API валидации</Name>
       <Type>0</Type>
       <IsNull>0</IsNull>
@@ -1859,8 +1890,8 @@
       <OutlineNumber>6.11</OutlineNumber>
       <OutlineLevel>2</OutlineLevel>
       <Priority>500</Priority>
-      <Start>2026-12-04T13:00:00</Start>
-      <Finish>2026-12-04T17:00:00</Finish>
+      <Start>2026-12-03T16:00:00</Start>
+      <Finish>2026-12-04T11:00:00</Finish>
       <Duration>PT4H0M0S</Duration>
       <DurationFormat>5</DurationFormat>
       <Manual>0</Manual>
@@ -1870,16 +1901,16 @@
       <Summary>0</Summary>
       <ConstraintType>0</ConstraintType>
       <CalendarUID>-1</CalendarUID>
-      <Notes>Роль: [Frontend]. Плановая длительность: 4 ч.</Notes>
+      <Notes>Роль: [Frontend]. Плановая длительность по WBS: 4 ч.</Notes>
       <PredecessorLink>
-        <PredecessorUID>246</PredecessorUID>
+        <PredecessorUID>52</PredecessorUID>
         <Type>1</Type>
         <CrossProject>0</CrossProject>
         <LinkLag>0</LinkLag>
         <LagFormat>7</LagFormat>
       </PredecessorLink>
       <PredecessorLink>
-        <PredecessorUID>247</PredecessorUID>
+        <PredecessorUID>53</PredecessorUID>
         <Type>1</Type>
         <CrossProject>0</CrossProject>
         <LinkLag>0</LinkLag>
@@ -1887,8 +1918,8 @@
       </PredecessorLink>
     </Task>
     <Task>
-      <UID>249</UID>
-      <ID>84</ID>
+      <UID>55</UID>
+      <ID>59</ID>
       <Name>Создание базы тестовых QR-кодов</Name>
       <Type>0</Type>
       <IsNull>0</IsNull>
@@ -1896,8 +1927,8 @@
       <OutlineNumber>6.12</OutlineNumber>
       <OutlineLevel>2</OutlineLevel>
       <Priority>500</Priority>
-      <Start>2026-12-03T10:00:00</Start>
-      <Finish>2026-12-03T15:00:00</Finish>
+      <Start>2026-12-03T09:00:00</Start>
+      <Finish>2026-12-03T14:00:00</Finish>
       <Duration>PT4H0M0S</Duration>
       <DurationFormat>5</DurationFormat>
       <Manual>0</Manual>
@@ -1907,9 +1938,9 @@
       <Summary>0</Summary>
       <ConstraintType>0</ConstraintType>
       <CalendarUID>-1</CalendarUID>
-      <Notes>Роль: [Аналитик, QA]. Плановая длительность: 4 ч.</Notes>
+      <Notes>Роль: [Аналитик / QA]. Плановая длительность по WBS: 4 ч.</Notes>
       <PredecessorLink>
-        <PredecessorUID>246</PredecessorUID>
+        <PredecessorUID>52</PredecessorUID>
         <Type>1</Type>
         <CrossProject>0</CrossProject>
         <LinkLag>0</LinkLag>
@@ -1917,8 +1948,8 @@
       </PredecessorLink>
     </Task>
     <Task>
-      <UID>250</UID>
-      <ID>85</ID>
+      <UID>56</UID>
+      <ID>60</ID>
       <Name>Тестирование проходного режима</Name>
       <Type>0</Type>
       <IsNull>0</IsNull>
@@ -1926,8 +1957,8 @@
       <OutlineNumber>6.13</OutlineNumber>
       <OutlineLevel>2</OutlineLevel>
       <Priority>500</Priority>
-      <Start>2026-12-07T09:00:00</Start>
-      <Finish>2026-12-07T14:00:00</Finish>
+      <Start>2026-12-04T11:00:00</Start>
+      <Finish>2026-12-04T16:00:00</Finish>
       <Duration>PT4H0M0S</Duration>
       <DurationFormat>5</DurationFormat>
       <Manual>0</Manual>
@@ -1937,16 +1968,16 @@
       <Summary>0</Summary>
       <ConstraintType>0</ConstraintType>
       <CalendarUID>-1</CalendarUID>
-      <Notes>Роль: [QA]. Плановая длительность: 4 ч.</Notes>
+      <Notes>Роль: [Frontend / QA]. Плановая длительность по WBS: 4 ч.</Notes>
       <PredecessorLink>
-        <PredecessorUID>248</PredecessorUID>
+        <PredecessorUID>54</PredecessorUID>
         <Type>1</Type>
         <CrossProject>0</CrossProject>
         <LinkLag>0</LinkLag>
         <LagFormat>7</LagFormat>
       </PredecessorLink>
       <PredecessorLink>
-        <PredecessorUID>249</PredecessorUID>
+        <PredecessorUID>55</PredecessorUID>
         <Type>1</Type>
         <CrossProject>0</CrossProject>
         <LinkLag>0</LinkLag>
@@ -1954,8 +1985,8 @@
       </PredecessorLink>
     </Task>
     <Task>
-      <UID>251</UID>
-      <ID>86</ID>
+      <UID>57</UID>
+      <ID>61</ID>
       <Name>End-to-End тестирование: от регистрации до прохода по QR</Name>
       <Type>0</Type>
       <IsNull>0</IsNull>
@@ -1963,8 +1994,8 @@
       <OutlineNumber>6.14</OutlineNumber>
       <OutlineLevel>2</OutlineLevel>
       <Priority>500</Priority>
-      <Start>2026-12-07T14:00:00</Start>
-      <Finish>2026-12-08T14:00:00</Finish>
+      <Start>2026-12-04T16:00:00</Start>
+      <Finish>2026-12-07T16:00:00</Finish>
       <Duration>PT8H0M0S</Duration>
       <DurationFormat>5</DurationFormat>
       <Manual>0</Manual>
@@ -1974,23 +2005,23 @@
       <Summary>0</Summary>
       <ConstraintType>0</ConstraintType>
       <CalendarUID>-1</CalendarUID>
-      <Notes>Роль: [PM / Backend, Lead Dev, Frontend, QA, Аналитик]. Плановая длительность: 8 ч.</Notes>
+      <Notes>Роль: [Вся команда]. Плановая длительность по WBS: 8 ч.</Notes>
       <PredecessorLink>
-        <PredecessorUID>243</PredecessorUID>
+        <PredecessorUID>49</PredecessorUID>
         <Type>1</Type>
         <CrossProject>0</CrossProject>
         <LinkLag>0</LinkLag>
         <LagFormat>7</LagFormat>
       </PredecessorLink>
       <PredecessorLink>
-        <PredecessorUID>244</PredecessorUID>
+        <PredecessorUID>50</PredecessorUID>
         <Type>1</Type>
         <CrossProject>0</CrossProject>
         <LinkLag>0</LinkLag>
         <LagFormat>7</LagFormat>
       </PredecessorLink>
       <PredecessorLink>
-        <PredecessorUID>250</PredecessorUID>
+        <PredecessorUID>56</PredecessorUID>
         <Type>1</Type>
         <CrossProject>0</CrossProject>
         <LinkLag>0</LinkLag>
@@ -1998,8 +2029,8 @@
       </PredecessorLink>
     </Task>
     <Task>
-      <UID>252</UID>
-      <ID>87</ID>
+      <UID>58</UID>
+      <ID>62</ID>
       <Name>Регрессионное тестирование</Name>
       <Type>0</Type>
       <IsNull>0</IsNull>
@@ -2007,8 +2038,8 @@
       <OutlineNumber>6.15</OutlineNumber>
       <OutlineLevel>2</OutlineLevel>
       <Priority>500</Priority>
-      <Start>2026-12-08T14:00:00</Start>
-      <Finish>2026-12-09T14:00:00</Finish>
+      <Start>2026-12-07T16:00:00</Start>
+      <Finish>2026-12-08T16:00:00</Finish>
       <Duration>PT8H0M0S</Duration>
       <DurationFormat>5</DurationFormat>
       <Manual>0</Manual>
@@ -2018,9 +2049,9 @@
       <Summary>0</Summary>
       <ConstraintType>0</ConstraintType>
       <CalendarUID>-1</CalendarUID>
-      <Notes>Роль: [Аналитик, QA]. Плановая длительность: 8 ч.</Notes>
+      <Notes>Роль: [Аналитик / QA]. Плановая длительность по WBS: 8 ч.</Notes>
       <PredecessorLink>
-        <PredecessorUID>251</PredecessorUID>
+        <PredecessorUID>57</PredecessorUID>
         <Type>1</Type>
         <CrossProject>0</CrossProject>
         <LinkLag>0</LinkLag>
@@ -2028,8 +2059,8 @@
       </PredecessorLink>
     </Task>
     <Task>
-      <UID>253</UID>
-      <ID>88</ID>
+      <UID>62</UID>
+      <ID>63</ID>
       <Name>Спринт 4 принят</Name>
       <Type>0</Type>
       <IsNull>0</IsNull>
@@ -2037,8 +2068,8 @@
       <OutlineNumber>6.16</OutlineNumber>
       <OutlineLevel>2</OutlineLevel>
       <Priority>500</Priority>
-      <Start>2026-12-09T14:00:00</Start>
-      <Finish>2026-12-09T14:00:00</Finish>
+      <Start>2026-12-08T16:00:00</Start>
+      <Finish>2026-12-08T16:00:00</Finish>
       <Duration>PT0H0M0S</Duration>
       <DurationFormat>5</DurationFormat>
       <Manual>0</Manual>
@@ -2049,7 +2080,7 @@
       <ConstraintType>0</ConstraintType>
       <CalendarUID>-1</CalendarUID>
       <PredecessorLink>
-        <PredecessorUID>252</PredecessorUID>
+        <PredecessorUID>58</PredecessorUID>
         <Type>1</Type>
         <CrossProject>0</CrossProject>
         <LinkLag>0</LinkLag>
@@ -2112,16 +2143,16 @@
   <Assignments>
     <Assignment>
       <UID>1</UID>
-      <TaskUID>200</TaskUID>
+      <TaskUID>2</TaskUID>
       <ResourceUID>1</ResourceUID>
-      <Finish>2026-10-21T12:00:00</Finish>
-      <Start>2026-10-20T13:00:00</Start>
+      <Finish>2026-10-19T17:00:00</Finish>
+      <Start>2026-10-19T08:00:00</Start>
       <Units>1.0000</Units>
       <Work>PT8H0M0S</Work>
     </Assignment>
     <Assignment>
       <UID>2</UID>
-      <TaskUID>201</TaskUID>
+      <TaskUID>3</TaskUID>
       <ResourceUID>1</ResourceUID>
       <Finish>2026-10-20T12:00:00</Finish>
       <Start>2026-10-20T08:00:00</Start>
@@ -2130,7 +2161,7 @@
     </Assignment>
     <Assignment>
       <UID>3</UID>
-      <TaskUID>201</TaskUID>
+      <TaskUID>3</TaskUID>
       <ResourceUID>2</ResourceUID>
       <Finish>2026-10-20T12:00:00</Finish>
       <Start>2026-10-20T08:00:00</Start>
@@ -2139,7 +2170,7 @@
     </Assignment>
     <Assignment>
       <UID>4</UID>
-      <TaskUID>201</TaskUID>
+      <TaskUID>3</TaskUID>
       <ResourceUID>3</ResourceUID>
       <Finish>2026-10-20T12:00:00</Finish>
       <Start>2026-10-20T08:00:00</Start>
@@ -2148,7 +2179,7 @@
     </Assignment>
     <Assignment>
       <UID>5</UID>
-      <TaskUID>201</TaskUID>
+      <TaskUID>3</TaskUID>
       <ResourceUID>4</ResourceUID>
       <Finish>2026-10-20T12:00:00</Finish>
       <Start>2026-10-20T08:00:00</Start>
@@ -2157,7 +2188,7 @@
     </Assignment>
     <Assignment>
       <UID>6</UID>
-      <TaskUID>201</TaskUID>
+      <TaskUID>3</TaskUID>
       <ResourceUID>5</ResourceUID>
       <Finish>2026-10-20T12:00:00</Finish>
       <Start>2026-10-20T08:00:00</Start>
@@ -2166,124 +2197,187 @@
     </Assignment>
     <Assignment>
       <UID>7</UID>
-      <TaskUID>202</TaskUID>
+      <TaskUID>4</TaskUID>
       <ResourceUID>1</ResourceUID>
-      <Finish>2026-12-10T10:00:00</Finish>
-      <Start>2026-12-10T08:00:00</Start>
-      <Units>1.0000</Units>
-      <Work>PT2H0M0S</Work>
+      <Finish>2026-12-11T17:00:00</Finish>
+      <Start>2026-10-19T08:00:00</Start>
+      <Units>0.0513</Units>
+      <Work>PT16H0M0S</Work>
     </Assignment>
     <Assignment>
       <UID>8</UID>
-      <TaskUID>202</TaskUID>
-      <ResourceUID>2</ResourceUID>
-      <Finish>2026-12-10T10:00:00</Finish>
-      <Start>2026-12-10T08:00:00</Start>
-      <Units>1.0000</Units>
-      <Work>PT2H0M0S</Work>
+      <TaskUID>5</TaskUID>
+      <ResourceUID>1</ResourceUID>
+      <Finish>2026-12-11T17:00:00</Finish>
+      <Start>2026-10-19T08:00:00</Start>
+      <Units>0.0513</Units>
+      <Work>PT16H0M0S</Work>
     </Assignment>
     <Assignment>
       <UID>9</UID>
-      <TaskUID>202</TaskUID>
-      <ResourceUID>3</ResourceUID>
-      <Finish>2026-12-10T10:00:00</Finish>
-      <Start>2026-12-10T08:00:00</Start>
-      <Units>1.0000</Units>
-      <Work>PT2H0M0S</Work>
+      <TaskUID>5</TaskUID>
+      <ResourceUID>2</ResourceUID>
+      <Finish>2026-12-11T17:00:00</Finish>
+      <Start>2026-10-19T08:00:00</Start>
+      <Units>0.0513</Units>
+      <Work>PT16H0M0S</Work>
     </Assignment>
     <Assignment>
       <UID>10</UID>
-      <TaskUID>202</TaskUID>
-      <ResourceUID>4</ResourceUID>
-      <Finish>2026-12-10T10:00:00</Finish>
-      <Start>2026-12-10T08:00:00</Start>
-      <Units>1.0000</Units>
-      <Work>PT2H0M0S</Work>
+      <TaskUID>5</TaskUID>
+      <ResourceUID>3</ResourceUID>
+      <Finish>2026-12-11T17:00:00</Finish>
+      <Start>2026-10-19T08:00:00</Start>
+      <Units>0.0513</Units>
+      <Work>PT16H0M0S</Work>
     </Assignment>
     <Assignment>
       <UID>11</UID>
-      <TaskUID>202</TaskUID>
-      <ResourceUID>5</ResourceUID>
-      <Finish>2026-12-10T10:00:00</Finish>
-      <Start>2026-12-10T08:00:00</Start>
-      <Units>1.0000</Units>
-      <Work>PT2H0M0S</Work>
+      <TaskUID>5</TaskUID>
+      <ResourceUID>4</ResourceUID>
+      <Finish>2026-12-11T17:00:00</Finish>
+      <Start>2026-10-19T08:00:00</Start>
+      <Units>0.0513</Units>
+      <Work>PT16H0M0S</Work>
     </Assignment>
     <Assignment>
       <UID>12</UID>
-      <TaskUID>203</TaskUID>
-      <ResourceUID>1</ResourceUID>
-      <Finish>2026-12-02T17:00:00</Finish>
-      <Start>2026-12-02T13:00:00</Start>
-      <Units>1.0000</Units>
-      <Work>PT4H0M0S</Work>
+      <TaskUID>5</TaskUID>
+      <ResourceUID>5</ResourceUID>
+      <Finish>2026-12-11T17:00:00</Finish>
+      <Start>2026-10-19T08:00:00</Start>
+      <Units>0.0513</Units>
+      <Work>PT16H0M0S</Work>
     </Assignment>
     <Assignment>
       <UID>13</UID>
-      <TaskUID>204</TaskUID>
+      <TaskUID>6</TaskUID>
       <ResourceUID>1</ResourceUID>
-      <Finish>2026-12-03T17:00:00</Finish>
-      <Start>2026-12-03T08:00:00</Start>
-      <Units>1.0000</Units>
+      <Finish>2026-12-11T17:00:00</Finish>
+      <Start>2026-10-19T08:00:00</Start>
+      <Units>0.0256</Units>
       <Work>PT8H0M0S</Work>
     </Assignment>
     <Assignment>
       <UID>14</UID>
-      <TaskUID>205</TaskUID>
+      <TaskUID>7</TaskUID>
       <ResourceUID>1</ResourceUID>
-      <Finish>2026-12-10T15:00:00</Finish>
-      <Start>2026-12-10T10:00:00</Start>
+      <Finish>2026-12-09T14:00:00</Finish>
+      <Start>2026-12-09T11:00:00</Start>
       <Units>1.0000</Units>
-      <Work>PT4H0M0S</Work>
+      <Work>PT2H0M0S</Work>
     </Assignment>
     <Assignment>
       <UID>15</UID>
-      <TaskUID>205</TaskUID>
+      <TaskUID>7</TaskUID>
       <ResourceUID>2</ResourceUID>
-      <Finish>2026-12-10T15:00:00</Finish>
-      <Start>2026-12-10T10:00:00</Start>
+      <Finish>2026-12-09T14:00:00</Finish>
+      <Start>2026-12-09T11:00:00</Start>
       <Units>1.0000</Units>
-      <Work>PT4H0M0S</Work>
+      <Work>PT2H0M0S</Work>
     </Assignment>
     <Assignment>
       <UID>16</UID>
-      <TaskUID>205</TaskUID>
+      <TaskUID>7</TaskUID>
       <ResourceUID>3</ResourceUID>
-      <Finish>2026-12-10T15:00:00</Finish>
-      <Start>2026-12-10T10:00:00</Start>
+      <Finish>2026-12-09T14:00:00</Finish>
+      <Start>2026-12-09T11:00:00</Start>
       <Units>1.0000</Units>
-      <Work>PT4H0M0S</Work>
+      <Work>PT2H0M0S</Work>
     </Assignment>
     <Assignment>
       <UID>17</UID>
-      <TaskUID>205</TaskUID>
+      <TaskUID>7</TaskUID>
       <ResourceUID>4</ResourceUID>
-      <Finish>2026-12-10T15:00:00</Finish>
-      <Start>2026-12-10T10:00:00</Start>
+      <Finish>2026-12-09T14:00:00</Finish>
+      <Start>2026-12-09T11:00:00</Start>
       <Units>1.0000</Units>
-      <Work>PT4H0M0S</Work>
+      <Work>PT2H0M0S</Work>
     </Assignment>
     <Assignment>
       <UID>18</UID>
-      <TaskUID>205</TaskUID>
+      <TaskUID>7</TaskUID>
       <ResourceUID>5</ResourceUID>
-      <Finish>2026-12-10T15:00:00</Finish>
-      <Start>2026-12-10T10:00:00</Start>
+      <Finish>2026-12-09T14:00:00</Finish>
+      <Start>2026-12-09T11:00:00</Start>
       <Units>1.0000</Units>
-      <Work>PT4H0M0S</Work>
+      <Work>PT2H0M0S</Work>
     </Assignment>
     <Assignment>
       <UID>19</UID>
-      <TaskUID>208</TaskUID>
+      <TaskUID>8</TaskUID>
       <ResourceUID>1</ResourceUID>
-      <Finish>2026-10-21T17:00:00</Finish>
-      <Start>2026-10-21T13:00:00</Start>
+      <Finish>2026-12-07T11:00:00</Finish>
+      <Start>2026-12-04T16:00:00</Start>
       <Units>1.0000</Units>
       <Work>PT4H0M0S</Work>
     </Assignment>
     <Assignment>
       <UID>20</UID>
-      <TaskUID>209</TaskUID>
+      <TaskUID>9</TaskUID>
+      <ResourceUID>1</ResourceUID>
+      <Finish>2026-12-08T16:00:00</Finish>
+      <Start>2026-12-07T16:00:00</Start>
+      <Units>1.0000</Units>
+      <Work>PT8H0M0S</Work>
+    </Assignment>
+    <Assignment>
+      <UID>21</UID>
+      <TaskUID>10</TaskUID>
+      <ResourceUID>1</ResourceUID>
+      <Finish>2026-12-10T09:00:00</Finish>
+      <Start>2026-12-09T14:00:00</Start>
+      <Units>1.0000</Units>
+      <Work>PT4H0M0S</Work>
+    </Assignment>
+    <Assignment>
+      <UID>22</UID>
+      <TaskUID>10</TaskUID>
+      <ResourceUID>2</ResourceUID>
+      <Finish>2026-12-10T09:00:00</Finish>
+      <Start>2026-12-09T14:00:00</Start>
+      <Units>1.0000</Units>
+      <Work>PT4H0M0S</Work>
+    </Assignment>
+    <Assignment>
+      <UID>23</UID>
+      <TaskUID>10</TaskUID>
+      <ResourceUID>3</ResourceUID>
+      <Finish>2026-12-10T09:00:00</Finish>
+      <Start>2026-12-09T14:00:00</Start>
+      <Units>1.0000</Units>
+      <Work>PT4H0M0S</Work>
+    </Assignment>
+    <Assignment>
+      <UID>24</UID>
+      <TaskUID>10</TaskUID>
+      <ResourceUID>4</ResourceUID>
+      <Finish>2026-12-10T09:00:00</Finish>
+      <Start>2026-12-09T14:00:00</Start>
+      <Units>1.0000</Units>
+      <Work>PT4H0M0S</Work>
+    </Assignment>
+    <Assignment>
+      <UID>25</UID>
+      <TaskUID>10</TaskUID>
+      <ResourceUID>5</ResourceUID>
+      <Finish>2026-12-10T09:00:00</Finish>
+      <Start>2026-12-09T14:00:00</Start>
+      <Units>1.0000</Units>
+      <Work>PT4H0M0S</Work>
+    </Assignment>
+    <Assignment>
+      <UID>26</UID>
+      <TaskUID>13</TaskUID>
+      <ResourceUID>1</ResourceUID>
+      <Finish>2026-10-20T12:00:00</Finish>
+      <Start>2026-10-20T08:00:00</Start>
+      <Units>1.0000</Units>
+      <Work>PT4H0M0S</Work>
+    </Assignment>
+    <Assignment>
+      <UID>27</UID>
+      <TaskUID>14</TaskUID>
       <ResourceUID>2</ResourceUID>
       <Finish>2026-10-20T17:00:00</Finish>
       <Start>2026-10-20T13:00:00</Start>
@@ -2291,17 +2385,17 @@
       <Work>PT4H0M0S</Work>
     </Assignment>
     <Assignment>
-      <UID>21</UID>
-      <TaskUID>210</TaskUID>
+      <UID>28</UID>
+      <TaskUID>15</TaskUID>
       <ResourceUID>1</ResourceUID>
-      <Finish>2026-10-22T15:00:00</Finish>
-      <Start>2026-10-22T08:00:00</Start>
+      <Finish>2026-10-21T10:00:00</Finish>
+      <Start>2026-10-20T13:00:00</Start>
       <Units>1.0000</Units>
       <Work>PT6H0M0S</Work>
     </Assignment>
     <Assignment>
-      <UID>22</UID>
-      <TaskUID>211</TaskUID>
+      <UID>29</UID>
+      <TaskUID>16</TaskUID>
       <ResourceUID>4</ResourceUID>
       <Finish>2026-10-20T17:00:00</Finish>
       <Start>2026-10-20T13:00:00</Start>
@@ -2309,26 +2403,26 @@
       <Work>PT4H0M0S</Work>
     </Assignment>
     <Assignment>
-      <UID>23</UID>
-      <TaskUID>212</TaskUID>
+      <UID>30</UID>
+      <TaskUID>17</TaskUID>
       <ResourceUID>2</ResourceUID>
-      <Finish>2026-10-27T15:00:00</Finish>
-      <Start>2026-10-27T08:00:00</Start>
+      <Finish>2026-10-21T17:00:00</Finish>
+      <Start>2026-10-21T10:00:00</Start>
       <Units>1.0000</Units>
       <Work>PT6H0M0S</Work>
     </Assignment>
     <Assignment>
-      <UID>24</UID>
-      <TaskUID>213</TaskUID>
+      <UID>31</UID>
+      <TaskUID>18</TaskUID>
       <ResourceUID>2</ResourceUID>
-      <Finish>2026-12-11T12:00:00</Finish>
-      <Start>2026-12-11T08:00:00</Start>
+      <Finish>2026-12-09T11:00:00</Finish>
+      <Start>2026-12-08T16:00:00</Start>
       <Units>1.0000</Units>
       <Work>PT4H0M0S</Work>
     </Assignment>
     <Assignment>
-      <UID>25</UID>
-      <TaskUID>214</TaskUID>
+      <UID>32</UID>
+      <TaskUID>20</TaskUID>
       <ResourceUID>5</ResourceUID>
       <Finish>2026-10-20T17:00:00</Finish>
       <Start>2026-10-20T13:00:00</Start>
@@ -2336,26 +2430,35 @@
       <Work>PT4H0M0S</Work>
     </Assignment>
     <Assignment>
-      <UID>26</UID>
-      <TaskUID>215</TaskUID>
-      <ResourceUID>1</ResourceUID>
-      <Finish>2026-10-23T10:00:00</Finish>
-      <Start>2026-10-22T15:00:00</Start>
+      <UID>33</UID>
+      <TaskUID>20</TaskUID>
+      <ResourceUID>4</ResourceUID>
+      <Finish>2026-10-20T17:00:00</Finish>
+      <Start>2026-10-20T13:00:00</Start>
       <Units>1.0000</Units>
       <Work>PT4H0M0S</Work>
     </Assignment>
     <Assignment>
-      <UID>27</UID>
-      <TaskUID>216</TaskUID>
+      <UID>34</UID>
+      <TaskUID>21</TaskUID>
+      <ResourceUID>1</ResourceUID>
+      <Finish>2026-10-21T12:00:00</Finish>
+      <Start>2026-10-21T08:00:00</Start>
+      <Units>1.0000</Units>
+      <Work>PT4H0M0S</Work>
+    </Assignment>
+    <Assignment>
+      <UID>35</UID>
+      <TaskUID>22</TaskUID>
       <ResourceUID>2</ResourceUID>
-      <Finish>2026-10-26T15:00:00</Finish>
-      <Start>2026-10-23T10:00:00</Start>
+      <Finish>2026-10-22T17:00:00</Finish>
+      <Start>2026-10-21T13:00:00</Start>
       <Units>1.0000</Units>
       <Work>PT12H0M0S</Work>
     </Assignment>
     <Assignment>
-      <UID>28</UID>
-      <TaskUID>217</TaskUID>
+      <UID>36</UID>
+      <TaskUID>23</TaskUID>
       <ResourceUID>3</ResourceUID>
       <Finish>2026-10-21T17:00:00</Finish>
       <Start>2026-10-21T08:00:00</Start>
@@ -2363,922 +2466,427 @@
       <Work>PT8H0M0S</Work>
     </Assignment>
     <Assignment>
-      <UID>29</UID>
-      <TaskUID>218</TaskUID>
-      <ResourceUID>3</ResourceUID>
-      <Finish>2026-10-27T15:00:00</Finish>
-      <Start>2026-10-27T08:00:00</Start>
-      <Units>1.0000</Units>
-      <Work>PT6H0M0S</Work>
-    </Assignment>
-    <Assignment>
-      <UID>30</UID>
-      <TaskUID>219</TaskUID>
-      <ResourceUID>5</ResourceUID>
-      <Finish>2026-10-21T10:00:00</Finish>
-      <Start>2026-10-21T08:00:00</Start>
-      <Units>1.0000</Units>
-      <Work>PT2H0M0S</Work>
-    </Assignment>
-    <Assignment>
-      <UID>31</UID>
-      <TaskUID>219</TaskUID>
-      <ResourceUID>4</ResourceUID>
-      <Finish>2026-10-21T10:00:00</Finish>
-      <Start>2026-10-21T08:00:00</Start>
-      <Units>1.0000</Units>
-      <Work>PT2H0M0S</Work>
-    </Assignment>
-    <Assignment>
-      <UID>32</UID>
-      <TaskUID>220</TaskUID>
-      <ResourceUID>3</ResourceUID>
-      <Finish>2026-10-28T10:00:00</Finish>
-      <Start>2026-10-27T15:00:00</Start>
-      <Units>1.0000</Units>
-      <Work>PT4H0M0S</Work>
-    </Assignment>
-    <Assignment>
-      <UID>33</UID>
-      <TaskUID>220</TaskUID>
-      <ResourceUID>4</ResourceUID>
-      <Finish>2026-10-28T10:00:00</Finish>
-      <Start>2026-10-27T15:00:00</Start>
-      <Units>1.0000</Units>
-      <Work>PT4H0M0S</Work>
-    </Assignment>
-    <Assignment>
-      <UID>34</UID>
-      <TaskUID>222</TaskUID>
-      <ResourceUID>5</ResourceUID>
-      <Finish>2026-11-02T10:00:00</Finish>
-      <Start>2026-11-02T08:00:00</Start>
-      <Units>1.0000</Units>
-      <Work>PT2H0M0S</Work>
-    </Assignment>
-    <Assignment>
-      <UID>35</UID>
-      <TaskUID>223</TaskUID>
-      <ResourceUID>1</ResourceUID>
-      <Finish>2026-11-03T10:00:00</Finish>
-      <Start>2026-11-02T13:00:00</Start>
-      <Units>1.0000</Units>
-      <Work>PT6H0M0S</Work>
-    </Assignment>
-    <Assignment>
-      <UID>36</UID>
-      <TaskUID>224</TaskUID>
-      <ResourceUID>2</ResourceUID>
-      <Finish>2026-11-05T10:00:00</Finish>
-      <Start>2026-11-03T10:00:00</Start>
-      <Units>1.0000</Units>
-      <Work>PT8H0M0S</Work>
-    </Assignment>
-    <Assignment>
       <UID>37</UID>
-      <TaskUID>225</TaskUID>
+      <TaskUID>24</TaskUID>
       <ResourceUID>3</ResourceUID>
-      <Finish>2026-11-03T15:00:00</Finish>
-      <Start>2026-11-02T13:00:00</Start>
+      <Finish>2026-10-23T15:00:00</Finish>
+      <Start>2026-10-23T08:00:00</Start>
       <Units>1.0000</Units>
-      <Work>PT10H0M0S</Work>
+      <Work>PT6H0M0S</Work>
     </Assignment>
     <Assignment>
       <UID>38</UID>
-      <TaskUID>226</TaskUID>
-      <ResourceUID>3</ResourceUID>
-      <Finish>2026-11-05T17:00:00</Finish>
-      <Start>2026-11-05T10:00:00</Start>
+      <TaskUID>25</TaskUID>
+      <ResourceUID>5</ResourceUID>
+      <Finish>2026-10-21T10:00:00</Finish>
+      <Start>2026-10-21T08:00:00</Start>
       <Units>1.0000</Units>
-      <Work>PT6H0M0S</Work>
+      <Work>PT2H0M0S</Work>
     </Assignment>
     <Assignment>
       <UID>39</UID>
-      <TaskUID>227</TaskUID>
-      <ResourceUID>5</ResourceUID>
-      <Finish>2026-11-02T15:00:00</Finish>
-      <Start>2026-11-02T13:00:00</Start>
+      <TaskUID>25</TaskUID>
+      <ResourceUID>4</ResourceUID>
+      <Finish>2026-10-21T10:00:00</Finish>
+      <Start>2026-10-21T08:00:00</Start>
       <Units>1.0000</Units>
       <Work>PT2H0M0S</Work>
     </Assignment>
     <Assignment>
       <UID>40</UID>
-      <TaskUID>227</TaskUID>
-      <ResourceUID>4</ResourceUID>
-      <Finish>2026-11-02T15:00:00</Finish>
-      <Start>2026-11-02T13:00:00</Start>
+      <TaskUID>26</TaskUID>
+      <ResourceUID>3</ResourceUID>
+      <Finish>2026-10-26T10:00:00</Finish>
+      <Start>2026-10-23T15:00:00</Start>
       <Units>1.0000</Units>
-      <Work>PT2H0M0S</Work>
+      <Work>PT4H0M0S</Work>
     </Assignment>
     <Assignment>
       <UID>41</UID>
-      <TaskUID>228</TaskUID>
-      <ResourceUID>3</ResourceUID>
-      <Finish>2026-11-06T15:00:00</Finish>
-      <Start>2026-11-06T08:00:00</Start>
+      <TaskUID>26</TaskUID>
+      <ResourceUID>4</ResourceUID>
+      <Finish>2026-10-26T10:00:00</Finish>
+      <Start>2026-10-23T15:00:00</Start>
       <Units>1.0000</Units>
-      <Work>PT6H0M0S</Work>
+      <Work>PT4H0M0S</Work>
     </Assignment>
     <Assignment>
       <UID>42</UID>
-      <TaskUID>228</TaskUID>
-      <ResourceUID>4</ResourceUID>
-      <Finish>2026-11-06T15:00:00</Finish>
-      <Start>2026-11-06T08:00:00</Start>
-      <Units>1.0000</Units>
-      <Work>PT6H0M0S</Work>
-    </Assignment>
-    <Assignment>
-      <UID>43</UID>
-      <TaskUID>230</TaskUID>
+      <TaskUID>28</TaskUID>
       <ResourceUID>5</ResourceUID>
-      <Finish>2026-11-16T14:00:00</Finish>
-      <Start>2026-11-16T09:00:00</Start>
-      <Units>1.0000</Units>
-      <Work>PT4H0M0S</Work>
-    </Assignment>
-    <Assignment>
-      <UID>44</UID>
-      <TaskUID>231</TaskUID>
-      <ResourceUID>1</ResourceUID>
-      <Finish>2026-11-17T11:00:00</Finish>
-      <Start>2026-11-16T14:00:00</Start>
-      <Units>1.0000</Units>
-      <Work>PT6H0M0S</Work>
-    </Assignment>
-    <Assignment>
-      <UID>45</UID>
-      <TaskUID>232</TaskUID>
-      <ResourceUID>2</ResourceUID>
-      <Finish>2026-11-19T11:00:00</Finish>
-      <Start>2026-11-17T11:00:00</Start>
-      <Units>1.0000</Units>
-      <Work>PT16H0M0S</Work>
-    </Assignment>
-    <Assignment>
-      <UID>46</UID>
-      <TaskUID>233</TaskUID>
-      <ResourceUID>3</ResourceUID>
-      <Finish>2026-11-18T11:00:00</Finish>
-      <Start>2026-11-16T14:00:00</Start>
-      <Units>1.0000</Units>
-      <Work>PT14H0M0S</Work>
-    </Assignment>
-    <Assignment>
-      <UID>47</UID>
-      <TaskUID>234</TaskUID>
-      <ResourceUID>3</ResourceUID>
-      <Finish>2026-11-20T11:00:00</Finish>
-      <Start>2026-11-19T11:00:00</Start>
-      <Units>1.0000</Units>
-      <Work>PT8H0M0S</Work>
-    </Assignment>
-    <Assignment>
-      <UID>48</UID>
-      <TaskUID>235</TaskUID>
-      <ResourceUID>5</ResourceUID>
-      <Finish>2026-11-20T11:00:00</Finish>
-      <Start>2026-11-19T11:00:00</Start>
-      <Units>1.0000</Units>
-      <Work>PT8H0M0S</Work>
-    </Assignment>
-    <Assignment>
-      <UID>49</UID>
-      <TaskUID>235</TaskUID>
-      <ResourceUID>4</ResourceUID>
-      <Finish>2026-11-20T11:00:00</Finish>
-      <Start>2026-11-19T11:00:00</Start>
-      <Units>1.0000</Units>
-      <Work>PT8H0M0S</Work>
-    </Assignment>
-    <Assignment>
-      <UID>50</UID>
-      <TaskUID>236</TaskUID>
-      <ResourceUID>3</ResourceUID>
-      <Finish>2026-11-23T09:00:00</Finish>
-      <Start>2026-11-20T11:00:00</Start>
-      <Units>1.0000</Units>
-      <Work>PT6H0M0S</Work>
-    </Assignment>
-    <Assignment>
-      <UID>51</UID>
-      <TaskUID>236</TaskUID>
-      <ResourceUID>4</ResourceUID>
-      <Finish>2026-11-23T09:00:00</Finish>
-      <Start>2026-11-20T11:00:00</Start>
-      <Units>1.0000</Units>
-      <Work>PT6H0M0S</Work>
-    </Assignment>
-    <Assignment>
-      <UID>52</UID>
-      <TaskUID>238</TaskUID>
-      <ResourceUID>5</ResourceUID>
-      <Finish>2026-11-30T12:00:00</Finish>
-      <Start>2026-11-30T09:00:00</Start>
-      <Units>1.0000</Units>
-      <Work>PT3H0M0S</Work>
-    </Assignment>
-    <Assignment>
-      <UID>53</UID>
-      <TaskUID>239</TaskUID>
-      <ResourceUID>1</ResourceUID>
-      <Finish>2026-11-30T17:00:00</Finish>
-      <Start>2026-11-30T13:00:00</Start>
-      <Units>1.0000</Units>
-      <Work>PT4H0M0S</Work>
-    </Assignment>
-    <Assignment>
-      <UID>54</UID>
-      <TaskUID>240</TaskUID>
-      <ResourceUID>2</ResourceUID>
-      <Finish>2026-12-02T12:00:00</Finish>
-      <Start>2026-12-01T08:00:00</Start>
-      <Units>1.0000</Units>
-      <Work>PT12H0M0S</Work>
-    </Assignment>
-    <Assignment>
-      <UID>55</UID>
-      <TaskUID>241</TaskUID>
-      <ResourceUID>3</ResourceUID>
-      <Finish>2026-12-01T12:00:00</Finish>
-      <Start>2026-11-30T13:00:00</Start>
-      <Units>1.0000</Units>
-      <Work>PT8H0M0S</Work>
-    </Assignment>
-    <Assignment>
-      <UID>56</UID>
-      <TaskUID>242</TaskUID>
-      <ResourceUID>3</ResourceUID>
-      <Finish>2026-12-03T10:00:00</Finish>
-      <Start>2026-12-02T13:00:00</Start>
-      <Units>1.0000</Units>
-      <Work>PT6H0M0S</Work>
-    </Assignment>
-    <Assignment>
-      <UID>57</UID>
-      <TaskUID>243</TaskUID>
-      <ResourceUID>5</ResourceUID>
-      <Finish>2026-12-02T17:00:00</Finish>
-      <Start>2026-12-02T13:00:00</Start>
-      <Units>1.0000</Units>
-      <Work>PT4H0M0S</Work>
-    </Assignment>
-    <Assignment>
-      <UID>58</UID>
-      <TaskUID>243</TaskUID>
-      <ResourceUID>4</ResourceUID>
-      <Finish>2026-12-02T17:00:00</Finish>
-      <Start>2026-12-02T13:00:00</Start>
-      <Units>1.0000</Units>
-      <Work>PT4H0M0S</Work>
-    </Assignment>
-    <Assignment>
-      <UID>59</UID>
-      <TaskUID>244</TaskUID>
-      <ResourceUID>3</ResourceUID>
-      <Finish>2026-12-04T12:00:00</Finish>
-      <Start>2026-12-04T08:00:00</Start>
-      <Units>1.0000</Units>
-      <Work>PT4H0M0S</Work>
-    </Assignment>
-    <Assignment>
-      <UID>60</UID>
-      <TaskUID>244</TaskUID>
-      <ResourceUID>4</ResourceUID>
-      <Finish>2026-12-04T12:00:00</Finish>
-      <Start>2026-12-04T08:00:00</Start>
-      <Units>1.0000</Units>
-      <Work>PT4H0M0S</Work>
-    </Assignment>
-    <Assignment>
-      <UID>61</UID>
-      <TaskUID>245</TaskUID>
-      <ResourceUID>5</ResourceUID>
-      <Finish>2026-11-30T15:00:00</Finish>
-      <Start>2026-11-30T13:00:00</Start>
-      <Units>1.0000</Units>
-      <Work>PT2H0M0S</Work>
-    </Assignment>
-    <Assignment>
-      <UID>62</UID>
-      <TaskUID>246</TaskUID>
-      <ResourceUID>2</ResourceUID>
-      <Finish>2026-12-03T10:00:00</Finish>
-      <Start>2026-12-02T13:00:00</Start>
-      <Units>1.0000</Units>
-      <Work>PT6H0M0S</Work>
-    </Assignment>
-    <Assignment>
-      <UID>63</UID>
-      <TaskUID>247</TaskUID>
-      <ResourceUID>3</ResourceUID>
-      <Finish>2026-12-03T17:00:00</Finish>
-      <Start>2026-12-03T10:00:00</Start>
-      <Units>1.0000</Units>
-      <Work>PT6H0M0S</Work>
-    </Assignment>
-    <Assignment>
-      <UID>64</UID>
-      <TaskUID>248</TaskUID>
-      <ResourceUID>3</ResourceUID>
-      <Finish>2026-12-04T17:00:00</Finish>
-      <Start>2026-12-04T13:00:00</Start>
-      <Units>1.0000</Units>
-      <Work>PT4H0M0S</Work>
-    </Assignment>
-    <Assignment>
-      <UID>65</UID>
-      <TaskUID>249</TaskUID>
-      <ResourceUID>5</ResourceUID>
-      <Finish>2026-12-03T15:00:00</Finish>
-      <Start>2026-12-03T10:00:00</Start>
-      <Units>1.0000</Units>
-      <Work>PT4H0M0S</Work>
-    </Assignment>
-    <Assignment>
-      <UID>66</UID>
-      <TaskUID>249</TaskUID>
-      <ResourceUID>4</ResourceUID>
-      <Finish>2026-12-03T15:00:00</Finish>
-      <Start>2026-12-03T10:00:00</Start>
-      <Units>1.0000</Units>
-      <Work>PT4H0M0S</Work>
-    </Assignment>
-    <Assignment>
-      <UID>67</UID>
-      <TaskUID>250</TaskUID>
-      <ResourceUID>4</ResourceUID>
-      <Finish>2026-12-07T14:00:00</Finish>
-      <Start>2026-12-07T09:00:00</Start>
-      <Units>1.0000</Units>
-      <Work>PT4H0M0S</Work>
-    </Assignment>
-    <Assignment>
-      <UID>68</UID>
-      <TaskUID>251</TaskUID>
-      <ResourceUID>1</ResourceUID>
-      <Finish>2026-12-08T14:00:00</Finish>
-      <Start>2026-12-07T14:00:00</Start>
-      <Units>1.0000</Units>
-      <Work>PT8H0M0S</Work>
-    </Assignment>
-    <Assignment>
-      <UID>69</UID>
-      <TaskUID>251</TaskUID>
-      <ResourceUID>2</ResourceUID>
-      <Finish>2026-12-08T14:00:00</Finish>
-      <Start>2026-12-07T14:00:00</Start>
-      <Units>1.0000</Units>
-      <Work>PT8H0M0S</Work>
-    </Assignment>
-    <Assignment>
-      <UID>70</UID>
-      <TaskUID>251</TaskUID>
-      <ResourceUID>3</ResourceUID>
-      <Finish>2026-12-08T14:00:00</Finish>
-      <Start>2026-12-07T14:00:00</Start>
-      <Units>1.0000</Units>
-      <Work>PT8H0M0S</Work>
-    </Assignment>
-    <Assignment>
-      <UID>71</UID>
-      <TaskUID>251</TaskUID>
-      <ResourceUID>4</ResourceUID>
-      <Finish>2026-12-08T14:00:00</Finish>
-      <Start>2026-12-07T14:00:00</Start>
-      <Units>1.0000</Units>
-      <Work>PT8H0M0S</Work>
-    </Assignment>
-    <Assignment>
-      <UID>72</UID>
-      <TaskUID>251</TaskUID>
-      <ResourceUID>5</ResourceUID>
-      <Finish>2026-12-08T14:00:00</Finish>
-      <Start>2026-12-07T14:00:00</Start>
-      <Units>1.0000</Units>
-      <Work>PT8H0M0S</Work>
-    </Assignment>
-    <Assignment>
-      <UID>73</UID>
-      <TaskUID>252</TaskUID>
-      <ResourceUID>5</ResourceUID>
-      <Finish>2026-12-09T14:00:00</Finish>
-      <Start>2026-12-08T14:00:00</Start>
-      <Units>1.0000</Units>
-      <Work>PT8H0M0S</Work>
-    </Assignment>
-    <Assignment>
-      <UID>74</UID>
-      <TaskUID>252</TaskUID>
-      <ResourceUID>4</ResourceUID>
-      <Finish>2026-12-09T14:00:00</Finish>
-      <Start>2026-12-08T14:00:00</Start>
-      <Units>1.0000</Units>
-      <Work>PT8H0M0S</Work>
-    </Assignment>
-    <Assignment>
-      <UID>75</UID>
-      <TaskUID>100</TaskUID>
-      <ResourceUID>1</ResourceUID>
-      <Finish>2026-10-19T11:00:00</Finish>
-      <Start>2026-10-19T09:00:00</Start>
-      <Units>1.0000</Units>
-      <Work>PT2H0M0S</Work>
-    </Assignment>
-    <Assignment>
-      <UID>76</UID>
-      <TaskUID>101</TaskUID>
-      <ResourceUID>1</ResourceUID>
-      <Finish>2026-10-26T11:00:00</Finish>
-      <Start>2026-10-26T09:00:00</Start>
-      <Units>1.0000</Units>
-      <Work>PT2H0M0S</Work>
-    </Assignment>
-    <Assignment>
-      <UID>77</UID>
-      <TaskUID>102</TaskUID>
-      <ResourceUID>1</ResourceUID>
       <Finish>2026-11-02T10:00:00</Finish>
       <Start>2026-11-02T08:00:00</Start>
       <Units>1.0000</Units>
       <Work>PT2H0M0S</Work>
     </Assignment>
     <Assignment>
-      <UID>78</UID>
-      <TaskUID>103</TaskUID>
+      <UID>43</UID>
+      <TaskUID>29</TaskUID>
       <ResourceUID>1</ResourceUID>
-      <Finish>2026-11-09T11:00:00</Finish>
-      <Start>2026-11-09T09:00:00</Start>
+      <Finish>2026-11-02T17:00:00</Finish>
+      <Start>2026-11-02T10:00:00</Start>
+      <Units>1.0000</Units>
+      <Work>PT6H0M0S</Work>
+    </Assignment>
+    <Assignment>
+      <UID>44</UID>
+      <TaskUID>30</TaskUID>
+      <ResourceUID>2</ResourceUID>
+      <Finish>2026-11-03T17:00:00</Finish>
+      <Start>2026-11-03T08:00:00</Start>
+      <Units>1.0000</Units>
+      <Work>PT8H0M0S</Work>
+    </Assignment>
+    <Assignment>
+      <UID>45</UID>
+      <TaskUID>31</TaskUID>
+      <ResourceUID>3</ResourceUID>
+      <Finish>2026-11-03T12:00:00</Finish>
+      <Start>2026-11-02T10:00:00</Start>
+      <Units>1.0000</Units>
+      <Work>PT10H0M0S</Work>
+    </Assignment>
+    <Assignment>
+      <UID>46</UID>
+      <TaskUID>32</TaskUID>
+      <ResourceUID>3</ResourceUID>
+      <Finish>2026-11-05T15:00:00</Finish>
+      <Start>2026-11-05T08:00:00</Start>
+      <Units>1.0000</Units>
+      <Work>PT6H0M0S</Work>
+    </Assignment>
+    <Assignment>
+      <UID>47</UID>
+      <TaskUID>33</TaskUID>
+      <ResourceUID>5</ResourceUID>
+      <Finish>2026-11-02T12:00:00</Finish>
+      <Start>2026-11-02T10:00:00</Start>
       <Units>1.0000</Units>
       <Work>PT2H0M0S</Work>
+    </Assignment>
+    <Assignment>
+      <UID>48</UID>
+      <TaskUID>33</TaskUID>
+      <ResourceUID>4</ResourceUID>
+      <Finish>2026-11-02T12:00:00</Finish>
+      <Start>2026-11-02T10:00:00</Start>
+      <Units>1.0000</Units>
+      <Work>PT2H0M0S</Work>
+    </Assignment>
+    <Assignment>
+      <UID>49</UID>
+      <TaskUID>34</TaskUID>
+      <ResourceUID>3</ResourceUID>
+      <Finish>2026-11-06T12:00:00</Finish>
+      <Start>2026-11-05T15:00:00</Start>
+      <Units>1.0000</Units>
+      <Work>PT6H0M0S</Work>
+    </Assignment>
+    <Assignment>
+      <UID>50</UID>
+      <TaskUID>34</TaskUID>
+      <ResourceUID>4</ResourceUID>
+      <Finish>2026-11-06T12:00:00</Finish>
+      <Start>2026-11-05T15:00:00</Start>
+      <Units>1.0000</Units>
+      <Work>PT6H0M0S</Work>
+    </Assignment>
+    <Assignment>
+      <UID>51</UID>
+      <TaskUID>36</TaskUID>
+      <ResourceUID>5</ResourceUID>
+      <Finish>2026-11-16T12:00:00</Finish>
+      <Start>2026-11-16T08:00:00</Start>
+      <Units>1.0000</Units>
+      <Work>PT4H0M0S</Work>
+    </Assignment>
+    <Assignment>
+      <UID>52</UID>
+      <TaskUID>37</TaskUID>
+      <ResourceUID>1</ResourceUID>
+      <Finish>2026-11-17T10:00:00</Finish>
+      <Start>2026-11-16T13:00:00</Start>
+      <Units>1.0000</Units>
+      <Work>PT6H0M0S</Work>
+    </Assignment>
+    <Assignment>
+      <UID>53</UID>
+      <TaskUID>38</TaskUID>
+      <ResourceUID>2</ResourceUID>
+      <Finish>2026-11-19T10:00:00</Finish>
+      <Start>2026-11-17T10:00:00</Start>
+      <Units>1.0000</Units>
+      <Work>PT16H0M0S</Work>
+    </Assignment>
+    <Assignment>
+      <UID>54</UID>
+      <TaskUID>39</TaskUID>
+      <ResourceUID>3</ResourceUID>
+      <Finish>2026-11-18T10:00:00</Finish>
+      <Start>2026-11-16T13:00:00</Start>
+      <Units>1.0000</Units>
+      <Work>PT14H0M0S</Work>
+    </Assignment>
+    <Assignment>
+      <UID>55</UID>
+      <TaskUID>40</TaskUID>
+      <ResourceUID>3</ResourceUID>
+      <Finish>2026-11-20T10:00:00</Finish>
+      <Start>2026-11-19T10:00:00</Start>
+      <Units>1.0000</Units>
+      <Work>PT8H0M0S</Work>
+    </Assignment>
+    <Assignment>
+      <UID>56</UID>
+      <TaskUID>41</TaskUID>
+      <ResourceUID>5</ResourceUID>
+      <Finish>2026-11-20T10:00:00</Finish>
+      <Start>2026-11-19T10:00:00</Start>
+      <Units>1.0000</Units>
+      <Work>PT8H0M0S</Work>
+    </Assignment>
+    <Assignment>
+      <UID>57</UID>
+      <TaskUID>41</TaskUID>
+      <ResourceUID>4</ResourceUID>
+      <Finish>2026-11-20T10:00:00</Finish>
+      <Start>2026-11-19T10:00:00</Start>
+      <Units>1.0000</Units>
+      <Work>PT8H0M0S</Work>
+    </Assignment>
+    <Assignment>
+      <UID>58</UID>
+      <TaskUID>42</TaskUID>
+      <ResourceUID>3</ResourceUID>
+      <Finish>2026-11-20T17:00:00</Finish>
+      <Start>2026-11-20T10:00:00</Start>
+      <Units>1.0000</Units>
+      <Work>PT6H0M0S</Work>
+    </Assignment>
+    <Assignment>
+      <UID>59</UID>
+      <TaskUID>42</TaskUID>
+      <ResourceUID>4</ResourceUID>
+      <Finish>2026-11-20T17:00:00</Finish>
+      <Start>2026-11-20T10:00:00</Start>
+      <Units>1.0000</Units>
+      <Work>PT6H0M0S</Work>
+    </Assignment>
+    <Assignment>
+      <UID>60</UID>
+      <TaskUID>44</TaskUID>
+      <ResourceUID>5</ResourceUID>
+      <Finish>2026-11-30T11:00:00</Finish>
+      <Start>2026-11-30T08:00:00</Start>
+      <Units>1.0000</Units>
+      <Work>PT3H0M0S</Work>
+    </Assignment>
+    <Assignment>
+      <UID>61</UID>
+      <TaskUID>45</TaskUID>
+      <ResourceUID>1</ResourceUID>
+      <Finish>2026-11-30T16:00:00</Finish>
+      <Start>2026-11-30T11:00:00</Start>
+      <Units>1.0000</Units>
+      <Work>PT4H0M0S</Work>
+    </Assignment>
+    <Assignment>
+      <UID>62</UID>
+      <TaskUID>46</TaskUID>
+      <ResourceUID>2</ResourceUID>
+      <Finish>2026-12-02T11:00:00</Finish>
+      <Start>2026-11-30T16:00:00</Start>
+      <Units>1.0000</Units>
+      <Work>PT12H0M0S</Work>
+    </Assignment>
+    <Assignment>
+      <UID>63</UID>
+      <TaskUID>47</TaskUID>
+      <ResourceUID>3</ResourceUID>
+      <Finish>2026-12-01T11:00:00</Finish>
+      <Start>2026-11-30T11:00:00</Start>
+      <Units>1.0000</Units>
+      <Work>PT8H0M0S</Work>
+    </Assignment>
+    <Assignment>
+      <UID>64</UID>
+      <TaskUID>48</TaskUID>
+      <ResourceUID>3</ResourceUID>
+      <Finish>2026-12-03T09:00:00</Finish>
+      <Start>2026-12-02T11:00:00</Start>
+      <Units>1.0000</Units>
+      <Work>PT6H0M0S</Work>
+    </Assignment>
+    <Assignment>
+      <UID>65</UID>
+      <TaskUID>49</TaskUID>
+      <ResourceUID>5</ResourceUID>
+      <Finish>2026-12-02T16:00:00</Finish>
+      <Start>2026-12-02T11:00:00</Start>
+      <Units>1.0000</Units>
+      <Work>PT4H0M0S</Work>
+    </Assignment>
+    <Assignment>
+      <UID>66</UID>
+      <TaskUID>49</TaskUID>
+      <ResourceUID>4</ResourceUID>
+      <Finish>2026-12-02T16:00:00</Finish>
+      <Start>2026-12-02T11:00:00</Start>
+      <Units>1.0000</Units>
+      <Work>PT4H0M0S</Work>
+    </Assignment>
+    <Assignment>
+      <UID>67</UID>
+      <TaskUID>50</TaskUID>
+      <ResourceUID>3</ResourceUID>
+      <Finish>2026-12-03T14:00:00</Finish>
+      <Start>2026-12-03T09:00:00</Start>
+      <Units>1.0000</Units>
+      <Work>PT4H0M0S</Work>
+    </Assignment>
+    <Assignment>
+      <UID>68</UID>
+      <TaskUID>50</TaskUID>
+      <ResourceUID>4</ResourceUID>
+      <Finish>2026-12-03T14:00:00</Finish>
+      <Start>2026-12-03T09:00:00</Start>
+      <Units>1.0000</Units>
+      <Work>PT4H0M0S</Work>
+    </Assignment>
+    <Assignment>
+      <UID>69</UID>
+      <TaskUID>51</TaskUID>
+      <ResourceUID>5</ResourceUID>
+      <Finish>2026-11-30T14:00:00</Finish>
+      <Start>2026-11-30T11:00:00</Start>
+      <Units>1.0000</Units>
+      <Work>PT2H0M0S</Work>
+    </Assignment>
+    <Assignment>
+      <UID>70</UID>
+      <TaskUID>52</TaskUID>
+      <ResourceUID>2</ResourceUID>
+      <Finish>2026-12-03T09:00:00</Finish>
+      <Start>2026-12-02T11:00:00</Start>
+      <Units>1.0000</Units>
+      <Work>PT6H0M0S</Work>
+    </Assignment>
+    <Assignment>
+      <UID>71</UID>
+      <TaskUID>53</TaskUID>
+      <ResourceUID>3</ResourceUID>
+      <Finish>2026-12-03T16:00:00</Finish>
+      <Start>2026-12-03T09:00:00</Start>
+      <Units>1.0000</Units>
+      <Work>PT6H0M0S</Work>
+    </Assignment>
+    <Assignment>
+      <UID>72</UID>
+      <TaskUID>54</TaskUID>
+      <ResourceUID>3</ResourceUID>
+      <Finish>2026-12-04T11:00:00</Finish>
+      <Start>2026-12-03T16:00:00</Start>
+      <Units>1.0000</Units>
+      <Work>PT4H0M0S</Work>
+    </Assignment>
+    <Assignment>
+      <UID>73</UID>
+      <TaskUID>55</TaskUID>
+      <ResourceUID>5</ResourceUID>
+      <Finish>2026-12-03T14:00:00</Finish>
+      <Start>2026-12-03T09:00:00</Start>
+      <Units>1.0000</Units>
+      <Work>PT4H0M0S</Work>
+    </Assignment>
+    <Assignment>
+      <UID>74</UID>
+      <TaskUID>55</TaskUID>
+      <ResourceUID>4</ResourceUID>
+      <Finish>2026-12-03T14:00:00</Finish>
+      <Start>2026-12-03T09:00:00</Start>
+      <Units>1.0000</Units>
+      <Work>PT4H0M0S</Work>
+    </Assignment>
+    <Assignment>
+      <UID>75</UID>
+      <TaskUID>56</TaskUID>
+      <ResourceUID>3</ResourceUID>
+      <Finish>2026-12-04T16:00:00</Finish>
+      <Start>2026-12-04T11:00:00</Start>
+      <Units>1.0000</Units>
+      <Work>PT4H0M0S</Work>
+    </Assignment>
+    <Assignment>
+      <UID>76</UID>
+      <TaskUID>56</TaskUID>
+      <ResourceUID>4</ResourceUID>
+      <Finish>2026-12-04T16:00:00</Finish>
+      <Start>2026-12-04T11:00:00</Start>
+      <Units>1.0000</Units>
+      <Work>PT4H0M0S</Work>
+    </Assignment>
+    <Assignment>
+      <UID>77</UID>
+      <TaskUID>57</TaskUID>
+      <ResourceUID>1</ResourceUID>
+      <Finish>2026-12-07T16:00:00</Finish>
+      <Start>2026-12-04T16:00:00</Start>
+      <Units>1.0000</Units>
+      <Work>PT8H0M0S</Work>
+    </Assignment>
+    <Assignment>
+      <UID>78</UID>
+      <TaskUID>57</TaskUID>
+      <ResourceUID>2</ResourceUID>
+      <Finish>2026-12-07T16:00:00</Finish>
+      <Start>2026-12-04T16:00:00</Start>
+      <Units>1.0000</Units>
+      <Work>PT8H0M0S</Work>
     </Assignment>
     <Assignment>
       <UID>79</UID>
-      <TaskUID>104</TaskUID>
-      <ResourceUID>1</ResourceUID>
-      <Finish>2026-11-16T11:00:00</Finish>
-      <Start>2026-11-16T09:00:00</Start>
+      <TaskUID>57</TaskUID>
+      <ResourceUID>3</ResourceUID>
+      <Finish>2026-12-07T16:00:00</Finish>
+      <Start>2026-12-04T16:00:00</Start>
       <Units>1.0000</Units>
-      <Work>PT2H0M0S</Work>
+      <Work>PT8H0M0S</Work>
     </Assignment>
     <Assignment>
       <UID>80</UID>
-      <TaskUID>105</TaskUID>
-      <ResourceUID>1</ResourceUID>
-      <Finish>2026-11-23T11:00:00</Finish>
-      <Start>2026-11-23T09:00:00</Start>
+      <TaskUID>57</TaskUID>
+      <ResourceUID>4</ResourceUID>
+      <Finish>2026-12-07T16:00:00</Finish>
+      <Start>2026-12-04T16:00:00</Start>
       <Units>1.0000</Units>
-      <Work>PT2H0M0S</Work>
+      <Work>PT8H0M0S</Work>
     </Assignment>
     <Assignment>
       <UID>81</UID>
-      <TaskUID>106</TaskUID>
-      <ResourceUID>1</ResourceUID>
-      <Finish>2026-11-30T11:00:00</Finish>
-      <Start>2026-11-30T09:00:00</Start>
+      <TaskUID>57</TaskUID>
+      <ResourceUID>5</ResourceUID>
+      <Finish>2026-12-07T16:00:00</Finish>
+      <Start>2026-12-04T16:00:00</Start>
       <Units>1.0000</Units>
-      <Work>PT2H0M0S</Work>
+      <Work>PT8H0M0S</Work>
     </Assignment>
     <Assignment>
       <UID>82</UID>
-      <TaskUID>107</TaskUID>
-      <ResourceUID>1</ResourceUID>
-      <Finish>2026-12-07T11:00:00</Finish>
-      <Start>2026-12-07T09:00:00</Start>
+      <TaskUID>58</TaskUID>
+      <ResourceUID>5</ResourceUID>
+      <Finish>2026-12-08T16:00:00</Finish>
+      <Start>2026-12-07T16:00:00</Start>
       <Units>1.0000</Units>
-      <Work>PT2H0M0S</Work>
+      <Work>PT8H0M0S</Work>
     </Assignment>
     <Assignment>
       <UID>83</UID>
-      <TaskUID>108</TaskUID>
-      <ResourceUID>1</ResourceUID>
-      <Finish>2026-10-19T09:00:00</Finish>
-      <Start>2026-10-19T08:00:00</Start>
-      <Units>1.0000</Units>
-      <Work>PT1H0M0S</Work>
-    </Assignment>
-    <Assignment>
-      <UID>84</UID>
-      <TaskUID>108</TaskUID>
-      <ResourceUID>2</ResourceUID>
-      <Finish>2026-10-19T09:00:00</Finish>
-      <Start>2026-10-19T08:00:00</Start>
-      <Units>1.0000</Units>
-      <Work>PT1H0M0S</Work>
-    </Assignment>
-    <Assignment>
-      <UID>85</UID>
-      <TaskUID>108</TaskUID>
-      <ResourceUID>3</ResourceUID>
-      <Finish>2026-10-19T09:00:00</Finish>
-      <Start>2026-10-19T08:00:00</Start>
-      <Units>1.0000</Units>
-      <Work>PT1H0M0S</Work>
-    </Assignment>
-    <Assignment>
-      <UID>86</UID>
-      <TaskUID>108</TaskUID>
+      <TaskUID>58</TaskUID>
       <ResourceUID>4</ResourceUID>
-      <Finish>2026-10-19T09:00:00</Finish>
-      <Start>2026-10-19T08:00:00</Start>
+      <Finish>2026-12-08T16:00:00</Finish>
+      <Start>2026-12-07T16:00:00</Start>
       <Units>1.0000</Units>
-      <Work>PT1H0M0S</Work>
-    </Assignment>
-    <Assignment>
-      <UID>87</UID>
-      <TaskUID>108</TaskUID>
-      <ResourceUID>5</ResourceUID>
-      <Finish>2026-10-19T09:00:00</Finish>
-      <Start>2026-10-19T08:00:00</Start>
-      <Units>1.0000</Units>
-      <Work>PT1H0M0S</Work>
-    </Assignment>
-    <Assignment>
-      <UID>88</UID>
-      <TaskUID>109</TaskUID>
-      <ResourceUID>1</ResourceUID>
-      <Finish>2026-10-26T16:00:00</Finish>
-      <Start>2026-10-26T15:00:00</Start>
-      <Units>1.0000</Units>
-      <Work>PT1H0M0S</Work>
-    </Assignment>
-    <Assignment>
-      <UID>89</UID>
-      <TaskUID>109</TaskUID>
-      <ResourceUID>2</ResourceUID>
-      <Finish>2026-10-26T16:00:00</Finish>
-      <Start>2026-10-26T15:00:00</Start>
-      <Units>1.0000</Units>
-      <Work>PT1H0M0S</Work>
-    </Assignment>
-    <Assignment>
-      <UID>90</UID>
-      <TaskUID>109</TaskUID>
-      <ResourceUID>3</ResourceUID>
-      <Finish>2026-10-26T16:00:00</Finish>
-      <Start>2026-10-26T15:00:00</Start>
-      <Units>1.0000</Units>
-      <Work>PT1H0M0S</Work>
-    </Assignment>
-    <Assignment>
-      <UID>91</UID>
-      <TaskUID>109</TaskUID>
-      <ResourceUID>4</ResourceUID>
-      <Finish>2026-10-26T16:00:00</Finish>
-      <Start>2026-10-26T15:00:00</Start>
-      <Units>1.0000</Units>
-      <Work>PT1H0M0S</Work>
-    </Assignment>
-    <Assignment>
-      <UID>92</UID>
-      <TaskUID>109</TaskUID>
-      <ResourceUID>5</ResourceUID>
-      <Finish>2026-10-26T16:00:00</Finish>
-      <Start>2026-10-26T15:00:00</Start>
-      <Units>1.0000</Units>
-      <Work>PT1H0M0S</Work>
-    </Assignment>
-    <Assignment>
-      <UID>93</UID>
-      <TaskUID>110</TaskUID>
-      <ResourceUID>1</ResourceUID>
-      <Finish>2026-11-02T12:00:00</Finish>
-      <Start>2026-11-02T11:00:00</Start>
-      <Units>1.0000</Units>
-      <Work>PT1H0M0S</Work>
-    </Assignment>
-    <Assignment>
-      <UID>94</UID>
-      <TaskUID>110</TaskUID>
-      <ResourceUID>2</ResourceUID>
-      <Finish>2026-11-02T12:00:00</Finish>
-      <Start>2026-11-02T11:00:00</Start>
-      <Units>1.0000</Units>
-      <Work>PT1H0M0S</Work>
-    </Assignment>
-    <Assignment>
-      <UID>95</UID>
-      <TaskUID>110</TaskUID>
-      <ResourceUID>3</ResourceUID>
-      <Finish>2026-11-02T12:00:00</Finish>
-      <Start>2026-11-02T11:00:00</Start>
-      <Units>1.0000</Units>
-      <Work>PT1H0M0S</Work>
-    </Assignment>
-    <Assignment>
-      <UID>96</UID>
-      <TaskUID>110</TaskUID>
-      <ResourceUID>4</ResourceUID>
-      <Finish>2026-11-02T12:00:00</Finish>
-      <Start>2026-11-02T11:00:00</Start>
-      <Units>1.0000</Units>
-      <Work>PT1H0M0S</Work>
-    </Assignment>
-    <Assignment>
-      <UID>97</UID>
-      <TaskUID>110</TaskUID>
-      <ResourceUID>5</ResourceUID>
-      <Finish>2026-11-02T12:00:00</Finish>
-      <Start>2026-11-02T11:00:00</Start>
-      <Units>1.0000</Units>
-      <Work>PT1H0M0S</Work>
-    </Assignment>
-    <Assignment>
-      <UID>98</UID>
-      <TaskUID>111</TaskUID>
-      <ResourceUID>1</ResourceUID>
-      <Finish>2026-11-09T09:00:00</Finish>
-      <Start>2026-11-09T08:00:00</Start>
-      <Units>1.0000</Units>
-      <Work>PT1H0M0S</Work>
-    </Assignment>
-    <Assignment>
-      <UID>99</UID>
-      <TaskUID>111</TaskUID>
-      <ResourceUID>2</ResourceUID>
-      <Finish>2026-11-09T09:00:00</Finish>
-      <Start>2026-11-09T08:00:00</Start>
-      <Units>1.0000</Units>
-      <Work>PT1H0M0S</Work>
-    </Assignment>
-    <Assignment>
-      <UID>100</UID>
-      <TaskUID>111</TaskUID>
-      <ResourceUID>3</ResourceUID>
-      <Finish>2026-11-09T09:00:00</Finish>
-      <Start>2026-11-09T08:00:00</Start>
-      <Units>1.0000</Units>
-      <Work>PT1H0M0S</Work>
-    </Assignment>
-    <Assignment>
-      <UID>101</UID>
-      <TaskUID>111</TaskUID>
-      <ResourceUID>4</ResourceUID>
-      <Finish>2026-11-09T09:00:00</Finish>
-      <Start>2026-11-09T08:00:00</Start>
-      <Units>1.0000</Units>
-      <Work>PT1H0M0S</Work>
-    </Assignment>
-    <Assignment>
-      <UID>102</UID>
-      <TaskUID>111</TaskUID>
-      <ResourceUID>5</ResourceUID>
-      <Finish>2026-11-09T09:00:00</Finish>
-      <Start>2026-11-09T08:00:00</Start>
-      <Units>1.0000</Units>
-      <Work>PT1H0M0S</Work>
-    </Assignment>
-    <Assignment>
-      <UID>103</UID>
-      <TaskUID>112</TaskUID>
-      <ResourceUID>1</ResourceUID>
-      <Finish>2026-11-16T09:00:00</Finish>
-      <Start>2026-11-16T08:00:00</Start>
-      <Units>1.0000</Units>
-      <Work>PT1H0M0S</Work>
-    </Assignment>
-    <Assignment>
-      <UID>104</UID>
-      <TaskUID>112</TaskUID>
-      <ResourceUID>2</ResourceUID>
-      <Finish>2026-11-16T09:00:00</Finish>
-      <Start>2026-11-16T08:00:00</Start>
-      <Units>1.0000</Units>
-      <Work>PT1H0M0S</Work>
-    </Assignment>
-    <Assignment>
-      <UID>105</UID>
-      <TaskUID>112</TaskUID>
-      <ResourceUID>3</ResourceUID>
-      <Finish>2026-11-16T09:00:00</Finish>
-      <Start>2026-11-16T08:00:00</Start>
-      <Units>1.0000</Units>
-      <Work>PT1H0M0S</Work>
-    </Assignment>
-    <Assignment>
-      <UID>106</UID>
-      <TaskUID>112</TaskUID>
-      <ResourceUID>4</ResourceUID>
-      <Finish>2026-11-16T09:00:00</Finish>
-      <Start>2026-11-16T08:00:00</Start>
-      <Units>1.0000</Units>
-      <Work>PT1H0M0S</Work>
-    </Assignment>
-    <Assignment>
-      <UID>107</UID>
-      <TaskUID>112</TaskUID>
-      <ResourceUID>5</ResourceUID>
-      <Finish>2026-11-16T09:00:00</Finish>
-      <Start>2026-11-16T08:00:00</Start>
-      <Units>1.0000</Units>
-      <Work>PT1H0M0S</Work>
-    </Assignment>
-    <Assignment>
-      <UID>108</UID>
-      <TaskUID>113</TaskUID>
-      <ResourceUID>1</ResourceUID>
-      <Finish>2026-11-23T16:00:00</Finish>
-      <Start>2026-11-23T15:00:00</Start>
-      <Units>1.0000</Units>
-      <Work>PT1H0M0S</Work>
-    </Assignment>
-    <Assignment>
-      <UID>109</UID>
-      <TaskUID>113</TaskUID>
-      <ResourceUID>2</ResourceUID>
-      <Finish>2026-11-23T16:00:00</Finish>
-      <Start>2026-11-23T15:00:00</Start>
-      <Units>1.0000</Units>
-      <Work>PT1H0M0S</Work>
-    </Assignment>
-    <Assignment>
-      <UID>110</UID>
-      <TaskUID>113</TaskUID>
-      <ResourceUID>3</ResourceUID>
-      <Finish>2026-11-23T16:00:00</Finish>
-      <Start>2026-11-23T15:00:00</Start>
-      <Units>1.0000</Units>
-      <Work>PT1H0M0S</Work>
-    </Assignment>
-    <Assignment>
-      <UID>111</UID>
-      <TaskUID>113</TaskUID>
-      <ResourceUID>4</ResourceUID>
-      <Finish>2026-11-23T16:00:00</Finish>
-      <Start>2026-11-23T15:00:00</Start>
-      <Units>1.0000</Units>
-      <Work>PT1H0M0S</Work>
-    </Assignment>
-    <Assignment>
-      <UID>112</UID>
-      <TaskUID>113</TaskUID>
-      <ResourceUID>5</ResourceUID>
-      <Finish>2026-11-23T16:00:00</Finish>
-      <Start>2026-11-23T15:00:00</Start>
-      <Units>1.0000</Units>
-      <Work>PT1H0M0S</Work>
-    </Assignment>
-    <Assignment>
-      <UID>113</UID>
-      <TaskUID>114</TaskUID>
-      <ResourceUID>1</ResourceUID>
-      <Finish>2026-11-30T09:00:00</Finish>
-      <Start>2026-11-30T08:00:00</Start>
-      <Units>1.0000</Units>
-      <Work>PT1H0M0S</Work>
-    </Assignment>
-    <Assignment>
-      <UID>114</UID>
-      <TaskUID>114</TaskUID>
-      <ResourceUID>2</ResourceUID>
-      <Finish>2026-11-30T09:00:00</Finish>
-      <Start>2026-11-30T08:00:00</Start>
-      <Units>1.0000</Units>
-      <Work>PT1H0M0S</Work>
-    </Assignment>
-    <Assignment>
-      <UID>115</UID>
-      <TaskUID>114</TaskUID>
-      <ResourceUID>3</ResourceUID>
-      <Finish>2026-11-30T09:00:00</Finish>
-      <Start>2026-11-30T08:00:00</Start>
-      <Units>1.0000</Units>
-      <Work>PT1H0M0S</Work>
-    </Assignment>
-    <Assignment>
-      <UID>116</UID>
-      <TaskUID>114</TaskUID>
-      <ResourceUID>4</ResourceUID>
-      <Finish>2026-11-30T09:00:00</Finish>
-      <Start>2026-11-30T08:00:00</Start>
-      <Units>1.0000</Units>
-      <Work>PT1H0M0S</Work>
-    </Assignment>
-    <Assignment>
-      <UID>117</UID>
-      <TaskUID>114</TaskUID>
-      <ResourceUID>5</ResourceUID>
-      <Finish>2026-11-30T09:00:00</Finish>
-      <Start>2026-11-30T08:00:00</Start>
-      <Units>1.0000</Units>
-      <Work>PT1H0M0S</Work>
-    </Assignment>
-    <Assignment>
-      <UID>118</UID>
-      <TaskUID>115</TaskUID>
-      <ResourceUID>1</ResourceUID>
-      <Finish>2026-12-07T09:00:00</Finish>
-      <Start>2026-12-07T08:00:00</Start>
-      <Units>1.0000</Units>
-      <Work>PT1H0M0S</Work>
-    </Assignment>
-    <Assignment>
-      <UID>119</UID>
-      <TaskUID>115</TaskUID>
-      <ResourceUID>2</ResourceUID>
-      <Finish>2026-12-07T09:00:00</Finish>
-      <Start>2026-12-07T08:00:00</Start>
-      <Units>1.0000</Units>
-      <Work>PT1H0M0S</Work>
-    </Assignment>
-    <Assignment>
-      <UID>120</UID>
-      <TaskUID>115</TaskUID>
-      <ResourceUID>3</ResourceUID>
-      <Finish>2026-12-07T09:00:00</Finish>
-      <Start>2026-12-07T08:00:00</Start>
-      <Units>1.0000</Units>
-      <Work>PT1H0M0S</Work>
-    </Assignment>
-    <Assignment>
-      <UID>121</UID>
-      <TaskUID>115</TaskUID>
-      <ResourceUID>4</ResourceUID>
-      <Finish>2026-12-07T09:00:00</Finish>
-      <Start>2026-12-07T08:00:00</Start>
-      <Units>1.0000</Units>
-      <Work>PT1H0M0S</Work>
-    </Assignment>
-    <Assignment>
-      <UID>122</UID>
-      <TaskUID>115</TaskUID>
-      <ResourceUID>5</ResourceUID>
-      <Finish>2026-12-07T09:00:00</Finish>
-      <Start>2026-12-07T08:00:00</Start>
-      <Units>1.0000</Units>
-      <Work>PT1H0M0S</Work>
-    </Assignment>
-    <Assignment>
-      <UID>123</UID>
-      <TaskUID>116</TaskUID>
-      <ResourceUID>1</ResourceUID>
-      <Finish>2026-10-19T12:00:00</Finish>
-      <Start>2026-10-19T11:00:00</Start>
-      <Units>1.0000</Units>
-      <Work>PT1H0M0S</Work>
-    </Assignment>
-    <Assignment>
-      <UID>124</UID>
-      <TaskUID>117</TaskUID>
-      <ResourceUID>1</ResourceUID>
-      <Finish>2026-10-26T12:00:00</Finish>
-      <Start>2026-10-26T11:00:00</Start>
-      <Units>1.0000</Units>
-      <Work>PT1H0M0S</Work>
-    </Assignment>
-    <Assignment>
-      <UID>125</UID>
-      <TaskUID>118</TaskUID>
-      <ResourceUID>1</ResourceUID>
-      <Finish>2026-11-02T11:00:00</Finish>
-      <Start>2026-11-02T10:00:00</Start>
-      <Units>1.0000</Units>
-      <Work>PT1H0M0S</Work>
-    </Assignment>
-    <Assignment>
-      <UID>126</UID>
-      <TaskUID>119</TaskUID>
-      <ResourceUID>1</ResourceUID>
-      <Finish>2026-11-09T12:00:00</Finish>
-      <Start>2026-11-09T11:00:00</Start>
-      <Units>1.0000</Units>
-      <Work>PT1H0M0S</Work>
-    </Assignment>
-    <Assignment>
-      <UID>127</UID>
-      <TaskUID>120</TaskUID>
-      <ResourceUID>1</ResourceUID>
-      <Finish>2026-11-16T12:00:00</Finish>
-      <Start>2026-11-16T11:00:00</Start>
-      <Units>1.0000</Units>
-      <Work>PT1H0M0S</Work>
-    </Assignment>
-    <Assignment>
-      <UID>128</UID>
-      <TaskUID>121</TaskUID>
-      <ResourceUID>1</ResourceUID>
-      <Finish>2026-11-23T12:00:00</Finish>
-      <Start>2026-11-23T11:00:00</Start>
-      <Units>1.0000</Units>
-      <Work>PT1H0M0S</Work>
-    </Assignment>
-    <Assignment>
-      <UID>129</UID>
-      <TaskUID>122</TaskUID>
-      <ResourceUID>1</ResourceUID>
-      <Finish>2026-11-30T12:00:00</Finish>
-      <Start>2026-11-30T11:00:00</Start>
-      <Units>1.0000</Units>
-      <Work>PT1H0M0S</Work>
-    </Assignment>
-    <Assignment>
-      <UID>130</UID>
-      <TaskUID>123</TaskUID>
-      <ResourceUID>1</ResourceUID>
-      <Finish>2026-12-07T12:00:00</Finish>
-      <Start>2026-12-07T11:00:00</Start>
-      <Units>1.0000</Units>
-      <Work>PT1H0M0S</Work>
+      <Work>PT8H0M0S</Work>
     </Assignment>
   </Assignments>
 </Project>
