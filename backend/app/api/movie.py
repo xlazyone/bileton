@@ -1,15 +1,15 @@
 """
-WBS 4.3 | Role: [Lead Dev / Backend]
+WBS 4.3, 5.4 | Role: [Lead Dev / Backend]
 Роуты для афиши и сеансов.
 """
 import uuid
 from typing import Annotated
 
-from fastapi import APIRouter, Depends, Query
+from fastapi import APIRouter, Depends, HTTPException, Query
 from sqlalchemy.orm import Session
 
 from app.db.session import get_db
-from app.schemas.movie import MovieRead, SessionRead
+from app.schemas.movie import MovieRead, SessionRead, SessionSeatMap
 from app.services import movie as movie_service
 
 router = APIRouter(tags=["Afisha"])
@@ -28,3 +28,12 @@ def get_sessions(
 ):
     """US-02, US-03: Получение расписания сеансов."""
     return movie_service.get_sessions_by_movie(db, movie_id)
+
+
+@router.get("/sessions/{session_id}/seats", response_model=SessionSeatMap)
+def get_session_seats(session_id: uuid.UUID, db: Annotated[Session, Depends(get_db)]):
+    """WBS 5.4: схема зала сеанса — ряды, места и их занятость (free / occupied)."""
+    seat_map = movie_service.get_session_seat_map(db, session_id)
+    if seat_map is None:
+        raise HTTPException(status_code=404, detail="Сеанс не найден")
+    return seat_map

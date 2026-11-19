@@ -1,9 +1,10 @@
 """
-WBS 4.3 | Role: [Lead Dev / Backend]
+WBS 4.3, 5.4 | Role: [Lead Dev / Backend]
 Схемы для афиши и сеансов.
 """
 import uuid
 from datetime import datetime
+from typing import Literal
 
 from pydantic import BaseModel, ConfigDict
 
@@ -21,7 +22,6 @@ class MovieRead(BaseModel):
     genres: list[str]
     duration_minutes: int
     age_rating: str
-    # is_active сюда НЕ пишем, фронту он не нужен
 
     model_config = ConfigDict(from_attributes=True)
 
@@ -30,7 +30,39 @@ class SessionRead(BaseModel):
     id: uuid.UUID
     movie_id: uuid.UUID
     starts_at: datetime
-    hall: HallRead  # Автоматически подтянет id и name из модели Hall
+    hall: HallRead
     price: float
 
     model_config = ConfigDict(from_attributes=True)
+
+
+# --- WBS 5.4: схема зала для выбора мест -------------------------------------
+
+class SeatMapHall(BaseModel):
+    id: int
+    name: str
+    rows_count: int
+    seats_per_row: int
+
+
+class SeatMapMovie(BaseModel):
+    id: uuid.UUID
+    title: str
+    age_rating: str
+
+
+class SeatState(BaseModel):
+    id: int
+    row: int
+    number: int
+    status: Literal["free", "occupied"]
+
+
+class SessionSeatMap(BaseModel):
+    """Ответ GET /sessions/{id}/seats."""
+    session_id: uuid.UUID
+    starts_at: datetime
+    price: float
+    movie: SeatMapMovie
+    hall: SeatMapHall
+    seats: list[SeatState]
