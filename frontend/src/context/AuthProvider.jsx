@@ -61,9 +61,7 @@ export default function AuthProvider({ children }) {
   const logout = useCallback(() => {
     clearToken()
     setUser(null)
-    // 'loggedOut', а не 'guest': после явного выхода ProtectedRoute не запоминает,
-    // с какой страницы ушли, и следующий вход ведёт в раздел по роли
-    setStatus('loggedOut')
+    setStatus('guest')
   }, [])
 
   const value = useMemo(() => ({ user, status, login, logout }), [user, status, login, logout])
