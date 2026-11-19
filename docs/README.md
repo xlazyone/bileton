@@ -15,7 +15,7 @@
 4. [Лабораторная работа №4. Построение иерархической структуры работ (WBS)](labs/lab-04-wbs.md)
 5. [Лабораторная работа №5. Оценка объёма работ](labs/lab-05-estimation.md)
 6. [Лабораторная работа №6. Планирование расписания проекта](labs/lab-06-schedule.md)
-   - [Диаграмма Ганта для MS Project (MSPDI XML)](labs/BiletON_Gantt.xml)
+   - [Диаграмма Ганта для MS Project (MSPDI XML)](labs/bileton-gantt.xml)
 
 ## Аналитические документы
 
