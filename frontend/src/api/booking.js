@@ -1,6 +1,8 @@
 // Модуль «Схема зала и бронирование» (Спринт 3, WBS 5.4–5.5). Только реальный backend, без моков.
 //
-//   GET  /api/sessions/{session_id}/seats -> 200 {session_id, starts_at, price, movie, hall, seats[]} | 404
+//   GET  /api/sessions/{session_id}/seats [+ Bearer, необязательно]
+//        -> 200 {session_id, starts_at, price, movie, hall, seats[]} | 404
+//        С токеном свои брони приходят как status "mine" + expires_at; без токена — "occupied".
 //   POST /api/bookings  {session_id, seat_id} + Bearer -> 201 BookingRead | 401 | 404 | 409
 //
 // Тело 409 (docs/requirements/seat-reservation-logic.md, раздел 5):
@@ -12,7 +14,10 @@ import { request } from './client'
 export const SEAT_ALREADY_BOOKED = 'SEAT_ALREADY_BOOKED'
 
 export const realApi = {
-  seats: (sessionId) => request(`/api/sessions/${encodeURIComponent(sessionId)}/seats`),
+  // Токен прикладываем, чтобы увидеть свои брони. Эндпоинт публичный: битый токен даёт
+  // просто схему «как гостю», а не 401
+  seats: (sessionId) =>
+    request(`/api/sessions/${encodeURIComponent(sessionId)}/seats`, { auth: true }),
   book: (sessionId, seatId) =>
     request('/api/bookings', {
       method: 'POST',

@@ -144,6 +144,40 @@ describe('5.4 Схема зала', () => {
   })
 })
 
+describe('Свои брони на схеме', () => {
+  it('после возврата на страницу свои места видны как «ваша бронь», токен уходит в запрос', async () => {
+    seatMapResponses.push(
+      json(
+        200,
+        seatMap({
+          seats: [
+            { id: 11, row: 1, number: 1, status: 'mine', expires_at: '2026-11-19T18:27:27+03:00' },
+            { id: 12, row: 1, number: 2, status: 'occupied' },
+            { id: 13, row: 1, number: 3, status: 'mine' },
+            { id: 21, row: 2, number: 1, status: 'free' },
+            { id: 23, row: 2, number: 3, status: 'free' },
+          ],
+        }),
+      ),
+    )
+    renderSeats()
+    await screen.findByRole('heading', { name: 'Выбор мест' })
+
+    expect(seat(1, 1)).toHaveAccessibleName('Ряд 1, место 1, ваша бронь')
+    expect(seat(1, 1)).toBeDisabled()
+    expect(seat(1, 2)).toHaveAccessibleName('Ряд 1, место 2, занято')
+
+    const block = screen.getByLabelText('Ваши брони на этот сеанс')
+    const until = formatTime(new Date('2026-11-19T18:27:27+03:00'))
+    expect(within(block).getByText(`до ${until}`)).toBeInTheDocument()
+    expect(within(block).getByText('оплачено')).toBeInTheDocument()
+    expect(screen.getByText(/Можно выбрать ещё место/)).toBeInTheDocument()
+
+    const [, options] = fetchMock.mock.calls[0]
+    expect(options.headers.Authorization).toBe(`Bearer ${VIEWER_TOKEN}`)
+  })
+})
+
 describe('5.5 Бронирование', () => {
   it('201: запрос с session_id и seat_id, место отмечено как ваша бронь', async () => {
     const user = userEvent.setup()
@@ -169,7 +203,12 @@ describe('5.5 Бронирование', () => {
     const until = formatTime(new Date('2026-11-19T18:27:27+03:00')) // в часовом поясе компьютера
     expect(within(success.closest('.alert')).getByText(new RegExp(`Бронь действует до ${until}`))).toBeInTheDocument()
     expect(seat(1, 3)).toHaveAccessibleName('Ряд 1, место 3, ваша бронь')
-    expect(seat(1, 1)).toBeDisabled() // после брони схема заблокирована
+    expect(seat(1, 3)).toBeDisabled()
+    expect(screen.getByText('Ваши брони на этот сеанс')).toBeInTheDocument()
+    // Можно забронировать ещё одно место
+    expect(seat(1, 1)).toBeEnabled()
+    await user.click(seat(1, 1))
+    expect(bookButton()).toBeEnabled()
     const [[, options]] = bookingCalls()
     expect(JSON.parse(options.body)).toEqual({ session_id: SESSION_ID, seat_id: 13 })
     expect(options.headers.Authorization).toBe(`Bearer ${VIEWER_TOKEN}`)

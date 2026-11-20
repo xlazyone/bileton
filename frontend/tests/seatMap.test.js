@@ -4,7 +4,9 @@ import { describe, expect, it } from 'vitest'
 import {
   buildSeatRows,
   countFree,
+  markMine,
   markOccupied,
+  myBookedSeats,
   normalizeSeatMap,
   seatLabel,
 } from '../src/utils/seatMap'
@@ -34,12 +36,21 @@ describe('normalizeSeatMap', () => {
     expect(seatMap.price).toBe(450)
     expect(seatMap.movie).toEqual({ id: RAW.movie.id, title: 'Код доступа', ageRating: '16+' })
     expect(seatMap.hall).toEqual({ id: '8', name: 'Зал 2', rowsCount: 2, seatsPerRow: 3 })
-    expect(seatMap.seats[1]).toEqual({ id: 2, row: 1, number: 2, status: 'occupied' })
+    expect(seatMap.seats[1]).toEqual({ id: 2, row: 1, number: 2, status: 'occupied', expiresAt: null })
   })
 
   it('неизвестный статус (reserved, paid…) считается «занято»', () => {
     const seatMap = normalizeSeatMap({ ...RAW, seats: [{ id: 9, row: 1, number: 1, status: 'paid' }] })
     expect(seatMap.seats[0].status).toBe('occupied')
+  })
+
+  it('своя бронь: status mine и expires_at', () => {
+    const seatMap = normalizeSeatMap({
+      ...RAW,
+      seats: [{ id: 9, row: 1, number: 1, status: 'mine', expires_at: '2026-11-19T18:27:00+03:00' }],
+    })
+    expect(seatMap.seats[0].status).toBe('mine')
+    expect(seatMap.seats[0].expiresAt.toISOString()).toBe('2026-11-19T15:27:00.000Z')
   })
 
   it('поля row_number / seat_number тоже понимаются', () => {
@@ -81,6 +92,17 @@ describe('помощники', () => {
     expect(updated.seats.find((seat) => seat.id === 3).status).toBe('occupied')
     expect(seatMap.seats.find((seat) => seat.id === 3).status).toBe('free')
     expect(countFree(updated)).toBe(3)
+  })
+
+  it('markMine и myBookedSeats: свои места по порядку рядов и мест', () => {
+    const until = new Date('2026-11-19T15:27:00Z')
+    const seatMap = markMine(markMine(normalizeSeatMap(RAW), 6, until), 1, null)
+
+    expect(myBookedSeats(seatMap).map((seat) => [seat.id, seat.expiresAt])).toEqual([
+      [1, null],
+      [6, until],
+    ])
+    expect(countFree(seatMap)).toBe(2) // свои места не считаются свободными
   })
 
   it('seatLabel', () => {

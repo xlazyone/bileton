@@ -2,6 +2,8 @@
 // 5.4 — схема зала: занятость с backend, занятые места не кликабельны, выбор одного места
 //       снимает предыдущий выбор.
 // 5.5 — отправка брони и обработка 409 «место уже занято».
+// Свои брони (status «mine» от backend) видны и после возврата на страницу; можно
+// забронировать ещё места на тот же сеанс (seat-reservation-logic.md, разделы 1 и 6).
 
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
@@ -11,7 +13,7 @@ import { ErrorState, LoadingState } from '../components/PageState'
 import SeatMap from '../components/SeatMap'
 import { formatPrice } from '../utils/movies'
 import { formatDateTime, formatTime } from '../utils/schedule'
-import { countFree, markOccupied, seatLabel } from '../utils/seatMap'
+import { countFree, markMine, markOccupied, myBookedSeats, seatLabel } from '../utils/seatMap'
 
 const CONFLICT_HINT = 'Выберите другое место — схема зала обновлена.'
 
@@ -22,7 +24,7 @@ export default function SeatSelectionPage() {
   const [selected, setSelected] = useState(null)
   const [submitting, setSubmitting] = useState(false)
   const submittingRef = useRef(false) // защита от двойного клика до перерисовки
-  const [booking, setBooking] = useState(null) // успешная бронь {seat, expiresAt}
+  const [justBooked, setJustBooked] = useState(null) // только что созданная бронь {seat, expiresAt}
   const [notice, setNotice] = useState(null) // {variant, text}
   const [conflictSeatId, setConflictSeatId] = useState(null)
 
@@ -57,8 +59,9 @@ export default function SeatSelectionPage() {
   }, [sessionId])
 
   function handleSelect(seat) {
-    if (booking || submitting) return
+    if (submitting) return
     setNotice(null)
+    setJustBooked(null)
     setConflictSeatId(null)
     // Повторный клик снимает выбор, клик по другому месту — заменяет его (5.4)
     setSelected((current) => (current?.id === seat.id ? null : seat))
@@ -71,8 +74,19 @@ export default function SeatSelectionPage() {
     setNotice(null)
     try {
       const result = await createBooking(sessionId, selected.id)
-      setBooking({ seat: selected, expiresAt: result.expiresAt })
+      const seat = selected
+      setJustBooked({ seat, expiresAt: result.expiresAt })
       setSelected(null)
+      // Сразу показываем место своим, затем сверяем схему с backend (другие могли занять места)
+      setLoad((current) => ({
+        ...current,
+        seatMap: markMine(current.seatMap, seat.id, result.expiresAt),
+      }))
+      loadSeatMap(true).then((fresh) => {
+        if (fresh) {
+          setLoad({ status: 'ready', seatMap: markMine(fresh, seat.id, result.expiresAt), error: null })
+        }
+      })
     } catch (error) {
       if (isSeatConflict(error)) {
         // 5.5: место успели занять — показываем, снимаем выбор, обновляем схему
@@ -130,6 +144,7 @@ export default function SeatSelectionPage() {
 
   const { seatMap } = load
   const freeCount = countFree(seatMap)
+  const mySeats = myBookedSeats(seatMap)
 
   return (
     <section className="page booking">
@@ -154,67 +169,77 @@ export default function SeatSelectionPage() {
 
       {notice && <Alert variant={notice.variant}>{notice.text}</Alert>}
 
-      {booking && (
+      {justBooked && (
         <Alert variant="success">
-          <strong>Место забронировано: {seatLabel(booking.seat)}.</strong>{' '}
-          {booking.expiresAt
-            ? `Бронь действует до ${formatTime(booking.expiresAt)} — оплатите билет до этого времени.`
+          <strong>Место забронировано: {seatLabel(justBooked.seat)}.</strong>{' '}
+          {justBooked.expiresAt
+            ? `Бронь действует до ${formatTime(justBooked.expiresAt)} — оплатите билет до этого времени.`
             : 'Бронь сохранена.'}{' '}
           Оплата и QR-билет появятся в следующем спринте.
         </Alert>
       )}
 
-      {freeCount === 0 && !booking && (
+      {mySeats.length > 0 && (
+        <div className="my-bookings" aria-label="Ваши брони на этот сеанс">
+          <p className="my-bookings__title">Ваши брони на этот сеанс</p>
+          <ul className="my-bookings__list">
+            {mySeats.map((seat) => (
+              <li key={seat.id}>
+                {seatLabel(seat)}
+                <span className="my-bookings__until">
+                  {seat.expiresAt ? `до ${formatTime(seat.expiresAt)}` : 'оплачено'}
+                </span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+
+      {freeCount === 0 && (
         <Alert variant="info">Свободных мест на этот сеанс не осталось.</Alert>
       )}
 
       <SeatMap
         seatMap={seatMap}
         selectedSeatId={selected?.id ?? null}
-        bookedSeatId={booking?.seat.id ?? null}
         conflictSeatId={conflictSeatId}
-        disabled={Boolean(booking) || submitting}
+        disabled={submitting}
         onSelect={handleSelect}
       />
 
       <div className="booking__bar">
         <div className="booking__summary" aria-live="polite">
-          {booking ? (
-            <span>Ваше место: {seatLabel(booking.seat)}</span>
-          ) : selected ? (
+          {selected ? (
             <span>
               {seatLabel(selected)}
               {seatMap.price !== null && <strong> · {formatPrice(seatMap.price)}</strong>}
             </span>
           ) : (
-            <span className="booking__hint">Выберите место на схеме · свободно {freeCount}</span>
+            <span className="booking__hint">
+              {mySeats.length > 0 ? 'Можно выбрать ещё место' : 'Выберите место на схеме'} · свободно{' '}
+              {freeCount}
+            </span>
           )}
         </div>
-        {booking ? (
-          <Link to="/" className="button button--ghost">
-            К афише
-          </Link>
-        ) : (
-          <div className="booking__actions">
-            <button
-              type="button"
-              className="button button--ghost"
-              onClick={() => loadSeatMap(true)}
-              disabled={submitting}
-              title="Обновить схему зала"
-            >
-              Обновить
-            </button>
-            <button
-              type="button"
-              className="button button--primary"
-              onClick={handleBook}
-              disabled={!selected || submitting}
-            >
-              {submitting ? 'Бронируем…' : 'Забронировать'}
-            </button>
-          </div>
-        )}
+        <div className="booking__actions">
+          <button
+            type="button"
+            className="button button--ghost"
+            onClick={() => loadSeatMap(true)}
+            disabled={submitting}
+            title="Обновить схему зала"
+          >
+            Обновить
+          </button>
+          <button
+            type="button"
+            className="button button--primary"
+            onClick={handleBook}
+            disabled={!selected || submitting}
+          >
+            {submitting ? 'Бронируем…' : 'Забронировать'}
+          </button>
+        </div>
       </div>
     </section>
   )
