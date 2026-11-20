@@ -4,7 +4,7 @@
 import { render, screen, within } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { MemoryRouter } from 'react-router-dom'
-import { afterEach, describe, expect, it } from 'vitest'
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import App from '../src/App'
 import { setMockScenario } from '../src/api/mockCinema'
 import AuthProvider from '../src/context/AuthProvider'
@@ -158,6 +158,32 @@ describe('US-04 Пустое расписание (тест-кейсы 4.6)', ()
 })
 
 describe('US-05 Переход к покупке билета', () => {
+  // С спринта 3 страница выбора мест берёт схему зала у backend: подменяем fetch
+  beforeEach(() => {
+    vi.stubGlobal(
+      'fetch',
+      vi.fn(async (url) => ({
+        ok: true,
+        status: 200,
+        json: async () => ({
+          session_id: url.match(/sessions\/([^/]+)\/seats/)[1],
+          starts_at: '2026-11-20T20:30:00+03:00',
+          price: 450,
+          movie: { id: '4', title: 'Последний рейс', age_rating: '18+' },
+          hall: { id: 2, name: 'Зал 2', rows_count: 1, seats_per_row: 2 },
+          seats: [
+            { id: 1, row: 1, number: 1, status: 'free' },
+            { id: 2, row: 1, number: 2, status: 'occupied' },
+          ],
+        }),
+      })),
+    )
+  })
+
+  afterEach(() => {
+    vi.unstubAllGlobals()
+  })
+
   it('гость: предложение войти, после входа — выбор мест с тем же сеансом', async () => {
     const user = userEvent.setup()
     renderApp(MOVIE_WITH_FUTURE_SESSIONS)
@@ -175,8 +201,9 @@ describe('US-05 Переход к покупке билета', () => {
 
     expect(await screen.findByRole('heading', { name: 'Выбор мест' })).toBeInTheDocument()
     expect(screen.getByText('Последний рейс')).toBeInTheDocument()
-    expect(screen.getByText('Зал 2')).toBeInTheDocument()
-    expect(document.querySelector('[data-session-id="401"]')).not.toBeNull()
+    expect(screen.getByText(/Зал 2/)).toBeInTheDocument()
+    // session_id из адреса ушёл в запрос схемы зала
+    expect(fetch.mock.calls[0][0]).toMatch(/\/api\/sessions\/401\/seats$/)
   })
 
   it('авторизованный зритель сразу попадает на выбор мест', async () => {

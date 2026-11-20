@@ -4,7 +4,7 @@
 //   POST /api/auth/login     {email, password}        -> 200 {access_token, token_type, role} | 401 | 422
 //   GET  /api/auth/me        Authorization: Bearer <token>                  -> 200 UserRead | 401
 //
-// Пока VITE_USE_MOCKS != 'false', те же функции отвечают из mockServer.js.
+// При VITE_USE_MOCKS=true те же функции отвечают из mockServer.js.
 
 import { USE_MOCKS } from '../config'
 import { getToken } from '../utils/tokenStorage'
@@ -31,7 +31,7 @@ export function toLoginPayload({ email, password }) {
   return { email: email.trim(), password }
 }
 
-/** Запросы к настоящему backend (используются при VITE_USE_MOCKS=false). */
+/** Запросы к настоящему backend (по умолчанию; моки — при VITE_USE_MOCKS=true). */
 export const realApi = {
   register: (payload) => request('/api/auth/register', { method: 'POST', body: payload }),
   login: (payload) => request('/api/auth/login', { method: 'POST', body: payload }),
