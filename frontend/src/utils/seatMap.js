@@ -4,6 +4,13 @@
 export const SEAT_STATUS = {
   FREE: 'free',
   OCCUPIED: 'occupied',
+  MINE: 'mine', // активная бронь текущего пользователя (backend отдаёт при запросе с токеном)
+}
+
+function toStatus(status) {
+  if (status === SEAT_STATUS.FREE || status === SEAT_STATUS.MINE) return status
+  // Любой другой статус (occupied, reserved, paid…) для покупателя означает «занято»
+  return SEAT_STATUS.OCCUPIED
 }
 
 function toNumber(value, fallback = null) {
@@ -15,15 +22,16 @@ function toNumber(value, fallback = null) {
  * @returns {{ sessionId: string, startsAt: Date, price: number | null,
  *   movie: { id: string, title: string, ageRating: string | null },
  *   hall: { id: string, name: string, rowsCount: number, seatsPerRow: number },
- *   seats: Array<{ id: number, row: number, number: number, status: 'free' | 'occupied' }> }}
+ *   seats: Array<{ id: number, row: number, number: number,
+ *     status: 'free' | 'occupied' | 'mine', expiresAt: Date | null }> }}
  */
 export function normalizeSeatMap(raw) {
   const seats = (Array.isArray(raw?.seats) ? raw.seats : []).map((seat) => ({
     id: toNumber(seat.id),
     row: toNumber(seat.row ?? seat.row_number),
     number: toNumber(seat.number ?? seat.seat_number),
-    // Любой статус, кроме free, для покупателя означает «занято»
-    status: seat.status === SEAT_STATUS.FREE ? SEAT_STATUS.FREE : SEAT_STATUS.OCCUPIED,
+    status: toStatus(seat.status),
+    expiresAt: seat.expires_at ? new Date(seat.expires_at) : null,
   }))
 
   const maxRow = Math.max(0, ...seats.map((seat) => seat.row))
@@ -83,6 +91,23 @@ export function markOccupied(seatMap, seatIds) {
       ids.has(seat.id) ? { ...seat, status: SEAT_STATUS.OCCUPIED } : seat,
     ),
   }
+}
+
+/** Копия схемы, где место отмечено как своя бронь (сразу после 201, не дожидаясь перезапроса). */
+export function markMine(seatMap, seatId, expiresAt = null) {
+  return {
+    ...seatMap,
+    seats: seatMap.seats.map((seat) =>
+      seat.id === seatId ? { ...seat, status: SEAT_STATUS.MINE, expiresAt } : seat,
+    ),
+  }
+}
+
+/** Свои брони на сеанс, по рядам и местам. */
+export function myBookedSeats(seatMap) {
+  return seatMap.seats
+    .filter((seat) => seat.status === SEAT_STATUS.MINE)
+    .sort((a, b) => a.row - b.row || a.number - b.number)
 }
 
 /** «Ряд 3, место 7». */

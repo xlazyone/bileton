@@ -9,8 +9,8 @@ const STATUS_TEXT = {
   mine: 'ваша бронь',
 }
 
-function seatState(seat, { selectedSeatId, bookedSeatId, conflictSeatId }) {
-  if (seat.id === bookedSeatId) return 'mine'
+function seatState(seat, { selectedSeatId, conflictSeatId }) {
+  if (seat.status === SEAT_STATUS.MINE) return 'mine'
   if (seat.id === selectedSeatId) return 'selected'
   if (seat.id === conflictSeatId || seat.status !== SEAT_STATUS.FREE) return 'occupied'
   return 'free'
@@ -19,13 +19,13 @@ function seatState(seat, { selectedSeatId, bookedSeatId, conflictSeatId }) {
 export default function SeatMap({
   seatMap,
   selectedSeatId = null,
-  bookedSeatId = null,
   conflictSeatId = null,
   disabled = false,
   onSelect,
 }) {
   const rows = buildSeatRows(seatMap)
   const columns = seatMap.hall.seatsPerRow
+  const hasMine = seatMap.seats.some((seat) => seat.status === SEAT_STATUS.MINE)
 
   return (
     <div className="hall">
@@ -47,7 +47,7 @@ export default function SeatMap({
               </span>
               {cells.map((seat, index) => {
                 if (!seat) return <span key={`gap-${index}`} className="seat seat--gap" />
-                const state = seatState(seat, { selectedSeatId, bookedSeatId, conflictSeatId })
+                const state = seatState(seat, { selectedSeatId, conflictSeatId })
                 const unavailable = state === 'occupied' || state === 'mine'
                 return (
                   <button
@@ -90,7 +90,7 @@ export default function SeatMap({
         <li>
           <span className="seat seat--occupied seat--sample" aria-hidden="true" /> Занято
         </li>
-        {bookedSeatId !== null && (
+        {hasMine && (
           <li>
             <span className="seat seat--mine seat--sample" aria-hidden="true" /> Ваша бронь
           </li>
