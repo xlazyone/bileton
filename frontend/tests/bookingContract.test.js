@@ -72,6 +72,19 @@ describe('GET /api/sessions/{id}/seats', () => {
     expect(seatMap.hall.seatsPerRow).toBe(2)
   })
 
+  it('с токеном прикладывает Authorization — чтобы backend отметил свои брони как mine', async () => {
+    localStorage.setItem(TOKEN_KEY, 'header.payload.signature')
+    respondWith(200, {
+      ...SEAT_MAP,
+      seats: [{ id: 515, row: 1, number: 1, status: 'mine', expires_at: '2026-11-19T18:27:27+03:00' }],
+    })
+
+    const seatMap = await fetchSeatMap(SESSION_ID)
+
+    expect(lastRequest().options.headers.Authorization).toBe('Bearer header.payload.signature')
+    expect(seatMap.seats[0].status).toBe('mine')
+  })
+
   it('404 — ошибка со статусом (страница покажет «Сеанс не найден»)', async () => {
     respondWith(404, { detail: 'Сеанс не найден' })
     await expect(fetchSeatMap(SESSION_ID)).rejects.toMatchObject({ status: 404, message: 'Сеанс не найден' })
