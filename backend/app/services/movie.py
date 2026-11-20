@@ -40,7 +40,18 @@ def _blocks_seat(status: BookingStatus, expires_at: datetime | None, now: dateti
     return expires_at is None or expires_at > now
 
 
-def get_session_seat_map(db: Session, session_id: uuid.UUID) -> dict | None:
+def _seat_state(seat: Seat, occupied: set[int], mine: dict[int, datetime | None]) -> dict:
+    state = {"id": seat.id, "row": seat.row_number, "number": seat.seat_number}
+    if seat.id in mine:
+        return {**state, "status": "mine", "expires_at": mine[seat.id]}
+    return {**state, "status": "occupied" if seat.id in occupied else "free"}
+
+
+def get_session_seat_map(
+    db: Session, session_id: uuid.UUID, viewer_id: uuid.UUID | None = None
+) -> dict | None:
+    """Схема зала. viewer_id — текущий пользователь: его активные брони отдаются
+    со статусом mine и expires_at, чужие — occupied."""
     movie_session = db.get(MovieSession, session_id)
     if movie_session is None:
         return None
@@ -55,14 +66,20 @@ def get_session_seat_map(db: Session, session_id: uuid.UUID) -> dict | None:
 
     now = datetime.now(UTC)
     active = (
-        db.query(Booking.seat_id, Booking.status, Booking.expires_at)
+        db.query(Booking.seat_id, Booking.status, Booking.expires_at, Booking.user_id)
         .filter(Booking.session_id == session_id)
         .filter(Booking.status.in_(ACTIVE_BOOKING_STATUSES))
         .all()
     )
-    occupied = {
-        seat_id for seat_id, status, expires_at in active if _blocks_seat(status, expires_at, now)
-    }
+    occupied: set[int] = set()
+    mine: dict[int, datetime | None] = {}
+    for seat_id, status, expires_at, user_id in active:
+        if not _blocks_seat(status, expires_at, now):
+            continue
+        if viewer_id is not None and user_id == viewer_id:
+            mine[seat_id] = None if status == BookingStatus.PAID else _as_utc(expires_at)
+        else:
+            occupied.add(seat_id)
 
     movie = movie_session.movie
     return {
@@ -76,13 +93,5 @@ def get_session_seat_map(db: Session, session_id: uuid.UUID) -> dict | None:
             "rows_count": hall.rows_count,
             "seats_per_row": hall.seats_per_row,
         },
-        "seats": [
-            {
-                "id": seat.id,
-                "row": seat.row_number,
-                "number": seat.seat_number,
-                "status": "occupied" if seat.id in occupied else "free",
-            }
-            for seat in seats
-        ],
+        "seats": [_seat_state(seat, occupied, mine) for seat in seats],
     }

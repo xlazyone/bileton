@@ -8,7 +8,9 @@ from typing import Annotated
 from fastapi import APIRouter, Depends, HTTPException, Query
 from sqlalchemy.orm import Session
 
+from app.core.deps import get_current_user_optional
 from app.db.session import get_db
+from app.models.user import User
 from app.schemas.movie import MovieRead, SessionRead, SessionSeatMap
 from app.services import movie as movie_service
 
@@ -30,10 +32,24 @@ def get_sessions(
     return movie_service.get_sessions_by_movie(db, movie_id)
 
 
-@router.get("/sessions/{session_id}/seats", response_model=SessionSeatMap)
-def get_session_seats(session_id: uuid.UUID, db: Annotated[Session, Depends(get_db)]):
-    """WBS 5.4: схема зала сеанса — ряды, места и их занятость (free / occupied)."""
-    seat_map = movie_service.get_session_seat_map(db, session_id)
+@router.get(
+    "/sessions/{session_id}/seats",
+    response_model=SessionSeatMap,
+    response_model_exclude_none=True,  # expires_at приходит только у своих броней
+)
+def get_session_seats(
+    session_id: uuid.UUID,
+    db: Annotated[Session, Depends(get_db)],
+    viewer: Annotated[User | None, Depends(get_current_user_optional)],
+):
+    """WBS 5.4: схема зала сеанса — ряды, места и их занятость (free / occupied / mine).
+
+    Эндпоинт публичный. С токеном брони самого пользователя приходят как mine + expires_at,
+    чтобы после возврата на страницу он видел свои места.
+    """
+    seat_map = movie_service.get_session_seat_map(
+        db, session_id, viewer_id=viewer.id if viewer else None
+    )
     if seat_map is None:
         raise HTTPException(status_code=404, detail="Сеанс не найден")
     return seat_map
