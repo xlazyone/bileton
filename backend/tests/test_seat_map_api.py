@@ -6,6 +6,7 @@ from datetime import UTC, datetime, timedelta
 from fastapi.testclient import TestClient
 from sqlalchemy.orm import Session
 
+from app.core.security import create_access_token
 from app.models.booking import Booking, BookingStatus
 from app.models.hall import Hall
 from app.models.movie import Movie
@@ -129,3 +130,62 @@ def test_unknown_session_returns_404(client: TestClient) -> None:
 
 def test_invalid_session_id_returns_422(client: TestClient) -> None:
     assert client.get("/api/sessions/not-a-uuid/seats").status_code == 422
+
+
+# --- Свои брони на схеме зала (status «mine») --------------------------------
+
+
+def token_for(user: User) -> dict[str, str]:
+    return {"Authorization": f"Bearer {create_access_token(str(user.id), user.role.value)}"}
+
+
+def row_one(client: TestClient, movie_session, headers=None) -> dict[int, dict]:
+    body = client.get(f"/api/sessions/{movie_session.id}/seats", headers=headers or {}).json()
+    return {seat["number"]: seat for seat in body["seats"] if seat["row"] == 1}
+
+
+def test_owner_sees_own_bookings_as_mine(client: TestClient, db: Session) -> None:
+    movie_session, seats = seed_hall_session(db)
+    owner, other = add_user(db, "owner@test.ru"), add_user(db, "other@test.ru")
+    book(db, movie_session, seats[(1, 1)], owner, BookingStatus.RESERVED, 15)
+    book(db, movie_session, seats[(1, 2)], owner, BookingStatus.PAID, None)
+    book(db, movie_session, seats[(1, 3)], other, BookingStatus.RESERVED, 15)
+
+    row = row_one(client, movie_session, token_for(owner))
+
+    assert row[1]["status"] == "mine"
+    assert row[1]["expires_at"] is not None
+    assert row[2]["status"] == "mine"
+    assert "expires_at" not in row[2]  # оплачено — срока нет
+    assert row[3]["status"] == "occupied"  # чужая бронь
+    assert row[4] == {"id": seats[(1, 4)].id, "row": 1, "number": 4, "status": "free"}
+
+
+def test_other_user_and_guest_see_occupied(client: TestClient, db: Session) -> None:
+    movie_session, seats = seed_hall_session(db)
+    owner, other = add_user(db, "owner@test.ru"), add_user(db, "other@test.ru")
+    book(db, movie_session, seats[(1, 1)], owner, BookingStatus.RESERVED, 15)
+
+    assert row_one(client, movie_session, token_for(other))[1]["status"] == "occupied"
+    assert row_one(client, movie_session)[1]["status"] == "occupied"
+
+
+def test_own_expired_booking_is_free(client: TestClient, db: Session) -> None:
+    movie_session, seats = seed_hall_session(db)
+    owner = add_user(db, "owner@test.ru")
+    book(db, movie_session, seats[(1, 1)], owner, BookingStatus.RESERVED, -1)
+
+    assert row_one(client, movie_session, token_for(owner))[1]["status"] == "free"
+
+
+def test_invalid_token_is_treated_as_guest(client: TestClient, db: Session) -> None:
+    """Эндпоинт публичный: битый или просроченный токен не даёт 401."""
+    movie_session, seats = seed_hall_session(db)
+    book(db, movie_session, seats[(1, 1)], add_user(db, "owner@test.ru"), BookingStatus.RESERVED)
+
+    response = client.get(
+        f"/api/sessions/{movie_session.id}/seats", headers={"Authorization": "Bearer abc"}
+    )
+
+    assert response.status_code == 200
+    assert response.json()["seats"][0]["status"] == "occupied"

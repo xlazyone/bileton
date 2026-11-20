@@ -55,7 +55,10 @@ class SeatState(BaseModel):
     id: int
     row: int
     number: int
-    status: Literal["free", "occupied"]
+    # mine — активная бронь текущего пользователя (только при запросе с токеном)
+    status: Literal["free", "occupied", "mine"]
+    # Для mine: до какого момента действует бронь (None — оплачено)
+    expires_at: datetime | None = None
 
 
 class SessionSeatMap(BaseModel):
