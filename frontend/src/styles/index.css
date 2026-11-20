@@ -787,3 +787,283 @@ a.header__user {
     font-size: 1.2rem;
   }
 }
+
+/* ===================================================================
+   Спринт 3 — схема зала и бронирование (WBS 5.4, 5.5)
+   =================================================================== */
+
+.booking__header {
+  margin-bottom: 20px;
+}
+
+.booking__movie {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin: 6px 0 0;
+  font-size: 1.15rem;
+  font-weight: 700;
+}
+
+.booking__movie .age-badge--inline {
+  margin-top: 0;
+}
+
+.booking__facts {
+  margin: 4px 0 0;
+  color: var(--color-muted);
+}
+
+.booking__facts::first-letter {
+  text-transform: uppercase;
+}
+
+/* ----- Зал ----- */
+.hall {
+  --seat-size: clamp(22px, 5.2vw, 34px);
+  --seat-gap: clamp(4px, 0.9vw, 8px);
+
+  padding: clamp(16px, 3vw, 32px) clamp(10px, 3vw, 32px) 20px;
+  background: var(--color-cinema);
+  border-radius: var(--radius-l);
+  box-shadow: var(--shadow);
+  color: #d9d0dc;
+}
+
+.hall__screen {
+  position: relative;
+  width: min(80%, 560px);
+  height: 36px;
+  margin: 0 auto 28px;
+  text-align: center;
+}
+
+.hall__screen::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 auto;
+  height: 10px;
+  border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+  background: linear-gradient(90deg, transparent, #fff, transparent);
+  box-shadow: 0 10px 36px rgb(255 255 255 / 0.3);
+}
+
+.hall__screen span {
+  position: relative;
+  top: 16px;
+  font-size: 0.75rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: #9a8f9e;
+}
+
+/* Сетка прокручивается внутри зала, а не всей страницей (US-06) */
+.hall__scroll {
+  overflow-x: auto;
+  padding-bottom: 4px;
+  -webkit-overflow-scrolling: touch;
+}
+
+.hall__grid {
+  display: grid;
+  gap: var(--seat-gap);
+  width: max-content;
+  margin: 0 auto;
+}
+
+.hall__row {
+  display: grid;
+  grid-template-columns: 1.5em repeat(var(--seat-columns), var(--seat-size)) 1.5em;
+  gap: var(--seat-gap);
+  align-items: center;
+}
+
+.hall__row-label {
+  font-size: 0.75rem;
+  font-variant-numeric: tabular-nums;
+  text-align: center;
+  color: #8a7f8e;
+}
+
+.seat {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--seat-size);
+  height: var(--seat-size);
+  padding: 0;
+  font: inherit;
+  font-size: 0.7rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  border: 1.5px solid transparent;
+  border-radius: 8px 8px 4px 4px;
+  transition: transform 0.12s, background 0.12s, box-shadow 0.12s;
+}
+
+.seat__number {
+  opacity: 0;
+  transition: opacity 0.12s;
+}
+
+.seat--free {
+  color: #fff;
+  background: #4a3e50;
+  border-color: #6b5d72;
+  cursor: pointer;
+}
+
+.seat--free:hover:not(:disabled),
+.seat--free:focus-visible {
+  transform: translateY(-2px);
+  background: #6b5372;
+}
+
+.seat--free:hover .seat__number,
+.seat--free:focus-visible .seat__number,
+.seat--selected .seat__number,
+.seat--mine .seat__number {
+  opacity: 1;
+}
+
+.seat--selected {
+  color: #2b1d00;
+  background: var(--color-gold);
+  border-color: #ffd98a;
+  box-shadow: 0 0 14px rgb(242 184 75 / 0.6);
+  cursor: pointer;
+}
+
+.seat--occupied {
+  background: #2c2430;
+  border-color: #2c2430;
+  cursor: not-allowed;
+  background-image: linear-gradient(
+    135deg,
+    transparent 45%,
+    rgb(255 255 255 / 0.12) 45%,
+    rgb(255 255 255 / 0.12) 55%,
+    transparent 55%
+  );
+}
+
+.seat--mine {
+  color: #fff;
+  background: #2f8f5d;
+  border-color: #6fd39e;
+  cursor: default;
+}
+
+.seat--gap {
+  visibility: hidden;
+}
+
+.seat:disabled {
+  cursor: not-allowed;
+}
+
+.seat--free:disabled {
+  opacity: 0.6;
+}
+
+.seat--conflict {
+  border-color: #ff6b7d;
+  animation: seat-shake 0.4s ease-in-out 2;
+}
+
+@keyframes seat-shake {
+  25% {
+    transform: translateX(-3px);
+  }
+  75% {
+    transform: translateX(3px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .seat,
+  .seat__number {
+    transition: none;
+  }
+
+  .seat--conflict {
+    animation: none;
+  }
+}
+
+/* ----- Легенда ----- */
+.legend {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px 20px;
+  margin: 20px 0 0;
+  padding: 0;
+  list-style: none;
+  font-size: 0.875rem;
+}
+
+.legend li {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.seat--sample {
+  --seat-size: 18px;
+  cursor: default;
+}
+
+/* ----- Панель выбора ----- */
+.booking__bar {
+  position: sticky;
+  bottom: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 20px;
+  padding: 14px 16px;
+  background: var(--color-surface);
+  border-radius: var(--radius-m);
+  box-shadow: 0 10px 30px rgb(29 26 31 / 0.16);
+}
+
+.booking__summary {
+  font-weight: 600;
+}
+
+.booking__summary strong {
+  color: var(--color-accent);
+}
+
+.booking__hint {
+  color: var(--color-muted);
+  font-weight: 500;
+}
+
+.booking__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.booking__actions .button--primary {
+  margin-top: 0;
+}
+
+@media (max-width: 420px) {
+  .booking__bar {
+    bottom: 8px;
+  }
+
+  .booking__actions {
+    width: 100%;
+  }
+
+  .booking__actions .button {
+    flex: 1;
+  }
+}

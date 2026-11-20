@@ -46,12 +46,16 @@ export class ApiError extends Error {
    * @param {number} status HTTP-код (0 — сеть недоступна)
    * @param {string} message сообщение для пользователя
    * @param {Record<string, string>} [fieldErrors] ошибки по полям формы (для 422)
+   * @param {object | null} [details] машиночитаемые подробности, например тело 409 при брони:
+   *   {code: 'SEAT_ALREADY_BOOKED', session_id, seat_id, message}
    */
-  constructor(status, message, fieldErrors = {}) {
+  constructor(status, message, fieldErrors = {}, details = null) {
     super(message)
     this.name = 'ApiError'
     this.status = status
     this.fieldErrors = fieldErrors
+    this.details = details
+    this.code = details?.code ?? null
   }
 }
 
@@ -59,12 +63,18 @@ export class ApiError extends Error {
  * Разбирает detail из ответа FastAPI.
  * - строка: {"detail": "Пользователь уже существует"}
  * - 422:    {"detail": [{"loc": ["body", "password"], "msg": "...", "type": "..."}]}
+ * - объект:  {"detail": {"code": "SEAT_ALREADY_BOOKED", "message": "...", "seat_id": 7, ...}} (409 брони)
  */
 export function parseErrorDetail(detail, status) {
   const fallback = STATUS_MESSAGES[status] ?? (status >= 500 ? 'Ошибка сервера. Повторите попытку позже.' : 'Произошла ошибка.')
 
   if (typeof detail === 'string' && detail.trim()) {
     return { message: detail, fieldErrors: {} }
+  }
+
+  if (detail && typeof detail === 'object' && !Array.isArray(detail)) {
+    const message = typeof detail.message === 'string' && detail.message.trim() ? detail.message : fallback
+    return { message, fieldErrors: {}, details: detail }
   }
 
   if (Array.isArray(detail)) {
@@ -110,8 +120,8 @@ export async function request(path, { method = 'GET', body, auth = false } = {})
   if (!response.ok) {
     // 401 на запросе с токеном — сессия закончилась, а не «неверный пароль»
     if (auth && response.status === 401) handleUnauthorized()
-    const { message, fieldErrors } = parseErrorDetail(data?.detail, response.status)
-    throw new ApiError(response.status, message, fieldErrors)
+    const { message, fieldErrors, details } = parseErrorDetail(data?.detail, response.status)
+    throw new ApiError(response.status, message, fieldErrors, details)
   }
   return data
 }

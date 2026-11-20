@@ -13,6 +13,12 @@ export default defineConfig({
   },
   test: {
     environment: 'jsdom',
+    // Автотесты не зависят от личного frontend/.env.local (Vite в режиме test тоже его читает):
+    // авторизация и афиша — на мок-серверах, схема зала и брони — через подменённый fetch.
+    env: {
+      VITE_USE_MOCKS: 'true',
+      VITE_MOCK_CINEMA: 'true',
+    },
     setupFiles: './tests/setup.js',
     include: ['tests/**/*.test.{js,jsx}'],
     css: false,

@@ -4,7 +4,7 @@
 //   GET /api/sessions?movie_id=<id>   -> 200 [Session]  (пустой массив — сеансов нет, это НЕ ошибка)
 //
 // Эндпоинты публичные — токен не нужен (US-01: доступно Гостю).
-// Пока VITE_MOCK_CINEMA != 'false' (или включён общий VITE_USE_MOCKS), ответы отдаёт mockCinema.js.
+// При VITE_MOCK_CINEMA=true (или VITE_USE_MOCKS=true) ответы отдаёт mockCinema.js.
 
 import { USE_CINEMA_MOCKS } from '../config'
 import { normalizeMovie, normalizeSession, toList } from '../utils/movies'
